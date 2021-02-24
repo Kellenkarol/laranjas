@@ -9,7 +9,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject camReference;
     [SerializeField]float currentDistance;
     [SerializeField]Transform destiny;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +36,6 @@ public class CameraMovement : MonoBehaviour
                 destiny = null;
             }
         }
-    }
 
-    public void SetDestiny(int valueDestiny)
-    {
-        destiny= transformPositions[valueDestiny];
     }
 }

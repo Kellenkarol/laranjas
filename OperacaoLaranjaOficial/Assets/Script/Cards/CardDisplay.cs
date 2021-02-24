@@ -60,15 +60,18 @@ public class CardDisplay : MonoBehaviour
         {
             get { return imageCard; }
         }
+
         public string TypeCard
         {
             get { return typeCard; }
         }
+        
         public int Influence
         {
             get { return influence; }
             set { influence = value;}
         }
+        
         public int InfluenceEffect
         {
             get { return influenceEffect; }
@@ -82,8 +85,6 @@ public class CardDisplay : MonoBehaviour
             influence = newInfluence;
             influenceEffect = newInfluenceEffect;
         }
-
-
 
     }
 }
