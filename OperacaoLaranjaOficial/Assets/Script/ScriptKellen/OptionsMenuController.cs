@@ -10,9 +10,12 @@ public class OptionsMenuController : MonoBehaviour
     public Slider sliderVolumeSFX;
     public Slider sliderVolumeMusic;
 
+<<<<<<< HEAD
     public GameObject GameObjectMusic, GameObjectSFX;
     private AudioSource[] AudioSourceMusic, AudioSourceSFX;
 
+=======
+>>>>>>> parent of dd378f1 (SmartPhone)
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +24,13 @@ public class OptionsMenuController : MonoBehaviour
             ApplicationController.SetDefaultConfigs();
         }
         
+<<<<<<< HEAD
         AudioSourceMusic = GetAudio(GameObjectMusic);
         AudioSourceSFX = GetAudio(GameObjectSFX);
+=======
+        toggleSoundSFX.isOn = ApplicationController.IsMuttedSoundSFX ();
+        toggleSoundMusic.isOn = ApplicationController.IsMuttedSoundMusic ();
+>>>>>>> parent of dd378f1 (SmartPhone)
         sliderVolumeSFX.value = ApplicationController.GetVolumeSFX();
         sliderVolumeMusic.value = ApplicationController.GetVolumeMusic();
         SetVolumeSFX();
@@ -30,29 +38,30 @@ public class OptionsMenuController : MonoBehaviour
     }
 
     // Update is called once per frame
-    // void Update()
-    // {
+    void Update()
+    {
         
-    // }
+    }
 
     public void SetSFXSound ()
     {
-        // if (toggleSoundSFX.isOn)
-        //     ApplicationController.EnableSoundSFX();
-        // else
-        //     ApplicationController.DisableSoundSFX();
+        if (toggleSoundSFX.isOn)
+            ApplicationController.EnableSoundSFX();
+        else
+            ApplicationController.DisableSoundSFX();
     }
 
     public void SetMusicSound()
     {
-        // if (toggleSoundMusic.isOn)
-        //     ApplicationController.EnableSoundMusic();
-        // else
-        //     ApplicationController.DisableSoundMusic();
+        if (toggleSoundMusic.isOn)
+            ApplicationController.EnableSoundMusic();
+        else
+            ApplicationController.DisableSoundMusic();
     }
 
     public void SetVolumeSFX()
     {
+<<<<<<< HEAD
         // print("VolumeSFX: "+sliderVolumeSFX.value);
         foreach(AudioSource _as in AudioSourceSFX)
         {
@@ -61,11 +70,14 @@ public class OptionsMenuController : MonoBehaviour
         }
         // GameObjectSFX.volume = sliderVolumeSFX.value; 
         ApplicationController.SetVolumeSFX(sliderVolumeSFX.value);
+=======
+>>>>>>> parent of dd378f1 (SmartPhone)
     
     }
 
     public void SetVolumeMusic()
     {
+<<<<<<< HEAD
         // print("VolumeMusic: "+sliderVolumeMusic.value);
         // print("Debug here: ");
         foreach(AudioSource _as in AudioSourceMusic)
@@ -81,4 +93,8 @@ public class OptionsMenuController : MonoBehaviour
     {
         return MusicGameObject.GetComponentsInChildren<AudioSource>(); 
     }
+=======
+    
+}
+>>>>>>> parent of dd378f1 (SmartPhone)
 }

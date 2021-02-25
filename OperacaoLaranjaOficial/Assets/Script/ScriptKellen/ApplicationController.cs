@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ApplicationController : MonoBehaviour
 {
-    // public List<AudioSource> AudioSourceMusic, AudioSourceSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +48,7 @@ public class ApplicationController : MonoBehaviour
             return true;
         return false;
     }
-    public static void SetVolumeSFX(float volume)
+    public static void GetVolumeSFX(float volume)
     {
         PlayerPrefs.SetFloat("SFXSoundVolume", volume);
     }
@@ -73,30 +72,16 @@ public class ApplicationController : MonoBehaviour
             return true;
         return false;
     }
-    public static void SetVolumeMusic(float volume)
+    public static void GetVolumeMusic(float volume)
     {
-        // SoundManager.ChangeMusicVolume(volume);
-        // ChangeVolumeMusic(volume);
         PlayerPrefs.SetFloat("MusicSoundVolume", volume);
     }
     public static float GetVolumeMusic()
     {
+<<<<<<< HEAD
         return  PlayerPrefs.GetFloat("MusicSoundVolume",1);
+=======
+      return  PlayerPrefs.GetFloat("MusicSoundVolume");
+>>>>>>> parent of dd378f1 (SmartPhone)
     }
-
-    // public void ChangeVolumeSFX(float v)
-    // {
-    //     foreach(AudioSource _as in AudioSourceSFX)
-    //     {
-    //         _as.volume = v;
-    //     }
-    // }
-
-    // public void ChangeVolumeMusic(float v)
-    // {
-    //     foreach(AudioSource _as in AudioSourceMusic)
-    //     {
-    //         _as.volume = v;
-    //     }
-    // }
 }
