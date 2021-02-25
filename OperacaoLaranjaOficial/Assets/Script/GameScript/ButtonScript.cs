@@ -11,22 +11,48 @@ public class ButtonScript : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public Sprite[] status;
     CameraMovement camMove;
+    private SmartPhoneAnimation animScript;
+    
     private void Start()
     {
         spriteRenderer=GetComponentInChildren<SpriteRenderer>();
+        animScript = GameObject.Find("SmartPhoneGameObject").GetComponent<SmartPhoneAnimation>();
         spriteRenderer.sprite = status[0];
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
     }
+    // private void OnMouseDown()
+    // {
+    //     spriteRenderer.sprite = status[1];
+    // }
+    // private void OnMouseUp()
+    // {
+    //     spriteRenderer.sprite = status[0];
+    // }
+
+    
     private void OnMouseDown()
     {
-        spriteRenderer.sprite = status[1];
+        if(!animScript.GetIfIsShowing())
+        {
+	        Debug.Log(this.gameObject.name);
+	        spriteRenderer.sprite = status[1];
+
+        }
     }
     private void OnMouseUp()
     {
-        spriteRenderer.sprite = status[0];
-        actionButton();
+        if(!animScript.GetIfIsShowing())
+        {
+	        Debug.Log(this.gameObject.name);
+	        spriteRenderer.sprite = status[0];
+	        actionButton();
+        	if(selectedButton == Button.Configurações)
+        	{
+		        PhoneAnim();
+        	}
+        }
+        // print("selectedButton: "+selectedButton);
     }
-
 
     void actionButton()
     {
@@ -63,5 +89,11 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(0);
                 break;
         }
+    }
+
+    private void PhoneAnim()
+    {
+	    animScript.StartAnim();
+
     }
 }
