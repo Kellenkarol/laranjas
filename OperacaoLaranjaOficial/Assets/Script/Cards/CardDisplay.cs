@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CardDisplay : MonoBehaviour
 {
     [Tooltip("Dados iniciais do card")]
@@ -11,11 +11,12 @@ public class CardDisplay : MonoBehaviour
     public Card cardGame;
     [Header("Card Status ")]
     [Tooltip("Indentifica se a carta está ativa ou desativa")]public bool deadCard;
-    SpriteRenderer spriteRenderer;
+    [SerializeField]SpriteRenderer spriteRenderer;
+    [SerializeField]TextMeshPro textValueInfluence;
     private void Start()
     {
-        
 
+        
     }
 
 
@@ -23,16 +24,33 @@ public class CardDisplay : MonoBehaviour
     {
         cardInfo = newCard;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        textValueInfluence = GetComponentInChildren<TextMeshPro>();
         cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.typeCard.ToString(), cardInfo.influence, cardInfo.influenceEffect);
         spriteRenderer.sprite = cardGame.SpriteCard;
+        if (cardGame.TypeCard == "Effect")
+        {
+            textValueInfluence.text = "" + cardGame.InfluenceEffect;
+        }
+        else
+        {
+            textValueInfluence.text = "" + cardGame.Influence;
+        }
+        
     }
-    void GetDamage(int influenceDamage)
+    public void GetDamage(int influenceDamage)
     {
+        Debug.Log("teste");
         cardGame.Influence -= influenceDamage;
+        Debug.Log("teste2");
+        textValueInfluence.text = ""+cardGame.Influence;
+        Debug.Log("teste3");
         if (cardGame.Influence <= 0)
         {
+            Debug.Log("teste4");
             cardGame.Influence = 0;
+            Debug.Log("teste5");
             EndCard();
+            Debug.Log("teste6");
         }
     }
 
