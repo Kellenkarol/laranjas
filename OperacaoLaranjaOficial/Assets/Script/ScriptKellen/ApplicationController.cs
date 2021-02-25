@@ -81,7 +81,7 @@ public class ApplicationController : MonoBehaviour
     }
     public static float GetVolumeMusic()
     {
-        return  PlayerPrefs.GetFloat("MusicSoundVolume");
+        return  PlayerPrefs.GetFloat("MusicSoundVolume",1);
     }
 
     // public void ChangeVolumeSFX(float v)

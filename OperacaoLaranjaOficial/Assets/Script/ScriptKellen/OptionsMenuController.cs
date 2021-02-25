@@ -10,7 +10,8 @@ public class OptionsMenuController : MonoBehaviour
     public Slider sliderVolumeSFX;
     public Slider sliderVolumeMusic;
 
-    public AudioSource AudioSourceMusic, AudioSourceSFX;
+    public GameObject GameObjectMusic, GameObjectSFX;
+    private AudioSource[] AudioSourceMusic, AudioSourceSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,12 @@ public class OptionsMenuController : MonoBehaviour
             ApplicationController.SetDefaultConfigs();
         }
         
-        // toggleSoundSFX.isOn = ApplicationController.IsMuttedSoundSFX ();
-        // toggleSoundMusic.isOn = ApplicationController.IsMuttedSoundMusic ();
+        AudioSourceMusic = GetAudio(GameObjectMusic);
+        AudioSourceSFX = GetAudio(GameObjectSFX);
         sliderVolumeSFX.value = ApplicationController.GetVolumeSFX();
         sliderVolumeMusic.value = ApplicationController.GetVolumeMusic();
+        SetVolumeSFX();
+        SetVolumeMusic();
     }
 
     // Update is called once per frame
@@ -51,7 +54,12 @@ public class OptionsMenuController : MonoBehaviour
     public void SetVolumeSFX()
     {
         // print("VolumeSFX: "+sliderVolumeSFX.value);
-        AudioSourceSFX.volume = sliderVolumeSFX.value; 
+        foreach(AudioSource _as in AudioSourceSFX)
+        {
+            _as.volume = sliderVolumeSFX.value; 
+
+        }
+        // GameObjectSFX.volume = sliderVolumeSFX.value; 
         ApplicationController.SetVolumeSFX(sliderVolumeSFX.value);
     
     }
@@ -59,10 +67,18 @@ public class OptionsMenuController : MonoBehaviour
     public void SetVolumeMusic()
     {
         // print("VolumeMusic: "+sliderVolumeMusic.value);
-        print("Debug here: ");
-        AudioSourceMusic.volume = sliderVolumeMusic.value; 
+        // print("Debug here: ");
+        foreach(AudioSource _as in AudioSourceMusic)
+        {
+            _as.volume = sliderVolumeMusic.value; 
+
+        }
+        // GameObjectMusic.volume = sliderVolumeMusic.value; 
         ApplicationController.SetVolumeMusic(sliderVolumeMusic.value);
     }
 
-
+    private AudioSource[] GetAudio(GameObject MusicGameObject)
+    {
+        return MusicGameObject.GetComponentsInChildren<AudioSource>(); 
+    }
 }
