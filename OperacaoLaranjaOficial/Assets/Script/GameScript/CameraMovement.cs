@@ -33,7 +33,6 @@ public class CameraMovement : MonoBehaviour
             camReference.transform.position = Vector3.MoveTowards(camReference.transform.position, destiny.position, currentDistance);
             if (currentDistance >= 1)
             {
-                currentDistance = 0;
                 destiny = null;
             }
         }
@@ -41,6 +40,7 @@ public class CameraMovement : MonoBehaviour
 
     public void SetDestiny(int valueDestiny)
     {
-        destiny= transformPositions[valueDestiny];
+        currentDistance = 0;
+        destiny = transformPositions[valueDestiny];
     }
 }
