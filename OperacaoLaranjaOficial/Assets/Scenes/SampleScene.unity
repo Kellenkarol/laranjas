@@ -1079,7 +1079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &271769453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1089,16 +1089,16 @@ RectTransform:
   m_GameObject: {fileID: 271769452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 69.09999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.21871, y: 1.21871, z: 1.21871}
   m_Children:
   - {fileID: 1761477911}
   m_Father: {fileID: 862680302}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04178788, y: 0.019307403}
-  m_AnchorMax: {x: 0.40157577, y: 0.086717255}
-  m_AnchoredPosition: {x: 1.0999756, y: 0.89990234}
-  m_SizeDelta: {x: 1.1189194, y: 0.625885}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -149, y: -625}
+  m_SizeDelta: {x: 289.11893, y: 96.625854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271769454
 MonoBehaviour:
@@ -1143,15 +1143,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartAnim
-        m_Mode: 1
+      - m_Target: {fileID: 401615682}
+        m_MethodName: Instagram
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: jesse_s.c
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &271769455
@@ -1635,6 +1635,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383000340}
   m_CullTransparentMesh: 0
+--- !u!1 &401615681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401615683}
+  - component: {fileID: 401615682}
+  m_Layer: 0
+  m_Name: Contact
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &401615682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401615681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b52bfad80cdc064fa35af46cb216c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &401615683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401615681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.369762, y: 8.536754, z: -28.797255}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &409678670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3374,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 907735a032247f5418203b656a10a89e, type: 2}
   CardObject: {fileID: 7900349356548705152, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
     type: 3}
+  Position: {fileID: 0}
 --- !u!1 &993790875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993790875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.6, y: -23.9, z: -40}
+  m_LocalPosition: {x: 39.5, y: -27.4, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1908746001}
@@ -4775,7 +4819,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5621806, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5305,7 +5349,7 @@ GameObject:
   - component: {fileID: 1761477913}
   - component: {fileID: 1761477912}
   m_Layer: 5
-  m_Name: Text
+  m_Name: '@jesse_s.c'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5320,14 +5364,14 @@ RectTransform:
   m_GameObject: {fileID: 1761477910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9835777, y: 0.9835777, z: 0.9835777}
+  m_LocalScale: {x: 1.2121612, y: 1.2121612, z: 1.2121612}
   m_Children: []
   m_Father: {fileID: 271769453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4}
   m_SizeDelta: {x: -10.699951, y: -37.663025}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761477912
@@ -5344,7 +5388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5362,7 +5406,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Configura\xE7\xF5es\n"
+  m_Text: '@jesse_s.c'
 --- !u!222 &1761477913
 CanvasRenderer:
   m_ObjectHideFlags: 0
