@@ -27,7 +27,7 @@ public class CardDisplay : MonoBehaviour
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
         cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.typeCard.ToString(), cardInfo.influence, cardInfo.influenceEffect);
         spriteRenderer.sprite = cardGame.SpriteCard;
-        if (cardGame.TypeCard == "Effect")
+        if (cardGame.TypeCard == "Effect" || cardGame.TypeCard == "EffectAlly")
         {
             textValueInfluence.text = "" + cardGame.InfluenceEffect;
         }
@@ -39,21 +39,20 @@ public class CardDisplay : MonoBehaviour
     }
     public void GetDamage(int influenceDamage)
     {
-        Debug.Log("teste");
         cardGame.Influence -= influenceDamage;
-        Debug.Log("teste2");
         textValueInfluence.text = ""+cardGame.Influence;
-        Debug.Log("teste3");
         if (cardGame.Influence <= 0)
         {
-            Debug.Log("teste4");
             cardGame.Influence = 0;
-            Debug.Log("teste5");
             EndCard();
-            Debug.Log("teste6");
         }
     }
+    public void GainLife(int influenceEffect) 
+    {
+        cardGame.Influence += influenceEffect;
+        textValueInfluence.text = "" + cardGame.Influence;
 
+    }
 
     void EndCard()
     {

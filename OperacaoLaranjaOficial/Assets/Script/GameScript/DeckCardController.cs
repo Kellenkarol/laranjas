@@ -29,25 +29,25 @@ public class DeckCardController : MonoBehaviour
 
 
     // // Test
-    // public void sortearNovaCarta()
-    // {
-    //     randomNumberCard = Random.Range(0, CardDeck.Length);
-    //     Transform pos = FindPosition(0);
-    //     GameObject cardTmp = Instantiate(CardObject) as GameObject;
-    //     cardTmp.transform.position = pos.position;
-    //     cardTmp.transform.eulerAngles = pos.eulerAngles;
-    //     SetEmptyOrNot(0, pos, false);
-    // }
+     public void sortearNovaCarta()
+     {
+         randomNumberCard = Random.Range(0, CardDeck.Length);
+         Transform pos = FindPosition(0);
+         GameObject cardTmp = Instantiate(CardObject) as GameObject;
+         CardObject.GetComponent<CardDisplay>().ConfigCardDisplay(CardDeck[randomNumberCard]);
+         cardTmp.transform.position = pos.position;
+         cardTmp.transform.eulerAngles = pos.eulerAngles;
+         SetEmptyOrNot(0, pos, false);
+    }
 
-
+    /*
     public void sortearNovaCarta()
     {
         randomNumberCard = Random.Range(0, CardDeck.Length);
         Instantiate(CardObject,Vector3.zero,Quaternion.identity);
-        Debug.Log(CardDeck[randomNumberCard]);
         CardObject.GetComponent<CardDisplay>().ConfigCardDisplay(CardDeck[randomNumberCard]);
     }
-
+    */
 
     // Encontra uma posição vazia, caso não tenha retorna null
     public static Transform FindPosition(int nivel)

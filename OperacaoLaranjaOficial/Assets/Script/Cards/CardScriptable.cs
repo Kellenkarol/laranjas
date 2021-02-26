@@ -9,7 +9,7 @@ public class CardScriptable : ScriptableObject
    
     public string cardName;
     public Sprite imageCard;
-    public enum TypeCard { Ally, Enemy, Effect }
+    public enum TypeCard { Ally, Enemy, Effect, EffectAlly }
     public TypeCard typeCard;
     public int influence;
     public int influenceEffect;

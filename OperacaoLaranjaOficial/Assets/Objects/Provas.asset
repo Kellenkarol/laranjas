@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252af6b4ee997444d9cb855c693f06c9, type: 3}
-  m_Name: Jornal
+  m_Name: Provas
   m_EditorClassIdentifier: 
-  cardName: Jornal
-  imageCard: {fileID: 21300000, guid: 616b6121e91394242a440e4d788e6d5d, type: 3}
-  typeCard: 3
+  cardName: Provas
+  imageCard: {fileID: 21300000, guid: c553d7cae67ad8c49a57914e15d898b8, type: 3}
+  typeCard: 2
   influence: 0
-  influenceEffect: 10
+  influenceEffect: 8

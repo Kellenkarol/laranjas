@@ -875,9 +875,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2931650375001257301, guid: 92d6f465050cc5b4bb36398c828c367d,
         type: 3}
+      propertyPath: CardDeck.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931650375001257301, guid: 92d6f465050cc5b4bb36398c828c367d,
+        type: 3}
       propertyPath: Position
       value: 
       objectReference: {fileID: 1439872794}
+    - target: {fileID: 2931650375001257301, guid: 92d6f465050cc5b4bb36398c828c367d,
+        type: 3}
+      propertyPath: CardDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6968c8b5709be584e8219b44c35dbd97,
+        type: 2}
     - target: {fileID: 2931650375001257303, guid: 92d6f465050cc5b4bb36398c828c367d,
         type: 3}
       propertyPath: m_Name

@@ -36,6 +36,12 @@ public class CardMovement : MonoBehaviour
                     cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
                     Destroy(this.gameObject);
                 }
+
+                if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Ally" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
+                {
+                    cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                    Destroy(this.gameObject);
+                }
             }
 
         }
@@ -54,7 +60,7 @@ public class CardMovement : MonoBehaviour
     }
     void checkHitObject()
     {
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition)); ;
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
         if (hit2D.collider != null && hit2D.collider.GetComponent<CardMovement>()!=null)
         {
             Debug.Log(hit2D.collider.name);
