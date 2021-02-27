@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmartPhoneAnimation : MonoBehaviour
 {
-    public  Animator anim;
+    public  Animator animPhone, animBlur;
     private bool animFinished=true, animInOut;
 
     // Start is called before the first frame update
@@ -26,7 +26,8 @@ public class SmartPhoneAnimation : MonoBehaviour
         {
             animFinished=false;
             animInOut = !animInOut;
-            anim.SetBool("InOut", animInOut);
+            animPhone.SetBool("InOut", animInOut);
+            animBlur.SetBool("InOut", animInOut);
             StartCoroutine("WaitFinishAnim");
 
         }

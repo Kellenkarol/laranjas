@@ -113,7 +113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60
+  m_text: 15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -280,7 +280,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2be76b32a61b1ea48bc2fdfbdb1d3f57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2988d151ae6faea46a5c4086b920dcf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -303,13 +303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80d15f55a8769445bb68600afe1a913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardInfo: {fileID: 11400000, guid: da271d58bd830cf48b3d8144f543d71a, type: 2}
+  cardInfo: {fileID: 11400000, guid: ac3fc22d99f947045a5cde7e689fc2d3, type: 2}
   cardGame:
-    cardName: Oscar
-    imageCard: {fileID: 21300000, guid: 2be76b32a61b1ea48bc2fdfbdb1d3f57, type: 3}
-    typeCard: Enemy
-    influence: 60
-    influenceEffect: 10
+    cardName: Marta
+    imageCard: {fileID: 21300000, guid: 2988d151ae6faea46a5c4086b920dcf2, type: 3}
+    typeCard: Ally
+    influence: 15
+    influenceEffect: 0
   deadCard: 0
   spriteRenderer: {fileID: 7900349356548705154}
   textValueInfluence: {fileID: 5307334854772698570}
