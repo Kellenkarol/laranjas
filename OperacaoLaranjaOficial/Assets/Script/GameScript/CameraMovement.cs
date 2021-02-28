@@ -26,7 +26,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (destiny != null)
         {
-            currentDistance += Time.deltaTime;
+            currentDistance += Time.deltaTime* 2.5f;
             currentDistance = Mathf.Clamp(currentDistance, 0, 1);
             camReference.transform.position = Vector3.MoveTowards(camReference.transform.position, destiny.position, currentDistance);
             if (currentDistance >= 1)
