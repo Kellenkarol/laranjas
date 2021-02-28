@@ -14,7 +14,7 @@ public class DeckCardController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetAllPositions();
+        
 
     }
 
