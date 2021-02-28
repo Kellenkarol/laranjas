@@ -6,7 +6,10 @@ using UnityEngine.EventSystems;
 
 public class ButtonScript : MonoBehaviour
 {
-    public enum Button {Play,Niveis,Gravações,Configurações, Agentes_Especiais,Voltar_Menu,Fase1,Fase2,Fase3,Fase4 }
+    public enum Button {Play,Niveis,Gravações,Configurações, Agentes_Especiais,Voltar_Menu,
+        Fase1,Fase2,Fase3,Fase4,
+        Agente_Kellen, Agente_Bruna, Agente_Matheus, Agente_Leandro, Agente_Edilson, Agente_Jesse
+    }
     public Button selectedButton;
     SpriteRenderer spriteRenderer;
     public Sprite[] status;
@@ -60,6 +63,9 @@ public class ButtonScript : MonoBehaviour
             case Button.Agentes_Especiais:
                 camMove.SetDestiny(6);
                 break;
+            case Button.Voltar_Menu:
+                camMove.SetDestiny(0);
+                break;
             case Button.Fase1:
                 camMove.SetDestiny(2);
                 break;
@@ -72,9 +78,25 @@ public class ButtonScript : MonoBehaviour
             case Button.Fase4:
                 camMove.SetDestiny(5);
                 break;
-            case Button.Voltar_Menu:
-                camMove.SetDestiny(0);
+            case Button.Agente_Kellen:
+                Application.OpenURL("https://www.instagram.com/sophilah.art/");
                 break;
+            case Button.Agente_Matheus:
+                Application.OpenURL("https://www.instagram.com/miauzfuzzy/");
+                break;
+            case Button.Agente_Bruna:
+                Application.OpenURL("https://www.instagram.com/brusnogueira/");
+                break;
+            case Button.Agente_Leandro:
+                Application.OpenURL("https://www.instagram.com/gueandro/");
+                break;
+            case Button.Agente_Edilson:
+                Application.OpenURL("https://www.linkedin.com/in/edilson-chavesws/");
+                break;
+            case Button.Agente_Jesse:
+                Application.OpenURL("https://www.instagram.com/jesse_s.c/");
+                break;
+
         }
     }
 
