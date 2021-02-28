@@ -48,7 +48,8 @@ public class CardArrest : MonoBehaviour
     	img 							= cardTmp.GetComponent<SpriteRenderer>();
     	StartCoroutine("CardFadeIn");
     	cardTmp.transform.position 		= currentCamera.transform.position+new Vector3(0,0,20);
-    	animTmp.transform.position 		= currentCamera.transform.position+new Vector3(17.9f,13.4f,40);
+    	// animTmp.transform.position 		= currentCamera.transform.position;
+    	animTmp.transform.localPosition 		= currentCamera.transform.position+new Vector3(-12.92f,9.41f,40);
     	cardTmp.transform.localScale 	= new Vector3(0.58f,0.58f,0.58f);
     	StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
     }
