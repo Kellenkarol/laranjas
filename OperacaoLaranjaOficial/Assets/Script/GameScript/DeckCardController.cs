@@ -9,8 +9,8 @@ public class DeckCardController : MonoBehaviour
     int randomNumberCard;
     public GameObject CardObject, Position;
 
-    private static List<Dictionary<Transform,bool>> allPositions = new List<Dictionary<Transform,bool>>();
-
+    //[SerializeField]List<Dictionary<Transform,bool>> allPositions = new List<Dictionary<Transform,bool>>();
+    [SerializeField] List<GameObject> spawnCardSlots = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,7 @@ public class DeckCardController : MonoBehaviour
 
 
     // // Test
-     public void sortearNovaCarta()
+     /*public void sortearNovaCarta()
      {
          randomNumberCard = Random.Range(0, CardDeck.Length);
          Transform pos = FindPosition(0);
@@ -38,17 +38,29 @@ public class DeckCardController : MonoBehaviour
          cardTmp.transform.position = pos.position;
          cardTmp.transform.eulerAngles = pos.eulerAngles;
          SetEmptyOrNot(0, pos, false);
+    }*/
+
+
+    public void sortearNovaCarta()
+    {
+        foreach (GameObject slot in spawnCardSlots)
+        {
+            if (slot.gameObject.transform.childCount == 0)
+            {
+                Debug.Log("Instanciar uma nova carta");
+                randomNumberCard = Random.Range(0, CardDeck.Length);
+                GameObject cardTemp=Instantiate(CardObject, Vector3.zero, Quaternion.identity) as GameObject;
+                CardObject.GetComponent<CardDisplay>().ConfigCardDisplay(CardDeck[randomNumberCard]);
+                cardTemp.transform.position = slot.transform.position;
+                cardTemp.transform.eulerAngles = slot.transform.eulerAngles;
+                cardTemp.gameObject.transform.SetParent(slot.transform);
+            }
+        }
+
+       
     }
 
     /*
-    public void sortearNovaCarta()
-    {
-        randomNumberCard = Random.Range(0, CardDeck.Length);
-        Instantiate(CardObject,Vector3.zero,Quaternion.identity);
-        CardObject.GetComponent<CardDisplay>().ConfigCardDisplay(CardDeck[randomNumberCard]);
-    }
-    */
-
     // Encontra uma posição vazia, caso não tenha retorna null
     public static Transform FindPosition(int nivel)
     {
@@ -87,5 +99,5 @@ public class DeckCardController : MonoBehaviour
     public static void SetEmptyOrNot(int nivel, Transform pos, bool v)
     {
         allPositions[nivel][pos] = v;
-    }
+    }*/
 }
