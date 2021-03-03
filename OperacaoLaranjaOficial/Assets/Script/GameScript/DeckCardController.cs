@@ -8,25 +8,47 @@ public class DeckCardController : MonoBehaviour
     [Tooltip("Cartas que estarão presentes na fase")]public CardScriptable[] CardDeck;
     int randomNumberCard;
     public GameObject CardObject, Position;
-
+    [SerializeField]GameObject[] cardBaseDeck;
+    [SerializeField]List<CardScriptable> newCards = new List<CardScriptable>();
     //[SerializeField]List<Dictionary<Transform,bool>> allPositions = new List<Dictionary<Transform,bool>>();
     [SerializeField] List<GameObject> spawnCardSlots = new List<GameObject>();
+    bool clicado;
     // Start is called before the first frame update
-    void Start()
+    public void InicializarDeck()
     {
-        
-
+        Debug.Log(gameObject.name+" Inicializar teste");
+        SortearNovaCartaInicial();
     }
-
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){
-            sortearNovaCarta();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LimparDeck();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            checkHitObject();
+        }
+        if (Input.GetMouseButtonUp(0) && clicado)
+        {
+            clicado = false;
+            for(int i = 0;i< spawnCardSlots.Count; i++)
+            {
+                if (spawnCardSlots[i].gameObject.transform.childCount == 0)
+                {
+                    StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
+                    newCards.RemoveAt(0);
+                    changeDisplayCardUI();
+                    i = spawnCardSlots.Count;
+                    SortearNovaCartaSimples();
+                }
+                    
+            }
+            
         }
     }
-
 
     // // Test
      /*public void sortearNovaCarta()
@@ -40,64 +62,85 @@ public class DeckCardController : MonoBehaviour
          SetEmptyOrNot(0, pos, false);
     }*/
 
-
-    public void sortearNovaCarta()
+    public void LimparDeck()
+    {
+        newCards.RemoveRange(0, newCards.Count);
+        changeDisplayCardUI();
+    }
+    public void SortearNovaCartaInicial()
     {
         foreach (GameObject slot in spawnCardSlots)
         {
             if (slot.gameObject.transform.childCount == 0)
             {
-                Debug.Log("Instanciar uma nova carta");
                 randomNumberCard = Random.Range(0, CardDeck.Length);
-                GameObject cardTemp=Instantiate(CardObject, Vector3.zero, Quaternion.identity) as GameObject;
-                CardObject.GetComponent<CardDisplay>().ConfigCardDisplay(CardDeck[randomNumberCard]);
-                cardTemp.transform.position = slot.transform.position;
-                cardTemp.transform.eulerAngles = slot.transform.eulerAngles;
-                cardTemp.gameObject.transform.SetParent(slot.transform);
+                newCards.Add(CardDeck[randomNumberCard]);
             }
         }
+        changeDisplayCardUI();
 
-       
     }
 
-    /*
-    // Encontra uma posição vazia, caso não tenha retorna null
-    public static Transform FindPosition(int nivel)
+    public void SortearNovaCartaSimples()
     {
-        foreach(KeyValuePair<Transform,bool> trs in allPositions[nivel])
-        {
-            if(trs.Value)
+        randomNumberCard = Random.Range(0, CardDeck.Length);
+        newCards.Add(CardDeck[randomNumberCard]);
+    }
+    public IEnumerator MoverNovaCarta(GameObject slot)
+    {
+        Debug.Log("Puxando carta");
+        GameObject cardTemp = Instantiate(CardObject, this.transform.GetChild(2).transform.position, slot.transform.rotation) as GameObject;
+        cardTemp.GetComponent<CardDisplay>().ConfigCardDisplay(newCards[0]);
+        cardTemp.GetComponent<CardMovement>().paiObjeto = slot;
+        yield return null;
+    }
+
+    public void changeDisplayCardUI()
+    {
+        if (newCards.Count > 0) 
+        { 
+            if (newCards[0] != null)
             {
-                return trs.Key;
+                cardBaseDeck[0].GetComponent<SpriteRenderer>().sprite = newCards[0].baseCard;
             }
+            
         }
-        return null;
-    }
-
-
-    // Percorre todos os gameObjects e adiciona o Transform a lista allPositions
-    private void SetAllPositions()
-    {
-        int num = Position.transform.childCount;
-        for(int c=0; c<num; c++)
+        else
         {
-            GameObject gobTmp = Position.transform.GetChild(c).gameObject;
-            int num2 = gobTmp.transform.childCount;
-            Dictionary<Transform, bool> dictTmp = new Dictionary<Transform, bool>();
-            for(int b=0; b<num2; b++)
+            cardBaseDeck[0].GetComponent<SpriteRenderer>().sprite = null;
+        }
+        if (newCards.Count > 1)
+        {
+            if (newCards[1] != null)
             {
-                Transform trsTmp = gobTmp.transform.GetChild(b).transform;
-                dictTmp.Add(trsTmp, true);
+                cardBaseDeck[1].GetComponent<SpriteRenderer>().sprite = newCards[1].baseCard;
             }
-            allPositions.Add(dictTmp);
+        }
+        else
+        {
+            cardBaseDeck[1].GetComponent<SpriteRenderer>().sprite = null;
+        }
+        if (newCards.Count > 2)
+        {
+            if (newCards[2] != null)
+            {
+                cardBaseDeck[2].GetComponent<SpriteRenderer>().sprite = newCards[2].baseCard;
+            }
+        }
+        else
+        {
+            cardBaseDeck[2].GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 
 
-    // Define se um slot está em uso ou não
-    // true = vazio
-    public static void SetEmptyOrNot(int nivel, Transform pos, bool v)
+    void checkHitObject()
     {
-        allPositions[nivel][pos] = v;
-    }*/
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+        if (hit2D.collider != null && hit2D.collider.GetComponent<DeckCardController>() != null)
+        {
+            Debug.Log(hit2D.collider.name);
+            hit2D.collider.gameObject.GetComponent<DeckCardController>().clicado = true;
+        }
+    }
 }

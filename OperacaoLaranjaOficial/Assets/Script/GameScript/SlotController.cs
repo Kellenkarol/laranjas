@@ -5,4 +5,9 @@ using UnityEngine;
 public class SlotController : MonoBehaviour
 {
     [SerializeField] Slot slotObject;
+
+    public Slot SlotObjective
+    {
+        get { return slotObject; }
+    }
 }

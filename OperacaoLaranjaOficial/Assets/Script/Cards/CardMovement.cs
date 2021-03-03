@@ -8,49 +8,103 @@ public class CardMovement : MonoBehaviour
     [SerializeField]bool clicado;
     Vector3 touchPosition;
     [SerializeField]List<GameObject> cardObjective;
+    [SerializeField]List<GameObject> cardPosition;
+    public bool cardInicializada;
+    [HideInInspector]public GameObject paiObjeto;
+    bool actionMouseClick;
     // Start is called before the first frame update
     void Start()
     {
         clicado = false;
         this.name = GetComponent<CardDisplay>().cardGame.Name;
-        checkTypeCard();
+        cardInicializada = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if(cardInicializada)
         {
-            checkHitObject();
-        }
-        if (Input.GetMouseButtonUp(0) && clicado)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = 2;
-            clicado = false;
-            if (cardObjective.Count > 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard=="Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard== "Effect")
-                {
-                    cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
-                    Destroy(this.gameObject);
-                }
-
-                if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Ally" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
-                {
-                    cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
-                    Destroy(this.gameObject);
-                }
+               
+                checkHitObject();
             }
+            if (Input.GetMouseButtonUp(0) && clicado)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = 2;
+                clicado = false;
+                if (cardObjective.Count > 0)
+                {
+                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                    {
+                        actionMouseClick = true;
+                        cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                        Destroy(this.gameObject);
 
+                    }
+
+                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Ally" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
+                    {
+                        actionMouseClick = true;
+                        cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                        Destroy(this.gameObject);
+                    }
+                }
+                if(cardPosition.Count>0 && !actionMouseClick)
+                {
+                    if (cardPosition.Count > 0)
+                    {
+                        for(int i =0;i< cardPosition.Count; i++)
+                        {
+                            if (cardPosition[i].gameObject.transform.childCount == 0)
+                            {
+                                if (cardPosition[i].GetComponent<SlotController>().SlotObjective.TypeSlot == Slot.TypeSlotEnum.Ally ||
+                                    cardPosition[i].GetComponent<SlotController>().SlotObjective.TypeSlot == Slot.TypeSlotEnum.Bag)
+                                {
+                                    this.transform.SetParent(cardPosition[i].transform);
+                                    this.transform.position = cardPosition[i].transform.position;
+                                    this.transform.eulerAngles = cardPosition[i].transform.eulerAngles;
+                                    paiObjeto = cardPosition[i];
+                                    cardPosition.RemoveRange(0, cardPosition.Count);
+                                    i = cardPosition.Count;
+                                    actionMouseClick = true;
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+                if(!actionMouseClick)
+                {
+                    this.transform.position = paiObjeto.transform.position;
+                    this.transform.eulerAngles = paiObjeto.transform.eulerAngles;
+                }
+
+            }
+            if (clicado)
+            {
+                Vector3 positionCard = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                positionCard.z = 0;
+                transform.position = positionCard;
+            }
         }
-        if (clicado)
+        else
         {
-            Vector3 positionCard = Camera.main.ScreenToWorldPoint(Input.mousePosition) ;
-            positionCard.z = 0;
-            transform.position = positionCard;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, paiObjeto.transform.position, 30f * Time.deltaTime);
+            if (Vector3.Distance(this.transform.position, paiObjeto.transform.position) == 0)
+            {
+                Debug.Log("Tem certeza que vim aqui:" + Vector3.Distance(this.transform.position, paiObjeto.transform.position));
+                cardInicializada = true;
+                this.transform.SetParent(paiObjeto.transform);
+                checkTypeCard();
+            }
         }
+
+        
+
     }
 
     public void MovimentacaoInicial(Transform posicaoCarta)
@@ -67,6 +121,8 @@ public class CardMovement : MonoBehaviour
             hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
             hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = 6;
             hit2D.collider.gameObject.GetComponent<CardMovement>().clicado = true;
+            hit2D.collider.gameObject.GetComponent<CardMovement>().actionMouseClick = false;
+            hit2D.collider.gameObject.transform.eulerAngles = new Vector3(0,0,0);
         }
     }
     void checkTypeCard()
@@ -81,7 +137,15 @@ public class CardMovement : MonoBehaviour
         Debug.Log("Teste");
         if (clicado)
         {
-            cardObjective.Add(collision.gameObject);
+            if (collision.gameObject.GetComponent<SlotController>() != null)
+            {
+                cardPosition.Add(collision.gameObject);
+            }
+            else
+            {
+                cardObjective.Add(collision.gameObject);
+            }
+
         }
         
     }
@@ -90,7 +154,15 @@ public class CardMovement : MonoBehaviour
     {
         if (clicado)
         {
-            cardObjective.Remove(collision.gameObject);
+            if (collision.gameObject.GetComponent<SlotController>() != null)
+            {
+                cardPosition.Remove(collision.gameObject);
+            }
+            else
+            {
+                cardObjective.Remove(collision.gameObject);
+            }
+            
         }
     }
 }

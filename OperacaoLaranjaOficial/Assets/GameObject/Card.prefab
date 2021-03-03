@@ -279,7 +279,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 2988d151ae6faea46a5c4086b920dcf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -307,6 +307,7 @@ MonoBehaviour:
   cardGame:
     cardName: Marta
     imageCard: {fileID: 21300000, guid: 2988d151ae6faea46a5c4086b920dcf2, type: 3}
+    baseCard: {fileID: 21300000, guid: 9a72950e4d8fa2243b3430f486a2c199, type: 3}
     typeCard: Ally
     influence: 15
     influenceEffect: 0
@@ -327,6 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clicado: 0
   cardObjective: []
+  cardInicializada: 1
+  positionInicial: {fileID: 0}
 --- !u!61 &1403602833323937982
 BoxCollider2D:
   m_ObjectHideFlags: 0

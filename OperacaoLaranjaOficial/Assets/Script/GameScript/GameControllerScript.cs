@@ -11,6 +11,7 @@ public class GameControllerScript : MonoBehaviour
         if (fase >= 0)
         {
             bolosCarta[fase].GetComponent<DeckCardController>().enabled = true;
+            bolosCarta[fase].GetComponent<DeckCardController>().InicializarDeck();
         }
 
     }

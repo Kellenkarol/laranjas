@@ -25,7 +25,7 @@ public class CardDisplay : MonoBehaviour
         cardInfo = newCard;
         spriteRenderer = GetComponent<SpriteRenderer>();
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
-        cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.typeCard.ToString(), cardInfo.influence, cardInfo.influenceEffect);
+        cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.baseCard, cardInfo.typeCard.ToString(), cardInfo.influence, cardInfo.influenceEffect);
         spriteRenderer.sprite = cardGame.SpriteCard;
         if (cardGame.TypeCard == "Effect" || cardGame.TypeCard == "EffectAlly")
         {
@@ -64,6 +64,7 @@ public class CardDisplay : MonoBehaviour
 
         [SerializeField] string cardName;
         [SerializeField] Sprite imageCard;
+        [SerializeField] Sprite baseCard;
         [SerializeField] string typeCard;
         [SerializeField] int influence;
         [SerializeField] int influenceEffect;
@@ -76,6 +77,10 @@ public class CardDisplay : MonoBehaviour
         public Sprite SpriteCard
         {
             get { return imageCard; }
+        }
+        public Sprite BaseCard
+        {
+            get { return baseCard; }
         }
         public string TypeCard
         {
@@ -91,10 +96,11 @@ public class CardDisplay : MonoBehaviour
             get { return influenceEffect; }
         }
 
-        public Card(string newCardName, Sprite newSprite, string newTypeCard, int newInfluence, int newInfluenceEffect)
+        public Card(string newCardName, Sprite newSprite,Sprite newBaseCard, string newTypeCard, int newInfluence, int newInfluenceEffect)
         {
             cardName = newCardName;
             imageCard = newSprite;
+            baseCard = newBaseCard;
             typeCard = newTypeCard;
             influence = newInfluence;
             influenceEffect = newInfluenceEffect;

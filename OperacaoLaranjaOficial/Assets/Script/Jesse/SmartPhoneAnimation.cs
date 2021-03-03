@@ -41,7 +41,6 @@ public class SmartPhoneAnimation : MonoBehaviour
 
     public bool GetIfIsShowing()
     {
-        Debug.Log("Teste");
         return animInOut;
     }
 
