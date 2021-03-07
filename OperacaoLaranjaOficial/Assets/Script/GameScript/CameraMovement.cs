@@ -32,6 +32,7 @@ public class CameraMovement : MonoBehaviour
             if (Vector3.Distance(camReference.transform.position, destiny.position) ==0)
             {
                 destiny = null;
+                ManagerGame.Instance.LockPlayerActive = false;
             }
         }
     }
@@ -40,6 +41,7 @@ public class CameraMovement : MonoBehaviour
     {
         currentDistance = 0;
         destiny = transformPositions[valueDestiny];
+        ManagerGame.Instance.LockPlayerActive = true;
         switch (valueDestiny)
         {
             case 2:

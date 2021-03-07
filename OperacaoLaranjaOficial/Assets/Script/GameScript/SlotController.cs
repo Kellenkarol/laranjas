@@ -10,4 +10,13 @@ public class SlotController : MonoBehaviour
     {
         get { return slotObject; }
     }
+
+
+    public void RemoveCard()
+    {
+        if (this.gameObject.transform.childCount > 0)
+        {
+            Destroy(this.gameObject.transform.GetChild(0).gameObject);
+        }
+    }
 }

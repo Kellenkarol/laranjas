@@ -32,8 +32,8 @@ public class CardMovement : MonoBehaviour
             }
             if (Input.GetMouseButtonUp(0) && clicado)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = 2;
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay;
+                this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+1;
                 clicado = false;
                 if (cardObjective.Count > 0)
                 {
@@ -82,7 +82,9 @@ public class CardMovement : MonoBehaviour
                     this.transform.position = paiObjeto.transform.position;
                     this.transform.eulerAngles = paiObjeto.transform.eulerAngles;
                 }
-
+                Debug.Log("OLAAAA");
+                cardPosition.RemoveRange(0, cardPosition.Count);
+                cardObjective.RemoveRange(0, cardObjective.Count);
             }
             if (clicado)
             {
@@ -98,19 +100,11 @@ public class CardMovement : MonoBehaviour
             {
                 Debug.Log("Tem certeza que vim aqui:" + Vector3.Distance(this.transform.position, paiObjeto.transform.position));
                 cardInicializada = true;
+                ManagerGame.Instance.LockPlayerActive = false;
                 this.transform.SetParent(paiObjeto.transform);
                 checkTypeCard();
             }
         }
-
-        
-
-    }
-
-    public void MovimentacaoInicial(Transform posicaoCarta)
-    {
-
-        
     }
     void checkHitObject()
     {
@@ -118,8 +112,8 @@ public class CardMovement : MonoBehaviour
         if (hit2D.collider != null && hit2D.collider.GetComponent<CardMovement>()!=null)
         {
             Debug.Log(hit2D.collider.name);
-            hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
-            hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = 6;
+            hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+2;
+            hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay + 3;
             hit2D.collider.gameObject.GetComponent<CardMovement>().clicado = true;
             hit2D.collider.gameObject.GetComponent<CardMovement>().actionMouseClick = false;
             hit2D.collider.gameObject.transform.eulerAngles = new Vector3(0,0,0);

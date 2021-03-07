@@ -15,7 +15,7 @@ public class ButtonScript : MonoBehaviour
     public Sprite[] status;
     CameraMovement camMove;
     private SmartPhoneAnimation animScript;
-    
+    [SerializeField]DeckCardController deckCard;
     private void Start()
     {
         spriteRenderer=GetComponentInChildren<SpriteRenderer>();
@@ -26,7 +26,7 @@ public class ButtonScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!animScript.GetIfIsShowing())
+        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive)
         {
 	        spriteRenderer.sprite = status[1];
         }
@@ -34,12 +34,12 @@ public class ButtonScript : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log(animScript.gameObject.name);
-        if (!animScript.GetIfIsShowing())
+        if (!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive)
         {
 	        Debug.Log(this.gameObject.name);
-	        spriteRenderer.sprite = status[0];
 	        actionButton();
         }
+        spriteRenderer.sprite = status[0];
         // print("selectedButton: "+selectedButton);
     }
 
@@ -65,6 +65,7 @@ public class ButtonScript : MonoBehaviour
                 break;
             case Button.Voltar_Menu:
                 camMove.SetDestiny(0);
+                deckCard.LimparTabuleiro();
                 break;
             case Button.Fase1:
                 camMove.SetDestiny(2);

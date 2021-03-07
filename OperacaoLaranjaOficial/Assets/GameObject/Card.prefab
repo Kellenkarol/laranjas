@@ -77,7 +77,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
 --- !u!33 &3789831136093097518
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -314,6 +314,7 @@ MonoBehaviour:
   deadCard: 0
   spriteRenderer: {fileID: 7900349356548705154}
   textValueInfluence: {fileID: 5307334854772698570}
+  _cardOrderDisplayNumber: 0
 --- !u!114 &1042750707450165499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,8 +329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clicado: 0
   cardObjective: []
+  cardPosition: []
   cardInicializada: 1
-  positionInicial: {fileID: 0}
+  paiObjeto: {fileID: 0}
 --- !u!61 &1403602833323937982
 BoxCollider2D:
   m_ObjectHideFlags: 0

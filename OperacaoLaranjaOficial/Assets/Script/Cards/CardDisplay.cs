@@ -11,8 +11,14 @@ public class CardDisplay : MonoBehaviour
     public Card cardGame;
     [Header("Card Status ")]
     [Tooltip("Indentifica se a carta está ativa ou desativa")]public bool deadCard;
-    [SerializeField]SpriteRenderer spriteRenderer;
-    [SerializeField]TextMeshPro textValueInfluence;
+    [Tooltip("Renderer da carta")] [SerializeField]SpriteRenderer spriteRenderer;
+    [Tooltip("Texto da influencia da carta")] [SerializeField]TextMeshPro textValueInfluence;
+    [Tooltip("Texto da influencia da carta")] [SerializeField] int _cardOrderDisplayNumber;
+    public int CardOrderDisplay
+    {
+        get { return _cardOrderDisplayNumber; }
+        set { _cardOrderDisplayNumber = value; }
+    }
     private void Start()
     {
 
@@ -25,6 +31,7 @@ public class CardDisplay : MonoBehaviour
         cardInfo = newCard;
         spriteRenderer = GetComponent<SpriteRenderer>();
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
+        _cardOrderDisplayNumber = spriteRenderer.sortingOrder;
         cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.baseCard, cardInfo.typeCard.ToString(), cardInfo.influence, cardInfo.influenceEffect);
         spriteRenderer.sprite = cardGame.SpriteCard;
         if (cardGame.TypeCard == "Effect" || cardGame.TypeCard == "EffectAlly")

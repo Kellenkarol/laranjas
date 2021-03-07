@@ -12,6 +12,7 @@ public class DeckCardController : MonoBehaviour
     [SerializeField]List<CardScriptable> newCards = new List<CardScriptable>();
     //[SerializeField]List<Dictionary<Transform,bool>> allPositions = new List<Dictionary<Transform,bool>>();
     [SerializeField] List<GameObject> spawnCardSlots = new List<GameObject>();
+    public GameObject cardsSlots;
     bool clicado;
     // Start is called before the first frame update
     public void InicializarDeck()
@@ -22,22 +23,19 @@ public class DeckCardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LimparDeck();
-        }
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
         {
             checkHitObject();
         }
         if (Input.GetMouseButtonUp(0) && clicado)
         {
             clicado = false;
+            bool isCardSpawn = false;
             for(int i = 0;i< spawnCardSlots.Count; i++)
             {
                 if (spawnCardSlots[i].gameObject.transform.childCount == 0)
                 {
+                    isCardSpawn = true;
                     StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
                     newCards.RemoveAt(0);
                     changeDisplayCardUI();
@@ -46,7 +44,10 @@ public class DeckCardController : MonoBehaviour
                 }
                     
             }
-            
+            if (!isCardSpawn)
+            {
+                ManagerGame.Instance.LockPlayerActive = false;
+            }
         }
     }
 
@@ -62,9 +63,14 @@ public class DeckCardController : MonoBehaviour
          SetEmptyOrNot(0, pos, false);
     }*/
 
-    public void LimparDeck()
+    public void LimparTabuleiro()
     {
         newCards.RemoveRange(0, newCards.Count);
+        Debug.Log(cardsSlots.transform.childCount);
+        for (int i = 0; i < cardsSlots.transform.childCount; i++)
+        {
+            cardsSlots.transform.GetChild(i).GetComponent<SlotController>().RemoveCard();
+        } 
         changeDisplayCardUI();
     }
     public void SortearNovaCartaInicial()
@@ -132,8 +138,6 @@ public class DeckCardController : MonoBehaviour
             cardBaseDeck[2].GetComponent<SpriteRenderer>().sprite = null;
         }
     }
-
-
     void checkHitObject()
     {
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
@@ -141,6 +145,7 @@ public class DeckCardController : MonoBehaviour
         {
             Debug.Log(hit2D.collider.name);
             hit2D.collider.gameObject.GetComponent<DeckCardController>().clicado = true;
+            ManagerGame.Instance.LockPlayerActive = true;
         }
     }
 }
