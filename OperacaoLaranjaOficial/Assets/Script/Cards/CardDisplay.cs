@@ -32,7 +32,8 @@ public class CardDisplay : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
         _cardOrderDisplayNumber = spriteRenderer.sortingOrder;
-        cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.baseCard, cardInfo.typeCard.ToString(), cardInfo.influence, cardInfo.influenceEffect);
+        cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.baseCard, cardInfo.typeCard.ToString(),
+                            Random.Range(cardInfo.influence[0], cardInfo.influence[1]+1), Random.Range(cardInfo.influenceEffect[0], cardInfo.influenceEffect[1]+1));
         spriteRenderer.sprite = cardGame.SpriteCard;
         if (cardGame.TypeCard == "Effect" || cardGame.TypeCard == "EffectAlly")
         {
