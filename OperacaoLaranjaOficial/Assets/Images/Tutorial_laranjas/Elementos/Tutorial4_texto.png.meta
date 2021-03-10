@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 294bfc8f00872ef48a04cd139209c361
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4746058309698624938
+    second: Tutorial4_texto_0
+  - first:
+      213: 4010937508131801972
+    second: Tutorial4_texto_1
+  - first:
+      213: 2799069471704088204
+    second: Tutorial4_texto_2
+  - first:
+      213: 8878913774329615292
+    second: Tutorial4_texto_3
+  - first:
+      213: 4245488813467936026
+    second: Tutorial4_texto_4
+  - first:
+      213: -2515490430970090562
+    second: Tutorial4_texto_5
+  - first:
+      213: 1869609102401390519
+    second: Tutorial4_texto_6
+  - first:
+      213: 3675703263026484514
+    second: Tutorial4_texto_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,7 +74,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -71,10 +95,206 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
+    sprites:
+    - serializedVersion: 2
+      name: Tutorial4_texto_0
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 3231
+        width: 1668
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad90e013e26dd140800000000000000
+      internalID: 4746058309698624938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 2978
+        width: 1875
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b8c7ca966b9a730800000000000000
+      internalID: 4010937508131801972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_2
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 2815
+        width: 1893
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8eff8abada48d620800000000000000
+      internalID: 2799069471704088204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_3
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 2648
+        width: 1439
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb35d36090d383b70800000000000000
+      internalID: 8878913774329615292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_4
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1589
+        width: 538
+        height: 754
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15a6a015910bea30800000000000000
+      internalID: 4245488813467936026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_5
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1599
+        width: 535
+        height: 745
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb222ad7ce271dd0800000000000000
+      internalID: -2515490430970090562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_6
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 1592
+        width: 543
+        height: 759
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7c871b29f22f910800000000000000
+      internalID: 1869609102401390519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 2403
+        width: 2113
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225107c94a8b20330800000000000000
+      internalID: 3675703263026484514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -819, y: 951}
+      - {x: -847, y: 791}
+      - {x: 838, y: 789}
+      - {x: 821, y: 963}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
