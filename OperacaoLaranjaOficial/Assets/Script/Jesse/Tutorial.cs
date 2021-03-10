@@ -40,6 +40,8 @@ public class Tutorial : MonoBehaviour
         	{
         		t2.SetActive(false);
         		t2Out.SetActive(true);
+        		// full_tc.SetActive(false);
+        		// full_tc.SetActive(true);
         		t3.SetActive(true);
         	}
         }
