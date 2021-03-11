@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmartPhoneAnimation : MonoBehaviour
 {
-    public  Animator animPhone, animBlur;
+    public  Animator animPhone, animBlur, animScreen;
     private bool animFinished=true, animInOut;
 
     // Start is called before the first frame update
@@ -28,6 +28,10 @@ public class SmartPhoneAnimation : MonoBehaviour
             animInOut = !animInOut;
             animPhone.SetBool("InOut", animInOut);
             animBlur.SetBool("InOut", animInOut);
+            if(animInOut)
+            {
+                animScreen.SetBool("OnOff", animInOut);
+            }
             StartCoroutine("WaitFinishAnim");
 
         }
@@ -42,6 +46,12 @@ public class SmartPhoneAnimation : MonoBehaviour
     public bool GetIfIsShowing()
     {
         return animInOut;
+    }
+
+    public void ScreenOnOff()
+    {
+        // print("DEBUG");
+        animScreen.SetBool("OnOff", animInOut);
     }
 
 }

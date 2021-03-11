@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
 	int step=-2;
-	bool click;
+	bool click, canClick=true;
 	public GameObject t1, t1Out, t2, t2Out, t3, t3Out, t4, t4Out, t5, t5Out, 
 	full_tc, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
 	t4Papel, t4PapelTexto1, t4PapelTexto2, t4PapelTexto3, t4PapelTexto4, 
@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
     	click = false;
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) )
         {
         	step++;
 	    	click = true;
@@ -70,23 +70,24 @@ public class Tutorial : MonoBehaviour
 		t4Papel.SetActive(true);
 		yield return Wait(0.5f);
 		t4PapelTexto1.SetActive(true);
+		// WaitClick();
 		yield return Wait(1.4f);
 		t4Texto1.SetActive(true);
 		t4Seta1.SetActive(true);
 		// t4Destaque1.SetActive(true);
-		yield return Wait(1);
+		yield return Wait(1.5f);
 		t4CardYellow.SetActive(true);
 		yield return Wait(0.5f);
 		t4PapelTexto2.SetActive(true);
-		yield return Wait(2);
+		yield return Wait(3f);
 		t4CardBlue.SetActive(true);
 		yield return Wait(0.5f);
 		t4PapelTexto3.SetActive(true);
-		yield return Wait(1.5f);
+		yield return Wait(3f);
 		t4CardRed.SetActive(true);
 		yield return Wait(0.5f);
 		t4PapelTexto4.SetActive(true);
-		yield return Wait(1);
+		yield return Wait(3f);
 		t4Texto2.SetActive(true);
 		t4Seta2.SetActive(true);
 		// t4Destaque2.SetActive(true);
@@ -96,4 +97,15 @@ public class Tutorial : MonoBehaviour
     {
     	return new WaitForSeconds(time);	
     }
+
+   	private void WaitClick()
+   	{
+   		while(!click)
+   		{
+   			// pass
+   			// yield return null;
+   		}
+
+   		return;
+   	}
 }

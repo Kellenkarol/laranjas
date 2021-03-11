@@ -19,7 +19,7 @@ public class ButtonScript : MonoBehaviour
     private void Start()
     {
         spriteRenderer=GetComponentInChildren<SpriteRenderer>();
-        animScript = GameObject.Find("SmartPhoneGameObject").GetComponent<SmartPhoneAnimation>();
+        animScript = GameObject.Find("SmartPhoneGameObject/SmartPhone").GetComponent<SmartPhoneAnimation>();
         spriteRenderer.sprite = status[0];
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
     }
