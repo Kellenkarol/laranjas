@@ -65,7 +65,10 @@ public class ButtonScript : MonoBehaviour
                 break;
             case Button.Voltar_Menu:
                 camMove.SetDestiny(0);
-                deckCard.LimparTabuleiro();
+                if(deckCard)
+                {
+                    deckCard.LimparTabuleiro();
+                }
                 break;
             case Button.Fase1:
                 camMove.SetDestiny(2);
