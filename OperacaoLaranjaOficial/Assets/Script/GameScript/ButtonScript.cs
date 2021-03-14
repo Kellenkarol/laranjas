@@ -26,7 +26,7 @@ public class ButtonScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive)
+        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn)
         {
 	        spriteRenderer.sprite = status[1];
         }
@@ -34,7 +34,7 @@ public class ButtonScript : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log(animScript.gameObject.name);
-        if (!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive)
+        if (!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn)
         {
 	        Debug.Log(this.gameObject.name);
 	        actionButton();
@@ -49,6 +49,7 @@ public class ButtonScript : MonoBehaviour
         {
             case Button.Play:
                 camMove.SetDestiny(2);
+                Tutorial.StartTutorial();
                 break;
             case Button.Niveis:
                 Debug.Log("Testando");

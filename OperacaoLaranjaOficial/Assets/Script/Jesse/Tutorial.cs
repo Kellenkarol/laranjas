@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-	int step=-2;
+	int step=-1;
 	bool click, canClick=true, t4end=true, t5end=true;
-	static bool TutorialOn;
+	public static bool TutorialOn;
 	public GameObject t1, t1Out, t2, t2Out, t3, t3Out, t4, t4Out, t5, t5Out, 
 	full_tc, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
 	t4Papel, t4PapelTexto1, t4PapelTexto2, t4PapelTexto3, t4PapelTexto4,
@@ -16,7 +16,7 @@ public class Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    	StartTutorial();
+    	// StartCoroutine("TestTutorial");
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Tutorial : MonoBehaviour
     	if(TutorialOn)
     	{
 	    	click = false;
-	        if(Input.GetMouseButtonDown(0))
+	        if(Input.GetMouseButtonDown(0) || step == -1)
 	        {
 		    	click = true;
 	        	if(t4end&&t5end)
@@ -69,9 +69,18 @@ public class Tutorial : MonoBehaviour
     	}
     }
 
+    private IEnumerator TestTutorial()
+    {
+    	yield return Wait(5);
+    	StartTutorial();
+    }
+
     public static void StartTutorial()
     {
-    	TutorialOn = true;
+    	float waitAux=0;
+    	while(waitAux < 3){waitAux += Time.deltaTime;}
+    	print(waitAux);
+    	if(waitAux >= 3){TutorialOn = true;}
     }
 
     public static void FinishTutorial()

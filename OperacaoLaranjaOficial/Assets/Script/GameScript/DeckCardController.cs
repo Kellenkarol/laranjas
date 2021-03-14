@@ -27,7 +27,7 @@ public class DeckCardController : MonoBehaviour
         {
             checkHitObject();
         }
-        if (Input.GetMouseButtonUp(0) && clicado)
+        if (Input.GetMouseButtonUp(0) && clicado && !Tutorial.TutorialOn)
         {
             clicado = false;
             bool isCardSpawn = false;
