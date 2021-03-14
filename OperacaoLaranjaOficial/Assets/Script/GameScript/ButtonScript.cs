@@ -49,7 +49,6 @@ public class ButtonScript : MonoBehaviour
         {
             case Button.Play:
                 camMove.SetDestiny(2);
-                Tutorial.StartTutorial();
                 break;
             case Button.Niveis:
                 Debug.Log("Testando");
