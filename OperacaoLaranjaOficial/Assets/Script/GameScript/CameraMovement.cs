@@ -70,4 +70,9 @@ public class CameraMovement : MonoBehaviour
                 break;
         }
     }
+
+    public bool GetIsMoving()
+    {
+    	return destiny ? true : false;
+    }
 }

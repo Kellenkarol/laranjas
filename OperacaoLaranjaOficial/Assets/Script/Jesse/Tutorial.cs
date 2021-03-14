@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-	int step=-1;
-	bool click, canClick=true, t4end=true, t5end=true;
+	static int step=-1;
+	bool click, t4end=true, t5end=true;
+	static float waitAux;
 	public static bool TutorialOn;
 	public GameObject t1, t1Out, t2, t2Out, t3, t3Out, t4, t4Out, t5, t5Out, 
-	full_tc, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
+	full_tc, full_tcOut, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
 	t4Papel, t4PapelTexto1, t4PapelTexto2, t4PapelTexto3, t4PapelTexto4,
 	t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t4CardYellow, t4CardBlue, 
 	t4CardRed, DeckSize, InfluenceSize; 
@@ -31,8 +32,11 @@ public class Tutorial : MonoBehaviour
 	        	if(t4end&&t5end)
 	        	{
 		        	step++;
+		        	print("Step: "+step);
 		        	if(step == 0)
 		        	{
+						t5Out.SetActive(false);
+						full_tcOut.SetActive(false);
 		        		full_tc.SetActive(true);
 		        		t1.SetActive(true);
 		        	}
@@ -62,7 +66,18 @@ public class Tutorial : MonoBehaviour
 		        		t3Out.SetActive(false);
 		        		t4.SetActive(false);
 		        		t4Out.SetActive(true);
+		        		HideT4();
 		        		ShowT5();
+		        	}
+		        	else if(step == 5)
+		        	{
+		        		HideT5();
+						t4Out.SetActive(false);
+						full_tc.SetActive(false);
+						t5.SetActive(false);
+						t5Out.SetActive(true);
+						full_tcOut.SetActive(true);
+						FinishTutorial();
 		        	}
 	        	}
 	        }
@@ -70,16 +85,12 @@ public class Tutorial : MonoBehaviour
     }
     public static void StartTutorial()
     {
-    	float waitAux=0;
-    	while(waitAux < 3){waitAux += Time.deltaTime;}
-    	print(waitAux);
-    	if(waitAux >= 3){TutorialOn = true;}
+    	TutorialOn = true;
     }
 
-    public static void FinishTutorial()
+    public void FinishTutorial()
     {
-		
-    	TutorialOn = false;
+    	StartCoroutine("_FinishTutorial");
     }
 
     public void ShowT4()
@@ -87,6 +98,34 @@ public class Tutorial : MonoBehaviour
     	t4end = false;
     	StartCoroutine("_ShowT4");
     }
+
+    public void HideT4()
+    {
+		t4Papel.SetActive(false);
+		t4PapelTexto1.SetActive(false);
+		t4Texto1.SetActive(false);
+		t4Seta1.SetActive(false);
+		t4Destaque1.SetActive(false);
+		InfluenceSize.SetActive(false);
+		t4CardYellow.SetActive(false);
+		t4PapelTexto2.SetActive(false);
+		t4CardBlue.SetActive(false);
+		t4PapelTexto3.SetActive(false);
+		t4CardRed.SetActive(false);
+		t4PapelTexto4.SetActive(false);
+		t4Texto2.SetActive(false);
+		t4Seta2.SetActive(false);
+		t4Destaque2.SetActive(false);
+		DeckSize.SetActive(false);
+
+    }
+
+    public void HideT5()
+    {
+		t5PapelTexto5.SetActive(false);
+		t5PapelTexto6.SetActive(false);
+		t5PapelTexto7.SetActive(false);
+	}
 
     public void ShowT5()
     {
@@ -152,15 +191,25 @@ public class Tutorial : MonoBehaviour
 		t5PapelTexto7.SetActive(true);
 
     	t5end = true;
-    	FinishTutorial();
-		//Precisa achar um método para fechar o tutorial e reiniciar caso necessário
-		//gameObject.SetActive(false);
-
 	}    
+
 
     private WaitForSeconds Wait(float time)
     {
     	return new WaitForSeconds(time);	
-    }
+    }    
+
+
+    private IEnumerator _FinishTutorial()
+    {
+    	yield return new WaitForSeconds(1);
+    	TutorialOn = false;
+    	step = -1;
+    	// print("Finished Tutorial");
+    }    
+
+
+
+  
 
 }
