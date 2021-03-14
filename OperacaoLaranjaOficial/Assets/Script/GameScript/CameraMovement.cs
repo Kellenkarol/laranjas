@@ -32,6 +32,10 @@ public class CameraMovement : MonoBehaviour
             if (Vector3.Distance(camReference.transform.position, destiny.position) ==0)
             {
                 destiny = null;
+                if (_cenaEmTela == "Fase1")
+                {
+                    Tutorial.StartTutorial();
+                }
                 ManagerGame.Instance.LockPlayerActive = false;
             }
         }
