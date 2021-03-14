@@ -16,7 +16,6 @@ public class Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    	// StartCoroutine("TestTutorial");
     }
 
     // Update is called once per frame
@@ -24,7 +23,8 @@ public class Tutorial : MonoBehaviour
     {
     	if(TutorialOn)
     	{
-	    	click = false;
+
+			click = false;
 	        if(Input.GetMouseButtonDown(0) || step == -1)
 	        {
 		    	click = true;
@@ -68,13 +68,6 @@ public class Tutorial : MonoBehaviour
 	        }
     	}
     }
-
-    private IEnumerator TestTutorial()
-    {
-    	yield return Wait(5);
-    	StartTutorial();
-    }
-
     public static void StartTutorial()
     {
     	float waitAux=0;
@@ -85,6 +78,7 @@ public class Tutorial : MonoBehaviour
 
     public static void FinishTutorial()
     {
+		
     	TutorialOn = false;
     }
 
@@ -158,9 +152,11 @@ public class Tutorial : MonoBehaviour
 		t5PapelTexto7.SetActive(true);
 
     	t5end = true;
-    	// TutorialOn = false;
     	FinishTutorial();
-    }    
+		//Precisa achar um método para fechar o tutorial e reiniciar caso necessário
+		//gameObject.SetActive(false);
+
+	}    
 
     private WaitForSeconds Wait(float time)
     {
