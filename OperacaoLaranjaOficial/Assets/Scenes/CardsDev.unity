@@ -578,7 +578,7 @@ Transform:
   - {fileID: 2086020092}
   - {fileID: 1181309215}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583907491
 GameObject:
@@ -659,7 +659,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714066900
 GameObject:
@@ -811,88 +811,3 @@ Transform:
   m_Father: {fileID: 1439872795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4387795085435673916
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 23.621078
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 39.256546
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.03125
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257300, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257301, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: CardDeck.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931650375001257301, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: Position
-      value: 
-      objectReference: {fileID: 1439872794}
-    - target: {fileID: 2931650375001257301, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: CardDeck.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6968c8b5709be584e8219b44c35dbd97,
-        type: 2}
-    - target: {fileID: 2931650375001257303, guid: 92d6f465050cc5b4bb36398c828c367d,
-        type: 3}
-      propertyPath: m_Name
-      value: BoloDeCartas
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 92d6f465050cc5b4bb36398c828c367d, type: 3}
