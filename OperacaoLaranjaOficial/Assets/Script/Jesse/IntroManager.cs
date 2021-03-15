@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
@@ -82,6 +83,7 @@ public class IntroManager : MonoBehaviour
     		video.SetDirectAudioVolume(0, 1-auxTime/time);
     		yield return null;
     	}
+    	SceneManager.LoadScene(1);
     }
 
 }
