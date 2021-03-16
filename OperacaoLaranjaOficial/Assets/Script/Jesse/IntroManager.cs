@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
-	public VideoPlayer video;
+	public VideoPlayer videoIntro, videoAbertura;
 	public Button bt;
 	public Text btText;
 	public Image blackScreen;
@@ -20,15 +20,14 @@ public class IntroManager : MonoBehaviour
     {
 		bt.enabled = false;  
 		btText.gameObject.SetActive(false); 
-		StartCoroutine("ShowSkipButton");
-		StartCoroutine("Finished");
+    	StartCoroutine("AllScript");
     }
 
 
     public void Skip()
     {
     	print("Video skiped");
-    	StartCoroutine(HideVideoGradually(2));
+    	StartCoroutine(HideVideoGradually(videoIntro, 2, true));
 
     }
 
@@ -40,11 +39,9 @@ public class IntroManager : MonoBehaviour
     }
 
 
-    private IEnumerator ShowSkipButton()
-    {
-    	yield return new WaitForSeconds(6);
-    	StartCoroutine(ShowSkipButtonGradually(2));
-    }
+    // private IEnumerator ShowSkipButton()
+    // {
+    // }
 
 
     private IEnumerator ShowSkipButtonGradually(float time)
@@ -67,7 +64,7 @@ public class IntroManager : MonoBehaviour
     }
 
 
-    private IEnumerator HideVideoGradually(float time)
+    private IEnumerator HideVideoGradually(VideoPlayer video, float time, bool lastVideo)
     {
     	// print("DEBUG HERE");
 		bt.enabled = false;   
@@ -83,7 +80,54 @@ public class IntroManager : MonoBehaviour
     		video.SetDirectAudioVolume(0, 1-auxTime/time);
     		yield return null;
     	}
-    	SceneManager.LoadScene(1);
+    	if(lastVideo)
+    	{
+	    	SceneManager.LoadScene(1);
+    	}
+    }
+
+
+    private IEnumerator ShowVideoGradually(VideoPlayer video, float time)
+    {
+    	// print("DEBUG HERE");
+		bt.enabled = false;   
+    	float auxTime=0;
+    	bsColor = blackScreen.color;
+    	bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],1);
+    	blackScreen.color = bsColor;
+
+    	while(auxTime <= time)
+    	{
+    		auxTime += Time.deltaTime;
+    		blackScreen.color = bsColor - new Color(0,0,0,auxTime/time);
+    		video.SetDirectAudioVolume(0, auxTime/time);
+    		yield return null;
+    	}
+    }
+
+
+    private IEnumerator StartChangeVideo()
+    {
+    	yield return new WaitForSeconds(15);
+    }
+
+    private IEnumerator AllScript()
+    {
+    	yield return new WaitForSeconds(14.5f);
+
+    	StartCoroutine(HideVideoGradually(videoAbertura, 2, false));
+    	yield return new WaitForSeconds(2);
+		
+		videoAbertura.gameObject.SetActive(false); 
+		videoIntro.gameObject.SetActive(true); 
+    	StartCoroutine(ShowVideoGradually(videoIntro, 2));
+		StartCoroutine("Finished");
+    	
+    	yield return new WaitForSeconds(6);
+    	StartCoroutine(ShowSkipButtonGradually(2));
+
+
+
     }
 
 }
