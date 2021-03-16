@@ -14,6 +14,14 @@ public class CardDisplay : MonoBehaviour
     [Tooltip("Renderer da carta")] [SerializeField]SpriteRenderer spriteRenderer;
     [Tooltip("Texto da influencia da carta")] [SerializeField]TextMeshPro textValueInfluence;
     [Tooltip("Texto da influencia da carta")] [SerializeField] int _cardOrderDisplayNumber;
+
+    [Header("Card Dissolve")]
+    [ColorUsage(true,true)]
+    [SerializeField] Color colorInitial;
+    [ColorUsage(true, true)]
+    [SerializeField] Color colorFinal;
+    float timerDissolve = 0;
+
     public int CardOrderDisplay
     {
         get { return _cardOrderDisplayNumber; }
@@ -21,11 +29,24 @@ public class CardDisplay : MonoBehaviour
     }
     private void Start()
     {
-
+        GetDamage(cardInfo.influence[1]);
         
     }
 
-
+    private void Update()
+    {
+        if (deadCard)
+        {
+            timerDissolve += Mathf.Clamp01(Time.deltaTime/2);
+            spriteRenderer.material.SetFloat("_dissolveAmount", timerDissolve);
+            Color colorLerp = Color.Lerp(colorInitial, colorFinal, timerDissolve);
+            spriteRenderer.material.SetColor("_Color", colorLerp); 
+            if (timerDissolve >= 1)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
     public void ConfigCardDisplay(CardScriptable newCard)
     {
         cardInfo = newCard;
@@ -65,6 +86,7 @@ public class CardDisplay : MonoBehaviour
     void EndCard()
     {
         deadCard = true;
+        textValueInfluence.gameObject.SetActive(false);
     }
 
     [System.Serializable]

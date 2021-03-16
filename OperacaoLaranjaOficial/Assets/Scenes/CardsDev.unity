@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -428,6 +428,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1042750707450165499, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3789831136093097518, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
         type: 3}
       propertyPath: m_Mesh
@@ -458,15 +463,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorInitial.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorInitial.b
+      value: 0.02745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorFinal.r
+      value: 2.670157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorFinal.b
+      value: 0.06282723
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorFinal.g
+      value: 0.9424084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorInitial.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900349356548705155, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
+        type: 3}
+      propertyPath: colorFinal.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7900349356548705165, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1803632
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 7900349356548705165, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.927148
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 7900349356548705165, guid: 1e37c2ac6fffc8b40827a8b5d3d8b8ef,
         type: 3}
