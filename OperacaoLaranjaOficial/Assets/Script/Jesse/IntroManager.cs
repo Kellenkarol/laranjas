@@ -7,34 +7,52 @@ using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
+	public Camera camPrincipal, camSecundaria;
 	public VideoPlayer videoIntro, videoAbertura;
 	public Button bt;
 	public Text btText;
-	public Image blackScreen;
+	// public Image blackScreen;
 
 	private Color textColor, bsColor;
-
+	private AsyncOperation asyncOperation;
+	private bool aux;
 
     // Start is called before the first frame update
     void Start()
     {
 		bt.enabled = false;  
+		camPrincipal.enabled = false;  
+		camSecundaria.enabled = true;  
 		btText.gameObject.SetActive(false); 
     	StartCoroutine("AllScript");
     }
 
+   	void Update()
+   	{
+   		// if(!aux){
+	    //     asyncOperation = SceneManager.LoadSceneAsync(1);
+	    //     asyncOperation.allowSceneActivation = false;
+	    //     StartCoroutine(LoadScene());        
+	    //     aux = true;
+   		// }
+   	}
 
     public void Skip()
     {
     	print("Video skiped");
+    	// while(!asyncOperation.isDone)
+    	// {
+	    // 	yield return null;
+    	// }
     	StartCoroutine(HideVideoGradually(videoIntro, 2, true));
+
 
     }
 
 
     private IEnumerator Finished()
     {
-    	yield return new WaitForSeconds(18.5f);
+    	yield return new WaitForSeconds(19f);
     	Skip();
     }
 
@@ -69,37 +87,43 @@ public class IntroManager : MonoBehaviour
     	// print("DEBUG HERE");
 		bt.enabled = false;   
     	float auxTime=0;
-    	bsColor = blackScreen.color;
-    	bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],0);
-    	blackScreen.color = bsColor;
+    	// bsColor = blackScreen.color;
+    	// bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],0);
+    	// blackScreen.color = bsColor;
 
     	while(auxTime <= time)
     	{
     		auxTime += Time.deltaTime;
-    		blackScreen.color = bsColor + new Color(0,0,0,auxTime/time);
+    		video.targetCameraAlpha = 1-auxTime/time;
+    		// blackScreen.color = bsColor + new Color(0,0,0,auxTime/time);
     		video.SetDirectAudioVolume(0, 1-auxTime/time);
     		yield return null;
     	}
     	if(lastVideo)
     	{
-	    	SceneManager.LoadScene(1);
+			camPrincipal.enabled = true;  
+			camSecundaria.enabled = false;  
+	    	// SceneManager.LoadScene(1);
+	        // asyncOperation.allowSceneActivation = true;
+	        print("Last");
     	}
     }
 
 
-    private IEnumerator ShowVideoGradually(VideoPlayer video, float time)
+    private IEnumerator ShowVideoGradually(VideoPlayer video, float time, float delay)
     {
     	// print("DEBUG HERE");
 		bt.enabled = false;   
     	float auxTime=0;
-    	bsColor = blackScreen.color;
-    	bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],1);
-    	blackScreen.color = bsColor;
-
+    	// bsColor = blackScreen.color;
+    	// bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],1);
+    	// blackScreen.color = bsColor;
+    	yield return new WaitForSeconds(delay);
     	while(auxTime <= time)
     	{
     		auxTime += Time.deltaTime;
-    		blackScreen.color = bsColor - new Color(0,0,0,auxTime/time);
+    		// blackScreen.color = bsColor - new Color(0,0,0,auxTime/time);
+    		video.targetCameraAlpha = auxTime/time;
     		video.SetDirectAudioVolume(0, auxTime/time);
     		yield return null;
     	}
@@ -113,14 +137,15 @@ public class IntroManager : MonoBehaviour
 
     private IEnumerator AllScript()
     {
+    	StartCoroutine(ShowVideoGradually(videoAbertura, 1, 0));
     	yield return new WaitForSeconds(14.5f);
 
-    	StartCoroutine(HideVideoGradually(videoAbertura, 2, false));
-    	yield return new WaitForSeconds(2);
+    	StartCoroutine(HideVideoGradually(videoAbertura, 1, false));
+    	yield return new WaitForSeconds(1);
 		
 		videoAbertura.gameObject.SetActive(false); 
 		videoIntro.gameObject.SetActive(true); 
-    	StartCoroutine(ShowVideoGradually(videoIntro, 2));
+    	StartCoroutine(ShowVideoGradually(videoIntro, 1, 0));
 		StartCoroutine("Finished");
     	
     	yield return new WaitForSeconds(6);
@@ -128,6 +153,24 @@ public class IntroManager : MonoBehaviour
 
 
 
+    }
+
+
+
+    IEnumerator LoadScene()
+    {
+        // yield return null;
+
+        while (!asyncOperation.isDone)
+        {
+	        asyncOperation.allowSceneActivation = false;
+            // if (asyncOperation.progress >= 0.9f)
+            // {
+            //     asyncOperation.allowSceneActivation = true;
+            // }
+
+            yield return null;
+        }
     }
 
 }
