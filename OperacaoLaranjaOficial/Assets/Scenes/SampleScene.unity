@@ -16118,7 +16118,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.561194, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18808,7 +18808,7 @@ GameObject:
   - component: {fileID: 1701018736}
   - component: {fileID: 1701018735}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24071,6 +24071,11 @@ PrefabInstance:
       propertyPath: cardsSlots
       value: 
       objectReference: {fileID: 1609328246}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: textValueCard
+      value: 
+      objectReference: {fileID: 1701018735}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,68 +1,77 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class DeckCardController : MonoBehaviour
 {
 
-    [Tooltip("Cartas que estarão presentes na fase")]public CardScriptable[] CardDeck;
+    [Tooltip("Cartas que estarão presentes na fase")] public CardScriptable[] CardDeck;
+    [Tooltip("Text quant deck")] [SerializeField] TextMeshPro textValueCard;
+    [Tooltip("Quantidade de cartas no deck")] [SerializeField] int numCard;
     int randomNumberCard;
     public GameObject CardObject, Position;
-    [SerializeField]GameObject[] cardBaseDeck;
-    [SerializeField]List<CardScriptable> newCards = new List<CardScriptable>();
+    [SerializeField] GameObject[] cardBaseDeck;
+    [SerializeField] List<CardScriptable> newCards = new List<CardScriptable>();
     //[SerializeField]List<Dictionary<Transform,bool>> allPositions = new List<Dictionary<Transform,bool>>();
     [SerializeField] List<GameObject> spawnCardSlots = new List<GameObject>();
     public GameObject cardsSlots;
     bool clicado;
+    [SerializeField]
     // Start is called before the first frame update
     public void InicializarDeck()
     {
-        Debug.Log(gameObject.name+" Inicializar teste");
+        numCard = 40;
+        AlterarUINumCard(numCard);
+        Debug.Log(gameObject.name + " Inicializar teste");
         SortearNovaCartaInicial();
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
-        {
-            checkHitObject();
-        }
-        if (Input.GetMouseButtonUp(0) && clicado && !Tutorial.TutorialOn)
-        {
-            clicado = false;
-            bool isCardSpawn = false;
-            for(int i = 0;i< spawnCardSlots.Count; i++)
+        if (numCard > 0) {
+            if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
             {
-                if (spawnCardSlots[i].gameObject.transform.childCount == 0)
-                {
-                    isCardSpawn = true;
-                    StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
-                    newCards.RemoveAt(0);
-                    changeDisplayCardUI();
-                    i = spawnCardSlots.Count;
-                    SortearNovaCartaSimples();
-                }
-                    
+                checkHitObject();
             }
-            if (!isCardSpawn)
+            if (Input.GetMouseButtonUp(0) && clicado && !Tutorial.TutorialOn)
             {
-                ManagerGame.Instance.LockPlayerActive = false;
+                clicado = false;
+                bool isCardSpawn = false;
+                for (int i = 0; i < spawnCardSlots.Count; i++)
+                {
+                    if (spawnCardSlots[i].gameObject.transform.childCount == 0)
+                    {
+                        isCardSpawn = true;
+                        StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
+                        newCards.RemoveAt(0);
+                        changeDisplayCardUI();
+                        i = spawnCardSlots.Count;
+                        SortearNovaCartaSimples();
+                        numCard--;
+                        AlterarUINumCard(numCard);
+                    }
+
+                }
+                if (!isCardSpawn)
+                {
+                    ManagerGame.Instance.LockPlayerActive = false;
+                }
             }
         }
     }
 
-    // // Test
-     /*public void sortearNovaCarta()
-     {
-         randomNumberCard = Random.Range(0, CardDeck.Length);
-         Transform pos = FindPosition(0);
-         GameObject cardTmp = Instantiate(CardObject) as GameObject;
-         CardObject.GetComponent<CardDisplay>().ConfigCardDisplay(CardDeck[randomNumberCard]);
-         cardTmp.transform.position = pos.position;
-         cardTmp.transform.eulerAngles = pos.eulerAngles;
-         SetEmptyOrNot(0, pos, false);
-    }*/
-
+    public void AlterarUINumCard(int number)
+    {
+        if (number == -1)
+        {
+            textValueCard.gameObject.SetActive(false);
+        }
+        else
+        {
+            textValueCard.gameObject.SetActive(true);
+            textValueCard.text = "" + number;
+        }
+    }
     public void LimparTabuleiro()
     {
         newCards.RemoveRange(0, newCards.Count);
@@ -72,6 +81,7 @@ public class DeckCardController : MonoBehaviour
             cardsSlots.transform.GetChild(i).GetComponent<SlotController>().RemoveCard();
         } 
         changeDisplayCardUI();
+        AlterarUINumCard(-1);
     }
     public void SortearNovaCartaInicial()
     {
@@ -94,7 +104,6 @@ public class DeckCardController : MonoBehaviour
     }
     public IEnumerator MoverNovaCarta(GameObject slot)
     {
-        Debug.Log("Puxando carta");
         GameObject cardTemp = Instantiate(CardObject, this.transform.GetChild(2).transform.position, slot.transform.rotation) as GameObject;
         cardTemp.GetComponent<CardDisplay>().ConfigCardDisplay(newCards[0]);
         cardTemp.GetComponent<CardMovement>().paiObjeto = slot;

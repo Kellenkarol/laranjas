@@ -315,6 +315,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7900349356548705154}
   textValueInfluence: {fileID: 5307334854772698570}
   _cardOrderDisplayNumber: 0
+  colorInitial: {r: 1, g: 0, b: 0.02745098, a: 1}
+  colorFinal: {r: 2.670157, g: 0.9424084, b: 0.06282723, a: 1}
 --- !u!114 &1042750707450165499
 MonoBehaviour:
   m_ObjectHideFlags: 0

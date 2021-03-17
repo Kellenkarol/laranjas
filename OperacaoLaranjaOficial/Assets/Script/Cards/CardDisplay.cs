@@ -29,7 +29,7 @@ public class CardDisplay : MonoBehaviour
     }
     private void Start()
     {
-        GetDamage(cardInfo.influence[1]);
+        
         
     }
 
@@ -64,7 +64,7 @@ public class CardDisplay : MonoBehaviour
         {
             textValueInfluence.text = "" + cardGame.Influence;
         }
-        
+        spriteRenderer.material.SetTexture("_MainText", cardInfo.imageCard.texture);
     }
     public void GetDamage(int influenceDamage)
     {

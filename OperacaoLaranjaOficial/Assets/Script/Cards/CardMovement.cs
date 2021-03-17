@@ -23,7 +23,8 @@ public class CardMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cardInicializada)
+        Debug.Log("Card Inicializada: "+ cardInicializada);
+        if (cardInicializada)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -95,6 +96,7 @@ public class CardMovement : MonoBehaviour
         }
         else
         {
+            Debug.Log("Vamos Posicao");
             this.transform.position = Vector3.MoveTowards(this.transform.position, paiObjeto.transform.position, 30f * Time.deltaTime);
             if (Vector3.Distance(this.transform.position, paiObjeto.transform.position) == 0)
             {
@@ -102,6 +104,7 @@ public class CardMovement : MonoBehaviour
                 cardInicializada = true;
                 ManagerGame.Instance.LockPlayerActive = false;
                 this.transform.SetParent(paiObjeto.transform);
+                GetComponent<CardDisplay>().GetDamage(100);
                 checkTypeCard();
             }
         }
@@ -128,7 +131,6 @@ public class CardMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Teste");
         if (clicado)
         {
             if (collision.gameObject.GetComponent<SlotController>() != null)
