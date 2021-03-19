@@ -8,10 +8,13 @@ using UnityEngine.SceneManagement;
 public class IntroManager : MonoBehaviour
 {
 	public Camera camPrincipal, camSecundaria;
-	public VideoPlayer videoIntro, videoAbertura;
+	public VideoPlayer videoIntro, videoAbertura, videoGameOver;
 	public Button bt;
 	public Text btText;
-	// public Image blackScreen;
+	public GameObject blackScreen;
+
+	static VideoPlayer _videoGameOver;
+	static GameObject _blackScreen;
 
 	private Color textColor, bsColor;
 	private AsyncOperation asyncOperation;
@@ -20,6 +23,8 @@ public class IntroManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    	_videoGameOver = videoGameOver;
+    	_blackScreen = blackScreen;
 		bt.enabled = false;  
 		camPrincipal.enabled = false;  
 		camSecundaria.enabled = true;  
@@ -102,7 +107,9 @@ public class IntroManager : MonoBehaviour
     	if(lastVideo)
     	{
 			camPrincipal.enabled = true;  
-			camSecundaria.enabled = false;  
+			camSecundaria.enabled = false;
+			videoIntro.gameObject.SetActive(false); 
+
 	    	// SceneManager.LoadScene(1);
 	        // asyncOperation.allowSceneActivation = true;
 	        print("Last");
@@ -135,6 +142,7 @@ public class IntroManager : MonoBehaviour
     	yield return new WaitForSeconds(15);
     }
 
+
     private IEnumerator AllScript()
     {
     	StartCoroutine(ShowVideoGradually(videoAbertura, 1, 0));
@@ -150,8 +158,6 @@ public class IntroManager : MonoBehaviour
     	
     	yield return new WaitForSeconds(6);
     	StartCoroutine(ShowSkipButtonGradually(2));
-
-
 
     }
 
@@ -172,6 +178,17 @@ public class IntroManager : MonoBehaviour
             yield return null;
         }
     }
+
+
+    // public static IEnumerator ShowGameOverAnim()
+    // {
+    // 	_blackScreen.SetActive(true);
+    // 	StartCoroutine(ShowVideoGradually(_videoGameOver, 1, 0));
+    // }
+
+
+
+
 
 }
 

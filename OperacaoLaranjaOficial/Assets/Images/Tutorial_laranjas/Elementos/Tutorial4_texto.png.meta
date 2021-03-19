@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 3675703263026484514
     second: Tutorial4_texto_7
+  - first:
+      213: 8649452677115666343
+    second: Tutorial4_texto_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -278,7 +281,7 @@ TextureImporter:
         width: 2113
         height: 1297
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,6 +289,27 @@ TextureImporter:
       bones: []
       spriteID: 225107c94a8b20330800000000000000
       internalID: 3675703263026484514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_8
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 3392
+        width: 87
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afd7011267090870800000000000000
+      internalID: 8649452677115666343
       vertices: []
       indices: 
       edges: []
