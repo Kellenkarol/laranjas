@@ -83,7 +83,6 @@ public class CardMovement : MonoBehaviour
                     this.transform.position = paiObjeto.transform.position;
                     this.transform.eulerAngles = paiObjeto.transform.eulerAngles;
                 }
-                Debug.Log("OLAAAA");
                 cardPosition.RemoveRange(0, cardPosition.Count);
                 cardObjective.RemoveRange(0, cardObjective.Count);
             }
@@ -104,7 +103,7 @@ public class CardMovement : MonoBehaviour
                 cardInicializada = true;
                 ManagerGame.Instance.LockPlayerActive = false;
                 this.transform.SetParent(paiObjeto.transform);
-                GetComponent<CardDisplay>().GetDamage(100);
+                //GetComponent<CardDisplay>().GetDamage(100);
                 checkTypeCard();
             }
         }
