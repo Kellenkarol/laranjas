@@ -35,6 +35,7 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator StartGameOverAnim()
     {
+        GameOver.SetActive(false);
         GameOver.SetActive(true);
         GameOver.transform.position = Camera.main.transform.position + new Vector3(-13.34f,-25.9f,20);
         BlackScreenIn.SetActive(false);

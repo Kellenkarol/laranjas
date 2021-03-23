@@ -7,13 +7,22 @@ using UnityEngine.SceneManagement;
 public class LoadingManager : MonoBehaviour
 {
 	public Image image;
+	public bool test;
 	private AsyncOperation asyncOperation;
 
     // Start is called before the first frame update
     void Start()
     {
+    	if(!test)
+    	{
+
         StartCoroutine("LoadScene");
         StartCoroutine("LoadSceneAux");
+    	}
+    	else
+    	{
+    		SceneManager.LoadScene(0);
+    	}
     }
 
 
