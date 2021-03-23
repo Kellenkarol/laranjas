@@ -75,4 +75,9 @@ public class CameraMovement : MonoBehaviour
     {
     	return destiny ? true : false;
     }
+
+    public void SetPosition(int valueDestiny)
+    {
+        camReference.transform.position = transformPositions[valueDestiny].position;
+    }
 }

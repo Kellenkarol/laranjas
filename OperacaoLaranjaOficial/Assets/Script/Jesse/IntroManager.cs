@@ -8,13 +8,10 @@ using UnityEngine.SceneManagement;
 public class IntroManager : MonoBehaviour
 {
 	public Camera camPrincipal, camSecundaria;
-	public VideoPlayer videoIntro, videoAbertura, videoGameOver;
+	public VideoPlayer videoIntro, videoAbertura;
 	public Button bt;
 	public Text btText;
-	public GameObject blackScreen;
-
-	static VideoPlayer _videoGameOver;
-	static GameObject _blackScreen;
+	// public GameObject blackScreen;
 
 	private Color textColor, bsColor;
 	private AsyncOperation asyncOperation;
@@ -23,8 +20,6 @@ public class IntroManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    	_videoGameOver = videoGameOver;
-    	_blackScreen = blackScreen;
 		bt.enabled = false;  
 		camPrincipal.enabled = false;  
 		camSecundaria.enabled = true;  

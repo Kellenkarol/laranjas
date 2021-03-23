@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour
 {
-	public GameObject BlackScreen;
-	public VideoPlayer GameOver;
+	public GameObject GameOver, BlackScreenIn, BlackScreenOut;
     public Camera MainCamera, SecondCamera;
+    public CameraMovement CameraMovementScript;
+    [HideInInspector]
+    public bool IsActive;
 
     // Start is called before the first frame update
     void Start()
@@ -15,39 +17,44 @@ public class GameOverManager : MonoBehaviour
         ShowGameOverAnim();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    // Função principal que chama a animação do GameOver
+    public void ShowGameOverAnim()
     {
-        
+        IsActive = true;
+        StartCoroutine("StartGameOverAnim");
     }
 
 
-    public void ShowGameOverAnim()
+    //  Encerra a animação do GameOver -----
+    public void FinishAnim()
     {
-        StartCoroutine("StartGameOverAnim");
+        StartCoroutine("FinishGameOverAnim");
     }
 
 
     private IEnumerator StartGameOverAnim()
     {
-        BlackScreen.SetActive(true);
-        yield return new WaitForSeconds(0.9f);
-        MainCamera.enabled = false;
-        SecondCamera.enabled = true;
-        GameOver.gameObject.SetActive(true);
-        StartCoroutine(ShowVideoGradually(GameOver, 0.5f, 0));
+        GameOver.SetActive(true);
+        GameOver.transform.position = Camera.main.transform.position + new Vector3(-13.34f,-25.9f,20);
+        BlackScreenIn.SetActive(false);
+        BlackScreenOut.SetActive(false);
+        yield return null;
     }
 
 
-    public void FinishAnim()
+    private IEnumerator FinishGameOverAnim()
     {
-        BlackScreen.SetActive(false);
-        GameOver.gameObject.SetActive(false);
-        MainCamera.enabled = true;
-        SecondCamera.enabled = false;
+        BlackScreenIn.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        CameraMovementScript.SetPosition(0);
+        BlackScreenOut.SetActive(true);
+        BlackScreenIn.SetActive(false);
+        GameOver.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        BlackScreenOut.SetActive(false);
+        IsActive = false;
     }
-
-
 
 
     private IEnumerator ShowVideoGradually(VideoPlayer video, float time, float delay)
@@ -61,4 +68,6 @@ public class GameOverManager : MonoBehaviour
             yield return null;
         }
     }
+
+
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonScript : MonoBehaviour
 {
-    public enum Button {Play,Niveis,Gravações,Configurações, Agentes_Especiais,Voltar_Menu,
+    public enum Button {Play,Niveis,Gravações,Configurações, Agentes_Especiais,Voltar_Menu,Reiniciar,GameOver_Voltar_Menu,
         Fase1,Fase2,Fase3,Fase4,
         Agente_Kellen, Agente_Bruna, Agente_Matheus, Agente_Leandro, Agente_Edilson, Agente_Jesse
     }
@@ -14,6 +14,7 @@ public class ButtonScript : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public Sprite[] status;
     CameraMovement camMove;
+    public GameOverManager gameOverScript;
     private SmartPhoneAnimation animScript;
     [SerializeField]DeckCardController deckCard;
     private void Start()
@@ -26,7 +27,7 @@ public class ButtonScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving())
+        if(CanClick())
         {
 	        spriteRenderer.sprite = status[1];
         }
@@ -34,13 +35,12 @@ public class ButtonScript : MonoBehaviour
     private void OnMouseUp()
     {
         Debug.Log(animScript.gameObject.name);
-        if (!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving())
+        if (CanClick())
         {
 	        Debug.Log(this.gameObject.name);
 	        actionButton();
         }
         spriteRenderer.sprite = status[0];
-        // print("selectedButton: "+selectedButton);
     }
 
     void actionButton()
@@ -68,6 +68,15 @@ public class ButtonScript : MonoBehaviour
                 if(deckCard)
                 {
                     deckCard.LimparTabuleiro();
+                }
+                break;
+            case Button.Reiniciar:
+                // Reinicia nivel atual
+                break;
+            case Button.GameOver_Voltar_Menu:
+                if(gameOverScript)
+                {
+                    gameOverScript.FinishAnim();
                 }
                 break;
             case Button.Fase1:
@@ -104,9 +113,26 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
+
     private void PhoneAnim()
     {
 	    animScript.StartAnim();
+    }
 
+
+    private bool CanClick()
+    {
+        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving())
+        {
+            if(gameOverScript)
+            {
+                if(gameOverScript.IsActive)
+                {
+                    return (selectedButton == Button.GameOver_Voltar_Menu || selectedButton == Button.Reiniciar);
+                }
+            }
+            return true;
+        }
+        return false;
     }
 }

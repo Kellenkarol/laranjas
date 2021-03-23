@@ -106,7 +106,7 @@ public class Tutorial : MonoBehaviour
 		t4Texto1.SetActive(false);
 		t4Seta1.SetActive(false);
 		t4Destaque1.SetActive(false);
-		InfluenceSize.SetActive(false);
+		// InfluenceSize.SetActive(false);
 		t4CardYellow.SetActive(false);
 		t4PapelTexto2.SetActive(false);
 		t4CardBlue.SetActive(false);
@@ -116,7 +116,7 @@ public class Tutorial : MonoBehaviour
 		t4Texto2.SetActive(false);
 		t4Seta2.SetActive(false);
 		t4Destaque2.SetActive(false);
-		DeckSize.SetActive(false);
+		// DeckSize.SetActive(false);
 
     }
 
@@ -145,7 +145,7 @@ public class Tutorial : MonoBehaviour
 		t4Texto1.SetActive(true);
 		t4Seta1.SetActive(true);
 		t4Destaque1.SetActive(true);
-		InfluenceSize.SetActive(true);
+		// InfluenceSize.SetActive(true);
 		while(!click){ yield return null;}
 		click = false;
 
@@ -170,7 +170,7 @@ public class Tutorial : MonoBehaviour
 		t4Texto2.SetActive(true);
 		t4Seta2.SetActive(true);
 		t4Destaque2.SetActive(true);
-		DeckSize.SetActive(true);
+		// DeckSize.SetActive(true);
     	t4end = true;
     }
 
