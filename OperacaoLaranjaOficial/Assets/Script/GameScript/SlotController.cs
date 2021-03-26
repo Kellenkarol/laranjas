@@ -6,6 +6,22 @@ public class SlotController : MonoBehaviour
 {
     [SerializeField] Slot slotObject;
 
+
+
+    private void Update()
+    {
+        if(slotObject.TypeSlot.ToString() != "Enemy")
+        {
+            if (transform.childCount == 0)
+            {
+                GetComponent<Collider2D>().enabled = true;
+            }
+            else
+            {
+                GetComponent<Collider2D>().enabled = false;
+            }
+        }
+    }
     public Slot SlotObjective
     {
         get { return slotObject; }

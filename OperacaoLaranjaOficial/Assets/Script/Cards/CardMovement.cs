@@ -11,7 +11,7 @@ public class CardMovement : MonoBehaviour
     [SerializeField]List<GameObject> cardPosition;
     public bool cardInicializada;
     [HideInInspector]public GameObject paiObjeto;
-    bool actionMouseClick;
+    [SerializeField] bool actionMouseClick;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,6 @@ public class CardMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Card Inicializada: "+ cardInicializada);
         if (cardInicializada)
         {
             if (Input.GetMouseButtonDown(0))
@@ -52,31 +51,26 @@ public class CardMovement : MonoBehaviour
                         cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
                         Destroy(this.gameObject);
                     }
+
+                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    {
+                        Debug.Log("Vim aqui");
+                        actionMouseClick = true;
+                        this.GetComponent<CardDisplay>().GainLife(cardObjective[0].GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                        cardPosition.Add(cardObjective[0].transform.parent.gameObject);
+                        Destroy(cardObjective[0].gameObject);
+                        if (cardPosition.Count > 0)
+                        {
+                            Debug.Log("Terei que mudar de posicao");
+                            ActionChangeCardPosition(cardPosition[0]);
+                        }
+                    }
                 }
+
+
                 if(cardPosition.Count>0 && !actionMouseClick)
                 {
-                    if (cardPosition.Count > 0)
-                    {
-                        for(int i =0;i< cardPosition.Count; i++)
-                        {
-                            if (cardPosition[i].gameObject.transform.childCount == 0)
-                            {
-                                if (cardPosition[i].GetComponent<SlotController>().SlotObjective.TypeSlot == Slot.TypeSlotEnum.Ally ||
-                                    cardPosition[i].GetComponent<SlotController>().SlotObjective.TypeSlot == Slot.TypeSlotEnum.Bag)
-                                {
-                                    this.transform.SetParent(cardPosition[i].transform);
-                                    this.transform.position = cardPosition[i].transform.position;
-                                    this.transform.eulerAngles = cardPosition[i].transform.eulerAngles;
-                                    paiObjeto = cardPosition[i];
-                                    cardPosition.RemoveRange(0, cardPosition.Count);
-                                    i = cardPosition.Count;
-                                    actionMouseClick = true;
-                                }
-                            }
-
-                        }
-
-                    }
+                    changeCardPosition();
                 }
                 if(!actionMouseClick)
                 {
@@ -108,6 +102,36 @@ public class CardMovement : MonoBehaviour
             }
         }
     }
+    void changeCardPosition()
+    {
+        Debug.Log("teste: "+ cardPosition.Count);
+        for (int i = 0; i < cardPosition.Count; i++)
+        {
+            Debug.Log("teste1: " + cardPosition.Count);
+            if (cardPosition[i].gameObject.transform.childCount == 0)
+            {
+                Debug.Log("teste2: " + cardPosition.Count);
+                ActionChangeCardPosition(cardPosition[i]);
+                cardPosition.RemoveRange(0, cardPosition.Count);
+                i = cardPosition.Count;
+            }
+
+        }
+    }
+    void ActionChangeCardPosition(GameObject cardPosition)
+    {
+        if (cardPosition.GetComponent<SlotController>().SlotObjective.TypeSlot == Slot.TypeSlotEnum.Ally ||
+                    cardPosition.GetComponent<SlotController>().SlotObjective.TypeSlot == Slot.TypeSlotEnum.Bag)
+        {
+            Debug.Log("teste3: " + cardPosition.name);
+            this.transform.SetParent(cardPosition.transform);
+            this.transform.position = cardPosition.transform.position;
+            this.transform.eulerAngles = cardPosition.transform.eulerAngles;
+            paiObjeto = cardPosition;
+            Debug.Log("Realizei a mudança");
+            actionMouseClick = true;
+        }
+    }
     void checkHitObject()
     {
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
@@ -117,6 +141,7 @@ public class CardMovement : MonoBehaviour
             hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+2;
             hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay + 3;
             hit2D.collider.gameObject.GetComponent<CardMovement>().clicado = true;
+            Debug.Log(hit2D.collider.gameObject.GetComponent<CardMovement>().clicado);
             hit2D.collider.gameObject.GetComponent<CardMovement>().actionMouseClick = false;
             hit2D.collider.gameObject.transform.eulerAngles = new Vector3(0,0,0);
         }
