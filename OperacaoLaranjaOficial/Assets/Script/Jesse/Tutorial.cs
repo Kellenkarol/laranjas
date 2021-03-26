@@ -12,7 +12,7 @@ public class Tutorial : MonoBehaviour
 	full_tc, full_tcOut, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
 	t4Papel, t4PapelTexto1, t4PapelTexto2, t4PapelTexto3, t4PapelTexto4,
 	t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t4CardYellow, t4CardBlue, 
-	t4CardRed, DeckSize, InfluenceSize; 
+	t4CardRed, DeckSize, InfluenceSize, skipButton, toquePC; 
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +32,15 @@ public class Tutorial : MonoBehaviour
 	        	if(t4end&&t5end)
 	        	{
 		        	step++;
-		        	print("Step: "+step);
+		        	// print("Step: "+step);
 		        	if(step == 0)
 		        	{
 						t5Out.SetActive(false);
 						full_tcOut.SetActive(false);
 		        		full_tc.SetActive(true);
 		        		t1.SetActive(true);
+		        		skipButton.SetActive(true);
+		        		toquePC.SetActive(true);
 		        	}
 		        	else if(step == 1)
 		        	{
@@ -81,6 +83,11 @@ public class Tutorial : MonoBehaviour
 		        	}
 	        	}
 	        }
+    	}
+    	else
+    	{
+			t5end = t4end = true;
+    		step = -1;
     	}
     }
     public static void StartTutorial()
@@ -202,6 +209,8 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator _FinishTutorial()
     {
+		toquePC.SetActive(false);
+		skipButton.SetActive(false);
     	yield return new WaitForSeconds(1);
     	TutorialOn = false;
     	step = -1;
@@ -209,6 +218,40 @@ public class Tutorial : MonoBehaviour
     }    
 
 
+    public void Skip()
+    {
+    	StopAllCoroutines();
+		t1.SetActive(false);
+
+		t2.SetActive(false);
+
+		t3.SetActive(false);
+
+		t4.SetActive(false);
+
+		t5.SetActive(false);
+
+
+
+		t1Out.SetActive(false);
+
+		t2Out.SetActive(false);
+
+		t3Out.SetActive(false);
+
+		t4Out.SetActive(false);
+
+		t5Out.SetActive(false);
+
+
+    	HideT4();
+    	HideT5();
+		full_tc.SetActive(false);
+		full_tcOut.SetActive(true);
+		TutorialOn = false;
+		toquePC.SetActive(false);
+		skipButton.SetActive(false);
+    }
 
   
 
