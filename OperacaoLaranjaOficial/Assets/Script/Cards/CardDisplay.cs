@@ -27,12 +27,6 @@ public class CardDisplay : MonoBehaviour
         get { return _cardOrderDisplayNumber; }
         set { _cardOrderDisplayNumber = value; }
     }
-    private void Start()
-    {
-        
-        
-    }
-
     private void Update()
     {
         if (deadCard)

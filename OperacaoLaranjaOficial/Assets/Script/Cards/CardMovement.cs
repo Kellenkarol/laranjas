@@ -12,6 +12,7 @@ public class CardMovement : MonoBehaviour
     public bool cardInicializada;
     [HideInInspector]public GameObject paiObjeto;
     [SerializeField] bool actionMouseClick;
+    [SerializeField] DeckCardController deckCardActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,7 @@ public class CardMovement : MonoBehaviour
                 clicado = false;
                 if (cardObjective.Count > 0)
                 {
-                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;
                         cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
@@ -45,24 +46,45 @@ public class CardMovement : MonoBehaviour
 
                     }
 
-                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Ally" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
+                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Ally" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
                     {
-                        actionMouseClick = true;
-                        cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
-                        Destroy(this.gameObject);
+                        if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
+                        {
+                            actionMouseClick = true;
+                            cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            Destroy(this.gameObject);
+                        }
                     }
 
-                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
-                        Debug.Log("Vim aqui");
-                        actionMouseClick = true;
-                        this.GetComponent<CardDisplay>().GainLife(cardObjective[0].GetComponent<CardDisplay>().cardGame.InfluenceEffect);
-                        cardPosition.Add(cardObjective[0].transform.parent.gameObject);
-                        Destroy(cardObjective[0].gameObject);
-                        if (cardPosition.Count > 0)
+                        if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
                         {
-                            Debug.Log("Terei que mudar de posicao");
-                            ActionChangeCardPosition(cardPosition[0]);
+                            Debug.Log("Vim aqui");
+                            actionMouseClick = true;
+                            this.GetComponent<CardDisplay>().GainLife(cardObjective[0].GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            cardPosition.Add(cardObjective[0].transform.parent.gameObject);
+                            Destroy(cardObjective[0].gameObject);
+                            if (cardPosition.Count > 0)
+                            {
+                                Debug.Log("Terei que mudar de posicao");
+                                ActionChangeCardPosition(cardPosition[0]);
+                            }
+                        }
+                    }
+
+
+                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    {
+                        if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
+                        {
+                            int cardEnemyInfluenceInitial = cardObjective[0].GetComponent<CardDisplay>().cardGame.Influence;
+                            if(cardEnemyInfluenceInitial> this.GetComponent<CardDisplay>().cardGame.Influence)
+                            {
+                                deckCardActive.DamageMarta(cardEnemyInfluenceInitial - this.GetComponent<CardDisplay>().cardGame.Influence);
+                            }
+                            cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence);
+                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial);
                         }
                     }
                 }
@@ -101,6 +123,10 @@ public class CardMovement : MonoBehaviour
                 checkTypeCard();
             }
         }
+    }
+    public void DefineDeckCard(DeckCardController deck)
+    {
+        deckCardActive = deck;
     }
     void changeCardPosition()
     {

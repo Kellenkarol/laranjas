@@ -12,51 +12,73 @@ public class DeckCardController : MonoBehaviour
     public GameObject CardObject, Position;
     [SerializeField] GameObject[] cardBaseDeck;
     [SerializeField] List<CardScriptable> newCards = new List<CardScriptable>();
-    //[SerializeField]List<Dictionary<Transform,bool>> allPositions = new List<Dictionary<Transform,bool>>();
     [SerializeField] List<GameObject> spawnCardSlots = new List<GameObject>();
+    const int initialMartaInfluence = 15;
     public GameObject cardsSlots;
     bool clicado;
-    [SerializeField]
-    // Start is called before the first frame update
-    public void InicializarDeck()
-    {
-        numCard = 40;
-        AlterarUINumCard(numCard);
-        Debug.Log(gameObject.name + " Inicializar teste");
-        SortearNovaCartaInicial();
-    }
+    [SerializeField]MartaPollaroid marta;
     // Update is called once per frame
     void Update()
     {
         if (numCard > 0) {
-            if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
+            if (marta.InfluenciaMarta > 0)
             {
-                checkHitObject();
-            }
-            if (Input.GetMouseButtonUp(0) && clicado && !Tutorial.TutorialOn)
-            {
-                clicado = false;
-                bool isCardSpawn = false;
-                for (int i = 0; i < spawnCardSlots.Count; i++)
+                if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
                 {
-                    if (spawnCardSlots[i].gameObject.transform.childCount == 0)
+                    checkHitObject();
+                }
+                if (Input.GetMouseButtonUp(0) && clicado && !Tutorial.TutorialOn)
+                {
+                    clicado = false;
+                    bool isCardSpawn = false;
+                    for (int i = 0; i < spawnCardSlots.Count; i++)
                     {
-                        isCardSpawn = true;
-                        StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
-                        newCards.RemoveAt(0);
-                        changeDisplayCardUI();
-                        i = spawnCardSlots.Count;
-                        SortearNovaCartaSimples();
-                        numCard--;
-                        AlterarUINumCard(numCard);
-                    }
+                        if (spawnCardSlots[i].gameObject.transform.childCount == 0)
+                        {
+                            isCardSpawn = true;
+                            StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
+                            newCards.RemoveAt(0);
+                            changeDisplayCardUI();
+                            i = spawnCardSlots.Count;
+                            SortearNovaCartaSimples();
+                            numCard--;
+                            AlterarUINumCard(numCard);
+                        }
 
-                }
-                if (!isCardSpawn)
-                {
-                    ManagerGame.Instance.LockPlayerActive = false;
+                    }
+                    if (!isCardSpawn)
+                    {
+                        ManagerGame.Instance.LockPlayerActive = false;
+                    }
                 }
             }
+            else
+            {
+                //Declarar derrota
+                Debug.Log("Derrota");
+            }
+        }
+        else
+        {
+            // Declarar Vitoria
+            bool vitoriaDetected = true;
+            foreach (GameObject spawnSlot in spawnCardSlots)
+            {
+                if (spawnSlot.transform.childCount > 0)
+                {
+                    if (spawnSlot.GetComponentInChildren<CardDisplay>().cardGame.TypeCard == "Enemy")
+                    {
+                        vitoriaDetected = false;
+                    }
+                }
+
+            }
+
+            if (vitoriaDetected)
+            {
+                Debug.Log("Vitoria fase uhu");
+            }
+
         }
     }
 
@@ -72,16 +94,24 @@ public class DeckCardController : MonoBehaviour
             textValueCard.text = "" + number;
         }
     }
+    public void InicializarDeck()
+    {
+        numCard = 40;
+        AlterarUINumCard(numCard);
+        marta.AlterarInfluenciaMarta(initialMartaInfluence);
+        Debug.Log(gameObject.name + " Inicializar teste");
+        SortearNovaCartaInicial();
+    }
     public void LimparTabuleiro()
     {
         newCards.RemoveRange(0, newCards.Count);
-        Debug.Log(cardsSlots.transform.childCount);
         for (int i = 0; i < cardsSlots.transform.childCount; i++)
         {
             cardsSlots.transform.GetChild(i).GetComponent<SlotController>().RemoveCard();
         } 
         changeDisplayCardUI();
         AlterarUINumCard(-1);
+        marta.AlterarInfluenciaMarta(-marta.InfluenciaMarta);
     }
     public void SortearNovaCartaInicial()
     {
@@ -107,9 +137,14 @@ public class DeckCardController : MonoBehaviour
         GameObject cardTemp = Instantiate(CardObject, this.transform.GetChild(2).transform.position, slot.transform.rotation) as GameObject;
         cardTemp.GetComponent<CardDisplay>().ConfigCardDisplay(newCards[0]);
         cardTemp.GetComponent<CardMovement>().paiObjeto = slot;
+        cardTemp.GetComponent<CardMovement>().DefineDeckCard(this.GetComponent<DeckCardController>());
         yield return null;
     }
 
+    public void DamageMarta(int damageValue)
+    {
+        marta.AlterarInfluenciaMarta(-damageValue);
+    }
     public void changeDisplayCardUI()
     {
         if (newCards.Count > 0) 

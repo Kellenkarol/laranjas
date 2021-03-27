@@ -16,6 +16,7 @@ public class ButtonScript : MonoBehaviour
     CameraMovement camMove;
     public GameOverManager gameOverScript;
     private SmartPhoneAnimation animScript;
+    GameControllerScript gm;
     [SerializeField]DeckCardController deckCard;
     private void Start()
     {
@@ -23,6 +24,7 @@ public class ButtonScript : MonoBehaviour
         animScript = GameObject.Find("SmartPhoneGameObject/SmartPhone").GetComponent<SmartPhoneAnimation>();
         spriteRenderer.sprite = status[0];
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
+        gm = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameControllerScript>();
     }
 
     private void OnMouseDown()
@@ -51,7 +53,6 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(2);
                 break;
             case Button.Niveis:
-                Debug.Log("Testando");
                 camMove.SetDestiny(1);
                 break;
             case Button.Gravações:
@@ -67,6 +68,7 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(0);
                 if(deckCard)
                 {
+                    gm.desativarFase();
                     deckCard.LimparTabuleiro();
                 }
                 break;
