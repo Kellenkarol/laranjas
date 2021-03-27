@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3428460223203003156}
   - component: {fileID: 3428460223203003157}
   m_Layer: 5
-  m_Name: CardArrestAnim 2
+  m_Name: CardArrestAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,7 +402,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 114
   m_TargetDisplay: 0
 --- !u!114 &3428460223203003156
 MonoBehaviour:

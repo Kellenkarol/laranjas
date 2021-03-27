@@ -39,9 +39,9 @@ public class ButtonScript : MonoBehaviour
         Debug.Log(animScript.gameObject.name);
         if (CanClick())
         {
-	        Debug.Log(this.gameObject.name);
 	        actionButton();
         }
+        Debug.Log("DEBUG HERE!");
         spriteRenderer.sprite = status[0];
     }
 

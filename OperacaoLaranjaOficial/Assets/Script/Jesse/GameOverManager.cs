@@ -14,15 +14,18 @@ public class GameOverManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowGameOverAnim();
+        // ShowGameOverAnim();
     }
 
 
     // Função principal que chama a animação do GameOver
     public void ShowGameOverAnim()
     {
-        IsActive = true;
-        StartCoroutine("StartGameOverAnim");
+        if(!IsActive)
+        {
+            IsActive = true;
+            StartCoroutine("StartGameOverAnim");
+        }
     }
 
 
@@ -35,6 +38,7 @@ public class GameOverManager : MonoBehaviour
 
     private IEnumerator StartGameOverAnim()
     {
+        yield return new WaitForSeconds(1);
         GameOver.SetActive(false);
         GameOver.SetActive(true);
         GameOver.transform.position = Camera.main.transform.position + new Vector3(-13.34f,-25.9f,20);

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -15,70 +15,82 @@ public class DeckCardController : MonoBehaviour
     [SerializeField] List<GameObject> spawnCardSlots = new List<GameObject>();
     const int initialMartaInfluence = 15;
     public GameObject cardsSlots;
+    public GameOverManager gov;
+    public CardArrest cardArrest;
     bool clicado;
     [SerializeField]MartaPollaroid marta;
+
+    
+    bool canRun;
+
     // Update is called once per frame
     void Update()
-    {
-        if (numCard > 0) {
-            if (marta.InfluenciaMarta > 0)
-            {
-                if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
+    {   
+        if(canRun && !Tutorial.TutorialOn)
+        {
+            if (numCard > 0) {
+                if (marta.InfluenciaMarta > 0)
                 {
-                    checkHitObject();
-                }
-                if (Input.GetMouseButtonUp(0) && clicado && !Tutorial.TutorialOn)
-                {
-                    clicado = false;
-                    bool isCardSpawn = false;
-                    for (int i = 0; i < spawnCardSlots.Count; i++)
+                    if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
                     {
-                        if (spawnCardSlots[i].gameObject.transform.childCount == 0)
+                        checkHitObject();
+                    }
+                    if (Input.GetMouseButtonUp(0) && clicado)
+                    {
+                        clicado = false;
+                        bool isCardSpawn = false;
+                        for (int i = 0; i < spawnCardSlots.Count; i++)
                         {
-                            isCardSpawn = true;
-                            StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
-                            newCards.RemoveAt(0);
-                            changeDisplayCardUI();
-                            i = spawnCardSlots.Count;
-                            SortearNovaCartaSimples();
-                            numCard--;
-                            AlterarUINumCard(numCard);
-                        }
+                            if (spawnCardSlots[i].gameObject.transform.childCount == 0)
+                            {
+                                isCardSpawn = true;
+                                StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
+                                newCards.RemoveAt(0);
+                                changeDisplayCardUI();
+                                i = spawnCardSlots.Count;
+                                SortearNovaCartaSimples();
+                                numCard--;
+                                AlterarUINumCard(numCard);
+                            }
 
+                        }
+                        if (!isCardSpawn)
+                        {
+                            ManagerGame.Instance.LockPlayerActive = false;
+                        }
                     }
-                    if (!isCardSpawn)
-                    {
-                        ManagerGame.Instance.LockPlayerActive = false;
-                    }
+                }
+                else
+                {
+                    //Declarar derrota
+                    Debug.Log("Derrota");
+                    gov.ShowGameOverAnim();
                 }
             }
             else
             {
-                //Declarar derrota
-                Debug.Log("Derrota");
-            }
-        }
-        else
-        {
-            // Declarar Vitoria
-            bool vitoriaDetected = true;
-            foreach (GameObject spawnSlot in spawnCardSlots)
-            {
-                if (spawnSlot.transform.childCount > 0)
+                // Declarar Vitoria
+                bool vitoriaDetected = true;
+                foreach (GameObject spawnSlot in spawnCardSlots)
                 {
-                    if (spawnSlot.GetComponentInChildren<CardDisplay>().cardGame.TypeCard == "Enemy")
+                    if (spawnSlot.transform.childCount > 0)
                     {
-                        vitoriaDetected = false;
+                        if (spawnSlot.GetComponentInChildren<CardDisplay>().cardGame.TypeCard == "Enemy")
+                        {
+                            vitoriaDetected = false;
+                        }
                     }
+
+                }
+
+                if (vitoriaDetected)
+                {
+                    Debug.Log("Vitoria fase uhu");
+                    cardArrest.Arrest(transform.parent.name);
+                    canRun = false;
                 }
 
             }
-
-            if (vitoriaDetected)
-            {
-                Debug.Log("Vitoria fase uhu");
-            }
-
         }
     }
 
@@ -96,6 +108,7 @@ public class DeckCardController : MonoBehaviour
     }
     public void InicializarDeck()
     {
+        canRun = true;
         numCard = 40;
         AlterarUINumCard(numCard);
         marta.AlterarInfluenciaMarta(initialMartaInfluence);
@@ -104,6 +117,7 @@ public class DeckCardController : MonoBehaviour
     }
     public void LimparTabuleiro()
     {
+        canRun = false;
         newCards.RemoveRange(0, newCards.Count);
         for (int i = 0; i < cardsSlots.transform.childCount; i++)
         {
