@@ -30,9 +30,9 @@ public class GameOverManager : MonoBehaviour
 
 
     //  Encerra a animação do GameOver -----
-    public void FinishAnim()
+    public void FinishAnim(bool goMenu=true)
     {
-        StartCoroutine("FinishGameOverAnim");
+        StartCoroutine(FinishGameOverAnim(goMenu));
     }
 
 
@@ -48,11 +48,14 @@ public class GameOverManager : MonoBehaviour
     }
 
 
-    private IEnumerator FinishGameOverAnim()
+    private IEnumerator FinishGameOverAnim(bool goMenu)
     {
         BlackScreenIn.SetActive(true);
         yield return new WaitForSeconds(1f);
-        CameraMovementScript.SetPosition(0);
+        if(goMenu)
+        {
+            CameraMovementScript.SetPosition(0);
+        }
         BlackScreenOut.SetActive(true);
         BlackScreenIn.SetActive(false);
         GameOver.SetActive(false);

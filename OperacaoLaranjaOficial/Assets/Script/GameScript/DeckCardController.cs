@@ -65,6 +65,8 @@ public class DeckCardController : MonoBehaviour
                     //Declarar derrota
                     Debug.Log("Derrota");
                     gov.ShowGameOverAnim();
+                    canRun = false;
+                    
                 }
             }
             else
