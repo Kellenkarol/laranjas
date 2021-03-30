@@ -2979,8 +2979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 15
   status:
-  - {fileID: 21300000, guid: b7ac9f66306be444fa49c4163c39f0de, type: 3}
-  - {fileID: 21300000, guid: 0337456b92e749f4886e1113418778f5, type: 3}
+  - {fileID: 21300000, guid: d23bc37f6175ac24eb8260fdcf3a1d8d, type: 3}
+  - {fileID: 21300000, guid: 25f27263d09c9f04089ae4b5b617bc77, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &273026769
@@ -5981,8 +5981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 10
   status:
-  - {fileID: 21300000, guid: fbfe4e2055f473e40b4e30544a84e248, type: 3}
-  - {fileID: 21300000, guid: 93ae4bc1085b388439206195fad9fd8a, type: 3}
+  - {fileID: 21300000, guid: e78e0ffa74771bd4aaa7a154da2ade1a, type: 3}
+  - {fileID: 21300000, guid: 936e94e7693508f4383fd58945d6afba, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &519420028
@@ -7579,7 +7579,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 473ecf2a2642f3449ba33b291e81add9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e664499d2837844c9cce708a7190132, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8416,8 +8416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 3
   status:
-  - {fileID: 21300000, guid: 1c079b6dd90a5524c867011bdb371675, type: 3}
-  - {fileID: 21300000, guid: dd72d5400a266b144bfd2d4f0e1d6ed6, type: 3}
+  - {fileID: 21300000, guid: 8d9ca23dd5b5df34b93bc868b3157d42, type: 3}
+  - {fileID: 21300000, guid: f162feb8508282543b3e768d63eb78bc, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &673575013
@@ -8625,8 +8625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 14
   status:
-  - {fileID: 21300000, guid: 98fb475ea2c2fca49b5edbb842c8f241, type: 3}
-  - {fileID: 21300000, guid: 50ea091bd8fc5634e9dca71d32d132a0, type: 3}
+  - {fileID: 21300000, guid: 78837a21e7dddc24daf7246832cfdc38, type: 3}
+  - {fileID: 21300000, guid: 2c3d69baef41de44ab5991fb9dd29155, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &685338399
@@ -8705,8 +8705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 2
   status:
-  - {fileID: 21300000, guid: 559e35f35dc83794db05b5f28d9195d8, type: 3}
-  - {fileID: 21300000, guid: 44e1ecb6e556eac46bfcf3ebbab75f7f, type: 3}
+  - {fileID: 21300000, guid: 2dc043b9b77a8df44ba5b567a4dd5d3d, type: 3}
+  - {fileID: 21300000, guid: 2ea184b0e32929d42b7033ad86e0a9c3, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &685762294
@@ -12470,8 +12470,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 12
   status:
-  - {fileID: 21300000, guid: 752ea6884929cb24387a822b2fd9d003, type: 3}
-  - {fileID: 21300000, guid: b6c1789d76cd76a49b0d13d3388bf359, type: 3}
+  - {fileID: 21300000, guid: b250aa0750f75ca428797539963da227, type: 3}
+  - {fileID: 21300000, guid: 981f79e24b52b9e4ab850ba95db02a54, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1031188145
@@ -12682,8 +12682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 0
   status:
-  - {fileID: 21300000, guid: 3bcda1e725ee682458cf0b5c0875234f, type: 3}
-  - {fileID: 21300000, guid: beb83ad4e95339a4fa6b3b174d664400, type: 3}
+  - {fileID: 21300000, guid: 16f232c583cf2984da74a1fa647751c4, type: 3}
+  - {fileID: 21300000, guid: fbcf6b3b29eb57b40b7ba2e9789258de, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1001 &1043629192
@@ -16524,8 +16524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 11
   status:
-  - {fileID: 21300000, guid: 0dc280983a40cad4ca67fa859f16d642, type: 3}
-  - {fileID: 21300000, guid: 7e714dce6f346b6468beeb1801d8c5be, type: 3}
+  - {fileID: 21300000, guid: 6e3d9699aaeb7ae4db5987b231ec41ca, type: 3}
+  - {fileID: 21300000, guid: 8204d1c23c225f54c8f7ffd41b3a3169, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1357166338
@@ -17166,8 +17166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 1
   status:
-  - {fileID: 21300000, guid: 8a2c1cc4cd407f54692cb787067666a6, type: 3}
-  - {fileID: 21300000, guid: 277eb8afeb3a69b4296c87ab17296f72, type: 3}
+  - {fileID: 21300000, guid: eea6e30e5a0a58340a4404d112f8e81f, type: 3}
+  - {fileID: 21300000, guid: 45b877eacb2ddbb4a80d43d9704bbe14, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1385011661
@@ -19212,7 +19212,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.5645161, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24102,8 +24102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 13
   status:
-  - {fileID: 21300000, guid: f9462a87d360b8a438387bcf4037e232, type: 3}
-  - {fileID: 21300000, guid: 74a41aa8f9a4be946928b9cefee9b328, type: 3}
+  - {fileID: 21300000, guid: e1be95ff89325fc45a38494a74332856, type: 3}
+  - {fileID: 21300000, guid: 9e5251052e149374c863879e8be9f022, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1827539985
@@ -25108,8 +25108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 4
   status:
-  - {fileID: 21300000, guid: e569697d0e1e0fa4d857c72adc9d7e4a, type: 3}
-  - {fileID: 21300000, guid: fe7989fb37c9e1c4b885da1f33337f19, type: 3}
+  - {fileID: 21300000, guid: 17efcd612c8d21d4c83f2a8c9acaf71d, type: 3}
+  - {fileID: 21300000, guid: 5ab1f432e8d1d0c41862155ad751530b, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1916403399

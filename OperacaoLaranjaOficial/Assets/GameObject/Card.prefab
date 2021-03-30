@@ -285,7 +285,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 22.499998, y: 47.505154}
+  m_Size: {x: 10.23, y: 14.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -334,6 +334,8 @@ MonoBehaviour:
   cardPosition: []
   cardInicializada: 1
   paiObjeto: {fileID: 0}
+  actionMouseClick: 0
+  deckCardActive: {fileID: 0}
 --- !u!61 &1403602833323937982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -352,7 +354,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 10.23, y: 14.33}
-    newSize: {x: 22.499998, y: 47.505154}
+    newSize: {x: 10.23, y: 14.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
