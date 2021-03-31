@@ -41,7 +41,6 @@ public class ButtonScript : MonoBehaviour
         {
 	        actionButton();
         }
-        Debug.Log("DEBUG HERE!");
         spriteRenderer.sprite = status[0];
     }
 

@@ -36,7 +36,7 @@ public class CardMovement : MonoBehaviour
                 this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay;
                 this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+1;
                 clicado = false;
-                if (cardObjective.Count > 0)
+                if (cardObjective.Count > 0 && cardObjective[0].GetComponent<CardDisplay>() != null)
                 {
                     if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
@@ -72,9 +72,7 @@ public class CardMovement : MonoBehaviour
                             }
                         }
                     }
-
-
-                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
                         {
@@ -89,10 +87,24 @@ public class CardMovement : MonoBehaviour
                     }
                 }
 
-
-                if(cardPosition.Count>0 && !actionMouseClick)
+                if (cardObjective.Count > 0 && cardObjective[0].GetComponent<MartaPollaroid>() != null)
                 {
-                    changeCardPosition();
+                    if (cardObjective[0].GetComponent<MartaPollaroid>() && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
+                    {
+                        Debug.Log("Teste");
+                        int cardEnemyInfluenceAttack =GetComponent<CardDisplay>().cardGame.Influence;
+                        GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta);
+                        deckCardActive.DamageMarta(cardEnemyInfluenceAttack);
+                    }
+                }
+
+                if (cardPosition.Count>0 && !actionMouseClick)
+                {
+                    if (!(GetComponent<CardDisplay>().cardGame.TypeCard.ToString() == "Enemy"))
+                    {
+                        changeCardPosition();
+                    }
+
                 }
                 if(!actionMouseClick)
                 {
@@ -120,7 +132,7 @@ public class CardMovement : MonoBehaviour
                 ManagerGame.Instance.LockPlayerActive = false;
                 this.transform.SetParent(paiObjeto.transform);
                 //GetComponent<CardDisplay>().GetDamage(100);
-                checkTypeCard();
+                //checkTypeCard();
             }
         }
     }

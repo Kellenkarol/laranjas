@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Slot
 {
-    public enum TypeSlotEnum {Enemy,Ally,Bag }
+    public enum TypeSlotEnum {Enemy,Ally,Bag}
     [SerializeField]Transform _positionTransform;
     [SerializeField] int _positionSlotArray;
     [SerializeField]TypeSlotEnum _typeSlot;
