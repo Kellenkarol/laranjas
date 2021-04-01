@@ -46,17 +46,7 @@ public class CardMovement : MonoBehaviour
 
                     }
 
-                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Ally" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
-                    {
-                        if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
-                        {
-                            actionMouseClick = true;
-                            cardObjective[0].GetComponent<CardDisplay>().GainLife(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
-                            Destroy(this.gameObject);
-                        }
-                    }
-
-                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    /*if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
                         {
@@ -71,7 +61,7 @@ public class CardMovement : MonoBehaviour
                                 ActionChangeCardPosition(cardPosition[0]);
                             }
                         }
-                    }
+                    }*/
                     if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
@@ -95,6 +85,17 @@ public class CardMovement : MonoBehaviour
                         int cardEnemyInfluenceAttack =GetComponent<CardDisplay>().cardGame.Influence;
                         GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta);
                         deckCardActive.DamageMarta(cardEnemyInfluenceAttack);
+                    }
+
+
+                    if (this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
+                    {
+                        if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally" || this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString()== "Bag")
+                        {
+                            actionMouseClick = true;
+                            cardObjective[0].GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            Destroy(this.gameObject);
+                        }
                     }
                 }
 

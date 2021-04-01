@@ -4643,7 +4643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397490810}
   m_LocalRotation: {x: 0, y: 0, z: 0.052335896, w: 0.9986295}
-  m_LocalPosition: {x: 5.64, y: -2.97, z: 0}
+  m_LocalPosition: {x: 4.45, y: -2.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
@@ -4690,10 +4690,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.2220368, y: 3.4575071}
-      - {x: -2.0249207, y: 3.5856905}
-      - {x: -1.9731535, y: -2.9180794}
-      - {x: 2.135196, y: -2.9767842}
+    - - {x: 2.0782928, y: 2.7013583}
+      - {x: -1.9210705, y: 2.7392473}
+      - {x: -1.993196, y: -3.1087854}
+      - {x: 2.0449033, y: -3.2243779}
 --- !u!1 &403502173
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,6 +5148,7 @@ GameObject:
   - component: {fileID: 437914865}
   - component: {fileID: 437914867}
   - component: {fileID: 437914866}
+  - component: {fileID: 437914868}
   m_Layer: 0
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
@@ -5250,6 +5251,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &437914868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437914864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b810fada31583c3488da207cc716fb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quantInfluencia: 0
 --- !u!1 &438311308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7284,6 +7298,26 @@ PrefabInstance:
       propertyPath: cardsSlots
       value: 
       objectReference: {fileID: 709624941}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: gov
+      value: 
+      objectReference: {fileID: 1463929927}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: cardArrest
+      value: 
+      objectReference: {fileID: 937139698}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: marta
+      value: 
+      objectReference: {fileID: 437914868}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: textValueCard
+      value: 
+      objectReference: {fileID: 1424731735}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7380,13 +7414,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602451827}
-  m_LocalRotation: {x: 0, y: 0, z: -0.11320323, w: 0.9935719}
-  m_LocalPosition: {x: 3.3, y: 6.12, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09150153, w: 0.99580497}
+  m_LocalPosition: {x: 3.54, y: 6.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.5}
 --- !u!114 &602451829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12728,6 +12762,26 @@ PrefabInstance:
       propertyPath: cardsSlots
       value: 
       objectReference: {fileID: 1348918906}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: textValueCard
+      value: 
+      objectReference: {fileID: 273026771}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: gov
+      value: 
+      objectReference: {fileID: 1463929927}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: cardArrest
+      value: 
+      objectReference: {fileID: 937139698}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: marta
+      value: 
+      objectReference: {fileID: 1318820752}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15930,6 +15984,7 @@ GameObject:
   - component: {fileID: 1318820749}
   - component: {fileID: 1318820751}
   - component: {fileID: 1318820750}
+  - component: {fileID: 1318820752}
   m_Layer: 0
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
@@ -16032,6 +16087,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1318820752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318820748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b810fada31583c3488da207cc716fb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quantInfluencia: 0
 --- !u!1 &1324311564
 GameObject:
   m_ObjectHideFlags: 0
@@ -16813,6 +16881,7 @@ GameObject:
   - component: {fileID: 1378636165}
   - component: {fileID: 1378636167}
   - component: {fileID: 1378636166}
+  - component: {fileID: 1378636168}
   m_Layer: 0
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
@@ -16915,6 +16984,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1378636168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378636164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b810fada31583c3488da207cc716fb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quantInfluencia: 0
 --- !u!1 &1380540532
 GameObject:
   m_ObjectHideFlags: 0
@@ -19013,7 +19095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485174935}
   m_LocalRotation: {x: 0, y: 0, z: 0.052335896, w: 0.9986295}
-  m_LocalPosition: {x: -4.09, y: -4, z: 0}
+  m_LocalPosition: {x: -4.59, y: -2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
@@ -19060,10 +19142,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.2975469, y: 3.7598073}
-      - {x: -2.3101563, y: -2.6644595}
-      - {x: 1.7295899, y: -2.7473035}
-      - {x: 1.8497174, y: 3.6692917}
+    - - {x: -2.0724769, y: 2.8069572}
+      - {x: -2.0779092, y: -3.107002}
+      - {x: 1.9763216, y: -3.0519977}
+      - {x: 2.1255677, y: 2.7575662}
 --- !u!1 &1497601538
 GameObject:
   m_ObjectHideFlags: 0
@@ -19212,7 +19294,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5628655, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20182,6 +20264,31 @@ PrefabInstance:
       propertyPath: cardsSlots
       value: 
       objectReference: {fileID: 1049067124}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: marta
+      value: 
+      objectReference: {fileID: 1378636168}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: cardArrest
+      value: 
+      objectReference: {fileID: 937139698}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: gov
+      value: 
+      objectReference: {fileID: 1463929927}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: Position
+      value: 
+      objectReference: {fileID: 1049067124}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: textValueCard
+      value: 
+      objectReference: {fileID: 1046201747}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20270,13 +20377,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555971394}
-  m_LocalRotation: {x: -0, y: -0, z: -0.06501425, w: 0.99788433}
-  m_LocalPosition: {x: 8.41, y: -11.59, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.08985042, w: 0.9959553}
+  m_LocalPosition: {x: 8.35, y: -10.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.4550004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.31}
 --- !u!114 &1555971396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20318,10 +20425,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.9317602, y: 3.9011025}
-      - {x: -1.8422083, y: -2.65101}
-      - {x: 2.2397566, y: -2.5624769}
-      - {x: 2.2000842, y: 3.8646111}
+    - - {x: -2.0266562, y: 2.8043623}
+      - {x: -1.9544299, y: -3.1130283}
+      - {x: 2.1361756, y: -3.071992}
+      - {x: 2.1440454, y: 2.8240073}
 --- !u!1 &1557359249
 GameObject:
   m_ObjectHideFlags: 0
@@ -22854,13 +22961,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737542918}
-  m_LocalRotation: {x: 0, y: 0, z: -0.11320323, w: 0.9935719}
-  m_LocalPosition: {x: 8, y: 5.38, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09150153, w: 0.99580497}
+  m_LocalPosition: {x: 7.98, y: 5.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.5}
 --- !u!114 &1737542920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23588,13 +23695,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784533632}
-  m_LocalRotation: {x: 0, y: 0, z: -0.11320323, w: 0.9935719}
-  m_LocalPosition: {x: -1.08, y: 7.07, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09150153, w: 0.99580497}
+  m_LocalPosition: {x: -0.95, y: 7.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.5}
 --- !u!114 &1784533634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25676,13 +25783,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974114678}
-  m_LocalRotation: {x: 0, y: 0, z: -0.11320323, w: 0.9935719}
-  m_LocalPosition: {x: -5.58, y: 7.67, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.09150153, w: 0.99580497}
+  m_LocalPosition: {x: -5.41, y: 8.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.5}
 --- !u!114 &1974114680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26613,7 +26720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064784765}
   m_LocalRotation: {x: 0, y: 0, z: 0.052335896, w: 0.9986295}
-  m_LocalPosition: {x: 0.46, y: -3.66, z: 0}
+  m_LocalPosition: {x: -0.1, y: -2.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049067125}
@@ -26660,10 +26767,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.7902088, y: 3.7428486}
-      - {x: -1.8350109, y: -2.6416702}
-      - {x: 2.2407079, y: -2.7282984}
-      - {x: 2.2529328, y: 3.699645}
+    - - {x: -1.9037939, y: 2.662171}
+      - {x: -2.0022383, y: -3.0097234}
+      - {x: 2.2072997, y: -3.0461419}
+      - {x: 2.273167, y: 2.6691735}
 --- !u!1 &2074541011
 GameObject:
   m_ObjectHideFlags: 0

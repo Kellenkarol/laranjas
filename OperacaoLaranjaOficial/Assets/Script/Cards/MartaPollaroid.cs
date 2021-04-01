@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class MartaPollaroid : MonoBehaviour
 {
-    [Tooltip("Influencia Marta")] [SerializeField] int _quantInfluencia;
+    [Tooltip("Influencia Marta Não editar")] [SerializeField] int _quantInfluencia;
     TextMeshPro textValueInfluence;
 
     public int InfluenciaMarta
