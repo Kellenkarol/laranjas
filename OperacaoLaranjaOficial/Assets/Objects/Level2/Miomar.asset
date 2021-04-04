@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252af6b4ee997444d9cb855c693f06c9, type: 3}
+  m_Name: Miomar
+  m_EditorClassIdentifier: 
+  cardName: Miomar
+  imageCard: {fileID: 21300000, guid: 634c24a357b837140833ee075dfbf11e, type: 3}
+  baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
+  typeCard: 1
+  influence: 020000000d000000
+  influenceEffect: 0000000000000000
