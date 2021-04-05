@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonScript : MonoBehaviour
 {
-    public enum Button {Play,Niveis,Gravações,Configurações, Agentes_Especiais,Voltar_Menu,Reiniciar,GameOver_Voltar_Menu,
+    public enum Button {Play,Niveis,Gravações,Configurações, Agentes_Especiais,Voltar_Menu,GamePlay_Reiniciar,GameOver_Reiniciar,GameOver_Voltar_Menu,
         Fase1,Fase2,Fase3,Fase4,
         Agente_Kellen, Agente_Bruna, Agente_Matheus, Agente_Leandro, Agente_Edilson, Agente_Jesse
     }
@@ -73,11 +73,19 @@ public class ButtonScript : MonoBehaviour
                     deckCard.LimparTabuleiro();
                 }
                 break;
-            case Button.Reiniciar:
+            case Button.GamePlay_Reiniciar:
                 // Reinicia nivel atual
                 if(gameOverScript)
                 {
-                	StartCoroutine("Restart");
+                	StartCoroutine(Restart(1));
+                    gameOverScript.FadeInOut(); //goMenu=false
+                }
+                break;
+            case Button.GameOver_Reiniciar:
+                // Reinicia nivel atual
+                if(gameOverScript)
+                {
+                	StartCoroutine(Restart(0));
                     gameOverScript.FinishAnim(false); //goMenu=false
                 }
                 break;
@@ -142,7 +150,7 @@ public class ButtonScript : MonoBehaviour
             {
                 if(gameOverScript.IsActive)
                 {
-                    return (selectedButton == Button.GameOver_Voltar_Menu || selectedButton == Button.Reiniciar);
+                    return (selectedButton == Button.GameOver_Voltar_Menu || selectedButton == Button.GameOver_Reiniciar);
                 }
             }
             return true;
@@ -150,11 +158,12 @@ public class ButtonScript : MonoBehaviour
         return false;
     }
 
-    private IEnumerator Restart()
+    private IEnumerator Restart(float delay)
     {
+    	yield return new WaitForSeconds(delay);
         gm.desativarFase();
         GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel")).GetComponent<DeckCardController>().LimparTabuleiro();
-    	yield return new WaitForSeconds(0.7f);
+    	yield return new WaitForSeconds(0.6f);
 		gm.inicializarFase(PlayerPrefs.GetInt("CurrentLevel")-1);
 	}
 }

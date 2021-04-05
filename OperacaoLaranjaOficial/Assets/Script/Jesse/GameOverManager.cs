@@ -77,5 +77,21 @@ public class GameOverManager : MonoBehaviour
         }
     }
 
+    public void FadeInOut()
+    {
+        StartCoroutine("_FadeInOut");
+    }
+
+    private IEnumerator _FadeInOut()
+    {
+        BlackScreenIn.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        BlackScreenOut.SetActive(true);
+        BlackScreenIn.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        BlackScreenOut.SetActive(false);
+        
+    }
+
 
 }
