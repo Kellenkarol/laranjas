@@ -125,7 +125,7 @@ public class CardMovement : MonoBehaviour
         else
         {
             Debug.Log("Vamos Posicao");
-            this.transform.position = Vector3.MoveTowards(this.transform.position, paiObjeto.transform.position, 30f * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, paiObjeto.transform.position, 40f * Time.deltaTime);
             if (Vector3.Distance(this.transform.position, paiObjeto.transform.position) == 0)
             {
                 Debug.Log("Tem certeza que vim aqui:" + Vector3.Distance(this.transform.position, paiObjeto.transform.position));

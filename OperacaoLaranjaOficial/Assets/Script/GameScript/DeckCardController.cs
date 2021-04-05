@@ -21,24 +21,23 @@ public class DeckCardController : MonoBehaviour
     [SerializeField]MartaPollaroid marta;
 
     
-    bool canRun;
+    bool canRun, isCardSpawn;
+    float delayAux;
 
     // Update is called once per frame
     void Update()
     {   
         if(canRun && !Tutorial.TutorialOn)
         {
+
             if (numCard > 0) {
+                
                 if (marta.InfluenciaMarta > 0)
                 {
-                    if (Input.GetMouseButtonDown(0) && !ManagerGame.Instance.LockPlayerActive)
+                    delayAux += Time.deltaTime;
+                    if(!isCardSpawn && delayAux >= 2)
                     {
-                        checkHitObject();
-                    }
-                    if (Input.GetMouseButtonUp(0) && clicado)
-                    {
-                        clicado = false;
-                        bool isCardSpawn = false;
+
                         for (int i = 0; i < spawnCardSlots.Count; i++)
                         {
                             if (spawnCardSlots[i].gameObject.transform.childCount == 0)
@@ -63,6 +62,7 @@ public class DeckCardController : MonoBehaviour
                 else
                 {
                     //Declarar derrota
+                    delayAux = 0;
                     Debug.Log("Derrota");
                     gov.ShowGameOverAnim();
                     canRun = false;
@@ -87,6 +87,7 @@ public class DeckCardController : MonoBehaviour
 
                 if (vitoriaDetected)
                 {
+                    delayAux = 0;
                     Debug.Log("Vitoria fase uhu");
                     cardArrest.Arrest(transform.parent.name);
                     canRun = false;
@@ -154,6 +155,8 @@ public class DeckCardController : MonoBehaviour
         cardTemp.GetComponent<CardDisplay>().ConfigCardDisplay(newCards[0]);
         cardTemp.GetComponent<CardMovement>().paiObjeto = slot;
         cardTemp.GetComponent<CardMovement>().DefineDeckCard(this.GetComponent<DeckCardController>());
+        yield return new WaitForSeconds(0.5f);
+        isCardSpawn = false;
         yield return null;
     }
 

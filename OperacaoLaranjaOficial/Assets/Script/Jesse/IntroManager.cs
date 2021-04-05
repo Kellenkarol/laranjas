@@ -117,6 +117,8 @@ public class IntroManager : MonoBehaviour
     	// print("DEBUG HERE");
 		bt.enabled = false;   
     	float auxTime=0;
+		video.targetCameraAlpha = 0;
+        video.gameObject.SetActive(true);
     	// bsColor = blackScreen.color;
     	// bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],1);
     	// blackScreen.color = bsColor;
@@ -125,7 +127,7 @@ public class IntroManager : MonoBehaviour
     	{
     		auxTime += Time.deltaTime;
     		// blackScreen.color = bsColor - new Color(0,0,0,auxTime/time);
-    		video.targetCameraAlpha = auxTime/time;
+            video.targetCameraAlpha = auxTime/time;
     		video.SetDirectAudioVolume(0, auxTime/time);
     		yield return null;
     	}
