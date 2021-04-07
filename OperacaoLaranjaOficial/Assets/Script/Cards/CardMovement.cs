@@ -41,7 +41,7 @@ public class CardMovement : MonoBehaviour
                     if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;
-                        cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                        cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect, this.gameObject);
                         Destroy(this.gameObject);
 
                     }
@@ -71,8 +71,8 @@ public class CardMovement : MonoBehaviour
                             {
                                 deckCardActive.DamageMarta(cardEnemyInfluenceInitial - this.GetComponent<CardDisplay>().cardGame.Influence);
                             }
-                            cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence);
-                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial);
+                            cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence, this.gameObject);
+                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial, cardObjective[0]);
                         }
                     }
                 }
@@ -81,17 +81,19 @@ public class CardMovement : MonoBehaviour
                 {
                     if (cardObjective[0].GetComponent<MartaPollaroid>() && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
                     {
-                        Debug.Log("Teste");
+                        Debug.Log("Teste..."+ cardObjective[0]);
                         int cardEnemyInfluenceAttack =GetComponent<CardDisplay>().cardGame.Influence;
-                        GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta);
+                        GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta, cardObjective[0]);
                         deckCardActive.DamageMarta(cardEnemyInfluenceAttack);
                     }
 
 
                     if (this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly")
                     {
+                        print("DEBUG HERE 1");
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally" || this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString()== "Bag")
                         {
+                            print("DEBUG HERE 2");
                             actionMouseClick = true;
                             cardObjective[0].GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
                             Destroy(this.gameObject);
@@ -124,11 +126,11 @@ public class CardMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Vamos Posicao");
+            // Debug.Log("Vamos Posicao");
             this.transform.position = Vector3.MoveTowards(this.transform.position, paiObjeto.transform.position, 40f * Time.deltaTime);
             if (Vector3.Distance(this.transform.position, paiObjeto.transform.position) == 0)
             {
-                Debug.Log("Tem certeza que vim aqui:" + Vector3.Distance(this.transform.position, paiObjeto.transform.position));
+                // Debug.Log("Tem certeza que vim aqui:" + Vector3.Distance(this.transform.position, paiObjeto.transform.position));
                 cardInicializada = true;
                 ManagerGame.Instance.LockPlayerActive = false;
                 this.transform.SetParent(paiObjeto.transform);

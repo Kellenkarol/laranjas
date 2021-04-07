@@ -7,6 +7,10 @@ public class MartaPollaroid : MonoBehaviour
     [Tooltip("Influencia Marta Não editar")] [SerializeField] int _quantInfluencia;
     TextMeshPro textValueInfluence;
 
+    [HideInInspector]
+    public AudioSource mySound;
+
+
     public int InfluenciaMarta
     {
         get
@@ -18,6 +22,7 @@ public class MartaPollaroid : MonoBehaviour
     void Start()
     {
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
+        mySound = GameObject.Find("SFX/MartaPollaroid").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

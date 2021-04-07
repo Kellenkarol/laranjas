@@ -211,9 +211,10 @@ public class Tutorial : MonoBehaviour
     {
 		toquePC.SetActive(false);
 		skipButton.SetActive(false);
-    	yield return new WaitForSeconds(1);
+    	// yield return new WaitForSeconds(0.5f);
     	TutorialOn = false;
     	step = -1;
+    	yield return null;
     	// print("Finished Tutorial");
     }    
 

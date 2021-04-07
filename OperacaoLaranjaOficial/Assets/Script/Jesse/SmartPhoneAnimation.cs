@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SmartPhoneAnimation : MonoBehaviour
 {
-    public  Animator animPhone, animBlur, animScreen;
+    public Animator animPhone, animBlur, animScreen;
+    public AudioSource buttonSound;
     private bool animFinished=true, animInOut;
 
     // Start is called before the first frame update
@@ -52,6 +53,11 @@ public class SmartPhoneAnimation : MonoBehaviour
     {
         // print("DEBUG");
         animScreen.SetBool("OnOff", animInOut);
+    }
+
+    public void PlayButtonSound()
+    {
+        buttonSound.Play();
     }
 
 }

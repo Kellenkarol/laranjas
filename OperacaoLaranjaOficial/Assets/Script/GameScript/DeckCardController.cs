@@ -17,17 +17,24 @@ public class DeckCardController : MonoBehaviour
     public GameObject cardsSlots;
     public GameOverManager gov;
     public CardArrest cardArrest;
+    public AudioSource cardSound;
     bool clicado;
     [SerializeField]MartaPollaroid marta;
 
-    
+    CameraMovement camMove;
     bool canRun, isCardSpawn;
     float delayAux;
+
+    void Start()
+    {
+        camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
+    }
+
 
     // Update is called once per frame
     void Update()
     {   
-        if(canRun && !Tutorial.TutorialOn)
+        if(canRun && !Tutorial.TutorialOn && !camMove.GetIsMoving())
         {
 
             if (numCard > 0) {
@@ -35,7 +42,7 @@ public class DeckCardController : MonoBehaviour
                 if (marta.InfluenciaMarta > 0)
                 {
                     delayAux += Time.deltaTime;
-                    if(!isCardSpawn && delayAux >= 2)
+                    if(!isCardSpawn && delayAux >= 1)
                     {
 
                         for (int i = 0; i < spawnCardSlots.Count; i++)
@@ -95,6 +102,10 @@ public class DeckCardController : MonoBehaviour
 
             }
         }
+        else
+        {
+            delayAux = 0;
+        }
     }
 
     public void AlterarUINumCard(int number)
@@ -151,6 +162,7 @@ public class DeckCardController : MonoBehaviour
     }
     public IEnumerator MoverNovaCarta(GameObject slot)
     {
+        cardSound.Play();
         GameObject cardTemp = Instantiate(CardObject, this.transform.GetChild(2).transform.position, slot.transform.rotation) as GameObject;
         cardTemp.GetComponent<CardDisplay>().ConfigCardDisplay(newCards[0]);
         cardTemp.GetComponent<CardMovement>().paiObjeto = slot;

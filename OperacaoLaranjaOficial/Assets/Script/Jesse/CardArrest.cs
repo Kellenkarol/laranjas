@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardArrest : MonoBehaviour
 {
 	public GameObject Card_n1, Card_n2, Card_n3, Card_n4, Anim; //Card apenas para teste
-	public AudioSource audio;
+	public AudioSource[] audiosWin;
 	public bool Test; 
 	// private bool Finished=true;
 
@@ -25,8 +25,8 @@ public class CardArrest : MonoBehaviour
     }
 
 
-   //  void Update()
-   //  {
+    // void Update()
+    // {
    //  	//Teste
    //  	if(Test && Finished)
    //  	{
@@ -64,7 +64,6 @@ public class CardArrest : MonoBehaviour
     private IEnumerator _Arrest(string nivel)
     {
         yield return new WaitForSeconds(1);
-    	audio.Play();
     	cardTmp 						= Instantiate(Cards[nivel]) as GameObject;
     	animTmp 						= Instantiate(Anim) as GameObject;
     	img 							= cardTmp.GetComponent<SpriteRenderer>();
@@ -73,6 +72,8 @@ public class CardArrest : MonoBehaviour
     	// animTmp.transform.position 		= currentCamera.transform.position;
     	animTmp.transform.localPosition 		= Camera.main.transform.position+new Vector3(-12.92f,9.41f,40);
     	cardTmp.transform.localScale 	= new Vector3(1.41f,1.41f,1.41f);
+        yield return new WaitForSeconds(0.5f);
+    	audiosWin[Random.Range(0, 2)].Play();
     	StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
     }
 

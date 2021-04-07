@@ -8,6 +8,7 @@ public class GameOverManager : MonoBehaviour
 	public GameObject GameOver, BlackScreenIn, BlackScreenOut;
     public Camera MainCamera, SecondCamera;
     public CameraMovement CameraMovementScript;
+    public AudioSource GameOverSound;
     [HideInInspector]
     public bool IsActive;
 
@@ -39,6 +40,7 @@ public class GameOverManager : MonoBehaviour
     private IEnumerator StartGameOverAnim()
     {
         yield return new WaitForSeconds(1);
+        GameOverSound.Play();
         GameOver.SetActive(false);
         GameOver.SetActive(true);
         GameOver.transform.position = Camera.main.transform.position + new Vector3(-13.34f,-25.9f,20);

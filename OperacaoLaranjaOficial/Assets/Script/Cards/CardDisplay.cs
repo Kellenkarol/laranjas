@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 public class CardDisplay : MonoBehaviour
 {
     [Tooltip("Dados iniciais do card")]
@@ -21,12 +23,20 @@ public class CardDisplay : MonoBehaviour
     [ColorUsage(true, true)]
     [SerializeField] Color colorFinal;
     float timerDissolve = 0;
+    [HideInInspector]
+    public AudioSource AttackerSound, mySound;
 
     public int CardOrderDisplay
     {
         get { return _cardOrderDisplayNumber; }
         set { _cardOrderDisplayNumber = value; }
     }
+
+    void Start()
+    {
+        mySound = GameObject.Find("SFX/"+cardGame.Name).GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (deadCard)
@@ -48,7 +58,7 @@ public class CardDisplay : MonoBehaviour
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
         _cardOrderDisplayNumber = spriteRenderer.sortingOrder;
         cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.baseCard, cardInfo.typeCard.ToString(),
-                            Random.Range(cardInfo.influence[0], cardInfo.influence[1]+1), Random.Range(cardInfo.influenceEffect[0], cardInfo.influenceEffect[1]+1));
+                            UnityEngine.Random.Range(cardInfo.influence[0], cardInfo.influence[1]+1), UnityEngine.Random.Range(cardInfo.influenceEffect[0], cardInfo.influenceEffect[1]+1));
         spriteRenderer.sprite = cardGame.SpriteCard;
         if (cardGame.TypeCard == "Effect" || cardGame.TypeCard == "EffectAlly")
         {
@@ -60,12 +70,20 @@ public class CardDisplay : MonoBehaviour
         }
         spriteRenderer.material.SetTexture("_MainText", cardInfo.imageCard.texture);
     }
-    public void GetDamage(int influenceDamage)
+    public void GetDamage(int influenceDamage, GameObject attacker)
     {
         cardGame.Influence -= influenceDamage;
         textValueInfluence.text = ""+cardGame.Influence;
         if (cardGame.Influence <= 0)
         {
+            try 
+            {
+                AttackerSound = attacker.GetComponent<CardDisplay>().mySound;
+            }
+            catch(Exception e)
+            {
+                AttackerSound = attacker.GetComponent<MartaPollaroid>().mySound;
+            }
             cardGame.Influence = 0;
             EndCard();
         }
@@ -79,6 +97,7 @@ public class CardDisplay : MonoBehaviour
 
     void EndCard()
     {
+        AttackerSound.Play();
         deadCard = true;
         textValueInfluence.gameObject.SetActive(false);
     }

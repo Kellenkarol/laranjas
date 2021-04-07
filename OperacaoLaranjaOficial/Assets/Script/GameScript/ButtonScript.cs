@@ -16,12 +16,14 @@ public class ButtonScript : MonoBehaviour
     CameraMovement camMove;
     public GameOverManager gameOverScript;
     private SmartPhoneAnimation animScript;
+    private AudioSource clickSound;
     GameControllerScript gm;
     [SerializeField]DeckCardController deckCard;
     private void Start()
     {
         spriteRenderer=GetComponentInChildren<SpriteRenderer>();
         animScript = GameObject.Find("SmartPhoneGameObject/SmartPhone").GetComponent<SmartPhoneAnimation>();
+        clickSound = GameObject.Find("SFX/Click").GetComponent<AudioSource>();
         spriteRenderer.sprite = status[0];
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
         gm = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameControllerScript>();
@@ -31,6 +33,7 @@ public class ButtonScript : MonoBehaviour
     {
         if(CanClick())
         {
+        	clickSound.Play();
 	        spriteRenderer.sprite = status[1];
         }
     }
