@@ -23,7 +23,6 @@ public class CardDisplay : MonoBehaviour
     [ColorUsage(true, true)]
     [SerializeField] Color colorFinal;
     float timerDissolve = 0;
-    [HideInInspector]
     public AudioSource AttackerSound, mySound;
 
     public int CardOrderDisplay

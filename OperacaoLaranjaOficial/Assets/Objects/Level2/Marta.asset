@@ -16,5 +16,5 @@ MonoBehaviour:
   imageCard: {fileID: 21300000, guid: c0412be86f8982e42aa5087fc163dedb, type: 3}
   baseCard: {fileID: 21300000, guid: 9a72950e4d8fa2243b3430f486a2c199, type: 3}
   typeCard: 0
-  influence: 0f0000000f000000
+  influence: 0200000008000000
   influenceEffect: 0000000000000000

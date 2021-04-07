@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252af6b4ee997444d9cb855c693f06c9, type: 3}
-  m_Name: Mister Jesus na Goiabeira
+  m_Name: Pistas
   m_EditorClassIdentifier: 
-  cardName: Mister Jesus na Goiabeira
-  imageCard: {fileID: 21300000, guid: 3edc1a3c806c25a41b227946121d333f, type: 3}
-  baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
-  typeCard: 1
-  influence: 020000000d000000
-  influenceEffect: 0000000000000000
+  cardName: Pistas
+  imageCard: {fileID: 21300000, guid: 2ad46c3a99469e04b92ab5e33ceede07, type: 3}
+  baseCard: {fileID: 21300000, guid: fc8d1f27e007c244e93e1de701bc6d5e, type: 3}
+  typeCard: 2
+  influence: 0000000000000000
+  influenceEffect: 0200000008000000
