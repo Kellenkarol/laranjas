@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,6 +19,7 @@ public class ButtonScript : MonoBehaviour
     private SmartPhoneAnimation animScript;
     private AudioSource clickSound;
     GameControllerScript gm;
+    bool Restating;
     [SerializeField]DeckCardController deckCard;
     private void Start()
     {
@@ -54,6 +56,7 @@ public class ButtonScript : MonoBehaviour
             case Button.Play:
                 // camMove.SetDestiny(2);
                 // PlayerPrefs.SetInt("CurrentLevel", 1);
+		        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
                 camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1)+1);
                 break;
             case Button.Niveis:
@@ -80,6 +83,7 @@ public class ButtonScript : MonoBehaviour
                 // Reinicia nivel atual
                 if(gameOverScript)
                 {
+                	Restating = true;
                 	StartCoroutine(Restart(1));
                     gameOverScript.FadeInOut(); //goMenu=false
                 }
@@ -147,7 +151,7 @@ public class ButtonScript : MonoBehaviour
 
     private bool CanClick()
     {
-        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving())
+        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving() && !Restating)
         {
             if(gameOverScript)
             {
@@ -165,8 +169,9 @@ public class ButtonScript : MonoBehaviour
     {
     	yield return new WaitForSeconds(delay);
         gm.desativarFase();
-        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel")).GetComponent<DeckCardController>().LimparTabuleiro();
-    	yield return new WaitForSeconds(0.6f);
-		gm.inicializarFase(PlayerPrefs.GetInt("CurrentLevel")-1);
+        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
+    	yield return new WaitForSeconds(0.3f);
+		gm.inicializarFase(PlayerPrefs.GetInt("CurrentLevel",1)-1);
+    	Restating = false;
 	}
 }

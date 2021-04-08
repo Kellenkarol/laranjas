@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: c2683b705ee7bdb44811d62498d2751c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4746058309698624938
+    second: Tutorial4_texto_0
+  - first:
+      213: 4010937508131801972
+    second: Tutorial4_texto_1
+  - first:
+      213: 2799069471704088204
+    second: Tutorial4_texto_2
+  - first:
+      213: 8878913774329615292
+    second: Tutorial4_texto_3
+  - first:
+      213: 4245488813467936026
+    second: Tutorial4_texto_4
+  - first:
+      213: -2515490430970090562
+    second: Tutorial4_texto_5
+  - first:
+      213: 1869609102401390519
+    second: Tutorial4_texto_6
+  - first:
+      213: 3675703263026484514
+    second: Tutorial4_texto_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +95,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tutorial4_texto_0
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 1951
+        width: 2062
+        height: 1229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad90e013e26dd140800000000000000
+      internalID: 4746058309698624938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_1
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 1304
+        width: 457
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b8c7ca966b9a730800000000000000
+      internalID: 4010937508131801972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_2
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 1313
+        width: 452
+        height: 629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8eff8abada48d620800000000000000
+      internalID: 2799069471704088204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_3
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 1306
+        width: 459
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb35d36090d383b70800000000000000
+      internalID: 8878913774329615292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_4
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 2778
+        width: 1660
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15a6a015910bea30800000000000000
+      internalID: 4245488813467936026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2536
+        width: 1635
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb222ad7ce271dd0800000000000000
+      internalID: -2515490430970090562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_6
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 2342
+        width: 1728
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7c871b29f22f910800000000000000
+      internalID: 1869609102401390519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial4_texto_7
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 2184
+        width: 1233
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225107c94a8b20330800000000000000
+      internalID: 3675703263026484514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

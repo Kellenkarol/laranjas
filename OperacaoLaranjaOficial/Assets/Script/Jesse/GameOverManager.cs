@@ -87,7 +87,7 @@ public class GameOverManager : MonoBehaviour
     private IEnumerator _FadeInOut()
     {
         BlackScreenIn.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.3f);
         BlackScreenOut.SetActive(true);
         BlackScreenIn.SetActive(false);
         yield return new WaitForSeconds(1f);

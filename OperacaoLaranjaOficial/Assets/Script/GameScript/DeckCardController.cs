@@ -42,7 +42,7 @@ public class DeckCardController : MonoBehaviour
                 if (marta.InfluenciaMarta > 0)
                 {
                     delayAux += Time.deltaTime;
-                    if(!isCardSpawn && delayAux >= 1)
+                    if(!isCardSpawn && delayAux >= 1f)
                     {
 
                         for (int i = 0; i < spawnCardSlots.Count; i++)

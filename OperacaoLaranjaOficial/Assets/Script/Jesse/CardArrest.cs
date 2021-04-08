@@ -73,7 +73,7 @@ public class CardArrest : MonoBehaviour
     	animTmp.transform.localPosition 		= Camera.main.transform.position+new Vector3(-12.92f,9.41f,40);
     	cardTmp.transform.localScale 	= new Vector3(1.41f,1.41f,1.41f);
         yield return new WaitForSeconds(0.5f);
-    	audiosWin[Random.Range(0, 2)].Play();
+    	audiosWin[Random.Range(0, audiosWin.Length)].Play();
     	StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
     }
 

@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2865041450221721887, guid: d404dbd19d0592943a7c6d3aadbcac97, type: 2}
+  - {fileID: 2180264, guid: dad3b0bda92f95d44b1da26a6109d784, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,9 +115,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d404dbd19d0592943a7c6d3aadbcac97, type: 2}
-  m_sharedMaterial: {fileID: 2865041450221721887, guid: d404dbd19d0592943a7c6d3aadbcac97,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dad3b0bda92f95d44b1da26a6109d784, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: dad3b0bda92f95d44b1da26a6109d784, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -318,6 +317,8 @@ MonoBehaviour:
   _cardOrderDisplayNumber: 0
   colorInitial: {r: 1, g: 0, b: 0.02745098, a: 1}
   colorFinal: {r: 2.670157, g: 0.9424084, b: 0.06282723, a: 1}
+  AttackerSound: {fileID: 0}
+  mySound: {fileID: 0}
 --- !u!114 &1042750707450165499
 MonoBehaviour:
   m_ObjectHideFlags: 0

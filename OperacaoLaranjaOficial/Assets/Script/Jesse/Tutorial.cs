@@ -11,7 +11,7 @@ public class Tutorial : MonoBehaviour
 	public GameObject t1, t1Out, t2, t2Out, t3, t3Out, t4, t4Out, t5, t5Out, 
 	full_tc, full_tcOut, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
 	t4Papel, t4PapelTexto1, t4PapelTexto2, t4PapelTexto3, t4PapelTexto4,
-	t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t4CardYellow, t4CardBlue, 
+	t5Papel, t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t5PapelTexto8, t4CardYellow, t4CardBlue, 
 	t4CardRed, DeckSize, InfluenceSize, skipButton, toquePC; 
 
     // Start is called before the first frame update
@@ -183,10 +183,11 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator _ShowT5()
     {
-        		
 		yield return Wait(0.5f);
 		click = false;
 		t5.SetActive(true);
+        t5Papel.SetActive(true);
+		yield return Wait(0.5f);
 		t5PapelTexto5.SetActive(true);
 
 		while(!click){ yield return null;}
@@ -196,6 +197,10 @@ public class Tutorial : MonoBehaviour
 		while(!click){ yield return null;}
 		click = false;
 		t5PapelTexto7.SetActive(true);
+
+		while(!click){ yield return null;}
+		click = false;
+		t5PapelTexto8.SetActive(true);
 
     	t5end = true;
 	}    
