@@ -7466,6 +7466,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
+      propertyPath: CardDeck.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
       propertyPath: Position
       value: 
       objectReference: {fileID: 1609328246}
@@ -7519,6 +7524,42 @@ PrefabInstance:
       propertyPath: cardSound
       value: 
       objectReference: {fileID: 1235439391}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: f2094b4a59283ab4b8fa316389855e2b,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c826dfd96f63b14590e4a2625014571,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1219858e1304fbd4fb67ec5f4a7930fb,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9762487c799c79e4f808779e752f5c85,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c6faf0026f10f564fa3b2f9fab7ed22e,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ddc1daaf6d89a847a66e229d015c244,
+        type: 2}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13093,6 +13134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
+      propertyPath: CardDeck.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
       propertyPath: Position
       value: 
       objectReference: {fileID: 1609328246}
@@ -13146,6 +13192,42 @@ PrefabInstance:
       propertyPath: cardSound
       value: 
       objectReference: {fileID: 1235439391}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 561dbf1ff1b5c9b41ab5b622bf1929e5,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7937430a81d51f04190944fcdd1a82d5,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d7ebee49a3f76842882ec655f72f8de,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a29b485677c94aa4e8472569ee816c17,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d8fedfe55ea891449805d01ef5135f9,
+        type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 613f211ff1f96c645b4c6cfb2a03a4e0,
+        type: 2}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20475,7 +20557,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.56269115, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
