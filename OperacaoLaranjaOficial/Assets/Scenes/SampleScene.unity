@@ -11145,9 +11145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card_n1: {fileID: 5063494718786783520, guid: 58d722fc502097f4abc6ccd0b6275c1a, type: 3}
-  Card_n2: {fileID: 5063494718786783520, guid: 58d722fc502097f4abc6ccd0b6275c1a, type: 3}
-  Card_n3: {fileID: 5063494718786783520, guid: 58d722fc502097f4abc6ccd0b6275c1a, type: 3}
-  Card_n4: {fileID: 5063494718786783520, guid: 58d722fc502097f4abc6ccd0b6275c1a, type: 3}
+  Card_n2: {fileID: 5063494718786783520, guid: 0dd705b48ae4e5b40a48c74e38ac6e4e, type: 3}
+  Card_n3: {fileID: 5063494718786783520, guid: 8443b317a093aeb4a8ab9c44f46766b3, type: 3}
+  Card_n4: {fileID: 5063494718786783520, guid: 9b64bfe76f66f4646ac6a85e1968524f, type: 3}
   Anim: {fileID: 3428460223203003154, guid: 3754b3243d764bb41b30fe0a6a9d4eed, type: 3}
   audiosWin:
   - {fileID: 20010395}
@@ -20618,7 +20618,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5628655, y: 1}
+    m_SensorSize: {x: 0.5614035, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
