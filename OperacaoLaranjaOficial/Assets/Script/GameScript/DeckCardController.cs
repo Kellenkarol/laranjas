@@ -98,6 +98,13 @@ public class DeckCardController : MonoBehaviour
                     Debug.Log("Vitoria fase uhu");
                     cardArrest.Arrest(transform.parent.name);
                     canRun = false;
+                    Debug.Log(PlayerPrefs.GetInt("FaseConcluida"));
+                    if(PlayerPrefs.GetInt("CurrentLevel") == PlayerPrefs.GetInt("FaseConcluida"))
+                    {
+                        Debug.Log("Vim aqui");
+                        PlayerPrefs.SetInt("FaseConcluida", PlayerPrefs.GetInt("CurrentLevel")+1);
+                        ManagerGame.Instance.FaseGame = PlayerPrefs.GetInt("FaseConcluida");
+                    }
                 }
 
             }

@@ -6031,6 +6031,7 @@ GameObject:
   - component: {fileID: 515348574}
   - component: {fileID: 515348575}
   - component: {fileID: 515348576}
+  - component: {fileID: 515348577}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -6102,6 +6103,20 @@ PolygonCollider2D:
       - {x: -6.026146, y: -1.5692177}
       - {x: 3.1315365, y: -5.8380394}
       - {x: 6.751052, y: 2.4542007}
+--- !u!114 &515348577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515348573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b823daac7019664ea9e2d7e3315920c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFase: 4
+  iteractableFaseButton: 0
 --- !u!1 &515943331
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,6 +6371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lockPlayerActive: 0
+  _faseGame: 0
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9583,6 +9599,7 @@ GameObject:
   - component: {fileID: 768525807}
   - component: {fileID: 768525808}
   - component: {fileID: 768525809}
+  - component: {fileID: 768525810}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -9652,6 +9669,20 @@ PolygonCollider2D:
       - {x: -4.30223, y: 4.5168552}
       - {x: -4.452468, y: -3.5883904}
       - {x: 4.631469, y: -3.598156}
+--- !u!114 &768525810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768525806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b823daac7019664ea9e2d7e3315920c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFase: 2
+  iteractableFaseButton: 0
 --- !u!1 &778534906
 GameObject:
   m_ObjectHideFlags: 0
@@ -16704,6 +16735,7 @@ GameObject:
   - component: {fileID: 1294311580}
   - component: {fileID: 1294311582}
   - component: {fileID: 1294311581}
+  - component: {fileID: 1294311583}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
@@ -16777,6 +16809,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9178653396115d24ca51cb80e538e1aa, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
+--- !u!114 &1294311583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294311579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b823daac7019664ea9e2d7e3315920c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFase: 3
+  iteractableFaseButton: 0
 --- !u!1 &1296480305
 GameObject:
   m_ObjectHideFlags: 0
@@ -16821,6 +16867,7 @@ GameObject:
   - component: {fileID: 1298694592}
   - component: {fileID: 1298694594}
   - component: {fileID: 1298694593}
+  - component: {fileID: 1298694595}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -16896,6 +16943,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: da64f81da80e2a741af189f24f19c93e, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
+--- !u!114 &1298694595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298694591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b823daac7019664ea9e2d7e3315920c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFase: 1
+  iteractableFaseButton: 0
 --- !u!1 &1305818181
 GameObject:
   m_ObjectHideFlags: 0
@@ -20557,7 +20618,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56269115, y: 1}
+    m_SensorSize: {x: 0.5628655, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

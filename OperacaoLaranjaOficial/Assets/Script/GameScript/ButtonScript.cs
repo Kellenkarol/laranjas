@@ -35,8 +35,19 @@ public class ButtonScript : MonoBehaviour
     {
         if(CanClick())
         {
-        	clickSound.Play();
-	        spriteRenderer.sprite = status[1];
+            if (GetComponent<FasesButtonScript>() != null)
+            {
+                if (GetComponent<FasesButtonScript>().iteractableFaseButton)
+                {
+                    clickSound.Play();
+                    spriteRenderer.sprite = status[1];
+                }
+            }
+            else
+            {
+                clickSound.Play();
+                spriteRenderer.sprite = status[1];
+            }
         }
     }
     private void OnMouseUp()
@@ -44,7 +55,18 @@ public class ButtonScript : MonoBehaviour
         Debug.Log(animScript.gameObject.name);
         if (CanClick())
         {
-	        actionButton();
+            if (GetComponent<FasesButtonScript>() != null)
+            {
+                if (GetComponent<FasesButtonScript>().iteractableFaseButton)
+                {
+                    actionButton();
+                }
+            }
+            else
+            {
+                actionButton();
+            }
+
         }
         spriteRenderer.sprite = status[0];
     }
@@ -108,18 +130,23 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
                 break;
+
             case Button.Fase2:
                 camMove.SetDestiny(3);
                 PlayerPrefs.SetInt("CurrentLevel", 2);
                 break;
+
             case Button.Fase3:
                 camMove.SetDestiny(4);
-                PlayerPrefs.SetInt("CurrentLevel", 2);
+                PlayerPrefs.SetInt("CurrentLevel", 3);
                 break;
+
             case Button.Fase4:
+
                 camMove.SetDestiny(5);
                 PlayerPrefs.SetInt("CurrentLevel", 4);
                 break;
+
             case Button.Agente_Kellen:
                 Application.OpenURL("https://www.instagram.com/sophilah.art/");
                 break;

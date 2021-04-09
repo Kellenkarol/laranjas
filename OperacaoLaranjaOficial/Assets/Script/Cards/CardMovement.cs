@@ -182,7 +182,6 @@ public class CardMovement : MonoBehaviour
             hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+2;
             hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay + 3;
             hit2D.collider.gameObject.GetComponent<CardMovement>().clicado = true;
-            Debug.Log(hit2D.collider.gameObject.GetComponent<CardMovement>().clicado);
             hit2D.collider.gameObject.GetComponent<CardMovement>().actionMouseClick = false;
             hit2D.collider.gameObject.transform.eulerAngles = new Vector3(0,0,0);
         }
