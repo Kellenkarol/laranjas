@@ -17,14 +17,16 @@ public class ButtonScript : MonoBehaviour
     CameraMovement camMove;
     public GameOverManager gameOverScript;
     private SmartPhoneAnimation animScript;
-    private AudioSource clickSound;
+    private AudioSource clickSound, gamePlaySound, menuSound;
     GameControllerScript gm;
     bool Restating;
+    SoundManager soundScript;
     [SerializeField]DeckCardController deckCard;
     private void Start()
     {
         spriteRenderer=GetComponentInChildren<SpriteRenderer>();
         animScript = GameObject.Find("SmartPhoneGameObject/SmartPhone").GetComponent<SmartPhoneAnimation>();
+        soundScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         clickSound = GameObject.Find("SFX/Click").GetComponent<AudioSource>();
         spriteRenderer.sprite = status[0];
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
@@ -78,6 +80,7 @@ public class ButtonScript : MonoBehaviour
             case Button.Play:
                 // camMove.SetDestiny(2);
                 // PlayerPrefs.SetInt("CurrentLevel", 1);
+	            soundScript.SwitGamePlayAndMenu();
 		        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
                 camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1)+1);
                 break;
@@ -94,6 +97,7 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(6);
                 break;
             case Button.Voltar_Menu:
+	            soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(0);
                 if(deckCard)
                 {
@@ -119,6 +123,7 @@ public class ButtonScript : MonoBehaviour
                 }
                 break;
             case Button.GameOver_Voltar_Menu:
+	            soundScript.SwitGamePlayAndMenu();
                 gm.desativarFase();
 		        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel")).GetComponent<DeckCardController>().LimparTabuleiro();
                 if(gameOverScript)
@@ -127,22 +132,25 @@ public class ButtonScript : MonoBehaviour
                 }
                 break;
             case Button.Fase1:
+	            soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
                 break;
 
             case Button.Fase2:
+	            soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(3);
                 PlayerPrefs.SetInt("CurrentLevel", 2);
                 break;
 
             case Button.Fase3:
+	            soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(4);
                 PlayerPrefs.SetInt("CurrentLevel", 3);
                 break;
 
             case Button.Fase4:
-
+	            soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(5);
                 PlayerPrefs.SetInt("CurrentLevel", 4);
                 break;

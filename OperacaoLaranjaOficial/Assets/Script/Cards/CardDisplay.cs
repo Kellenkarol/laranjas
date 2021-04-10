@@ -69,7 +69,7 @@ public class CardDisplay : MonoBehaviour
         }
         spriteRenderer.material.SetTexture("_MainText", cardInfo.imageCard.texture);
     }
-    public void GetDamage(int influenceDamage, GameObject attacker)
+    public void GetDamage(int influenceDamage, GameObject attacker, bool effect)
     {
         cardGame.Influence -= influenceDamage;
         textValueInfluence.text = ""+cardGame.Influence;
@@ -84,8 +84,14 @@ public class CardDisplay : MonoBehaviour
                 AttackerSound = attacker.GetComponent<MartaPollaroid>().mySound;
             }
             cardGame.Influence = 0;
+            AttackerSound.Play();
             EndCard();
         }
+        else if(effect)
+        {
+            mySound.Play();
+        }
+
     }
     public void GainLife(int influenceEffect) 
     {
@@ -96,7 +102,6 @@ public class CardDisplay : MonoBehaviour
 
     void EndCard()
     {
-        AttackerSound.Play();
         deadCard = true;
         textValueInfluence.gameObject.SetActive(false);
     }

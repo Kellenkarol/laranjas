@@ -41,7 +41,7 @@ public class CardMovement : MonoBehaviour
                     if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;
-                        cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect, this.gameObject);
+                        cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect, this.gameObject, true);
                         Destroy(this.gameObject);
 
                     }
@@ -71,8 +71,8 @@ public class CardMovement : MonoBehaviour
                             {
                                 deckCardActive.DamageMarta(cardEnemyInfluenceInitial - this.GetComponent<CardDisplay>().cardGame.Influence);
                             }
-                            cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence, this.gameObject);
-                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial, cardObjective[0]);
+                            cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence, this.gameObject, false);
+                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial, cardObjective[0], false);
                         }
                     }
                 }
@@ -83,7 +83,7 @@ public class CardMovement : MonoBehaviour
                     {
                         Debug.Log("Teste..."+ cardObjective[0]);
                         int cardEnemyInfluenceAttack =GetComponent<CardDisplay>().cardGame.Influence;
-                        GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta, cardObjective[0]);
+                        GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta, cardObjective[0], false);
                         deckCardActive.DamageMarta(cardEnemyInfluenceAttack);
                     }
 
