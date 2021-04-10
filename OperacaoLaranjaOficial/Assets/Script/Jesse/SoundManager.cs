@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
 		{
 			v += Time.deltaTime/2;
 			audio1.volume = vMax-v;
-			audio2.volume = v;
+			audio2.volume = v >= vMax ? vMax : v;
 			yield return null;
 		}
 		audio1.Stop();

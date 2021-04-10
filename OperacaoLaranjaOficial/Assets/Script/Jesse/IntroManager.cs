@@ -11,6 +11,7 @@ public class IntroManager : MonoBehaviour
 	public VideoPlayer videoIntro, videoAbertura;
 	public Button bt;
 	public Text btText;
+    public AudioSource menuMusic;
 	// public GameObject blackScreen;
 
 	private Color textColor, bsColor;
@@ -45,7 +46,6 @@ public class IntroManager : MonoBehaviour
 	    // 	yield return null;
     	// }
     	StartCoroutine(HideVideoGradually(videoIntro, 2, true));
-
 
     }
 
@@ -86,7 +86,9 @@ public class IntroManager : MonoBehaviour
     {
     	// print("DEBUG HERE");
 		bt.enabled = false;   
-    	float auxTime=0;
+    	float auxTime=0, maxV=0;
+        if(lastVideo){maxV=menuMusic.volume;menuMusic.volume=0;menuMusic.Play();}
+            
     	// bsColor = blackScreen.color;
     	// bsColor = new Color(bsColor[0],bsColor[1],bsColor[2],0);
     	// blackScreen.color = bsColor;
@@ -97,13 +99,16 @@ public class IntroManager : MonoBehaviour
     		video.targetCameraAlpha = 1-auxTime/time;
     		// blackScreen.color = bsColor + new Color(0,0,0,auxTime/time);
     		video.SetDirectAudioVolume(0, 1-auxTime/time);
-    		yield return null;
+    		if(lastVideo){menuMusic.volume=auxTime/time*maxV > maxV ? maxV : auxTime/time*maxV;}
+            yield return null;
     	}
     	if(lastVideo)
     	{
 			camPrincipal.enabled = true;  
 			camSecundaria.enabled = false;
 			videoIntro.gameObject.SetActive(false); 
+            yield return new WaitForSeconds(2);
+
 
 	    	// SceneManager.LoadScene(1);
 	        // asyncOperation.allowSceneActivation = true;
@@ -152,8 +157,8 @@ public class IntroManager : MonoBehaviour
 		videoIntro.gameObject.SetActive(true); 
     	StartCoroutine(ShowVideoGradually(videoIntro, 1, 0));
 		StartCoroutine("Finished");
-    	
-    	yield return new WaitForSeconds(6);
+            
+        yield return new WaitForSeconds(6);
     	StartCoroutine(ShowSkipButtonGradually(2));
 
     }
