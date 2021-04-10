@@ -74,7 +74,8 @@ public class CardArrest : MonoBehaviour
     	cardTmp.transform.localScale 	= new Vector3(1.41f,1.41f,1.41f);
         yield return new WaitForSeconds(0.5f);
     	audiosWin[Random.Range(0, audiosWin.Length)].Play();
-    	StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
+        yield return StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>().SetDestiny(PlayerPrefs.GetInt("CurrentLevel") + 1);
     }
 
     // Faz a carta aparecer aos poucos -----------------------------

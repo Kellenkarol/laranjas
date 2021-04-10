@@ -78,11 +78,11 @@ public class ButtonScript : MonoBehaviour
         switch (selectedButton)
         {
             case Button.Play:
-                // camMove.SetDestiny(2);
-                // PlayerPrefs.SetInt("CurrentLevel", 1);
+                camMove.SetDestiny(2);
+                PlayerPrefs.SetInt("CurrentLevel", 1);
 	            soundScript.SwitGamePlayAndMenu();
-		        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
-                camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1)+1);
+		        //GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
+                //camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1));
                 break;
             case Button.Niveis:
                 camMove.SetDestiny(1);
