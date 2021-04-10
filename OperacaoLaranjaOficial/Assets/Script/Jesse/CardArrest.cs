@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CardArrest : MonoBehaviour
 {
-    public GameObject Card_n1, Card_n2, Card_n3, Card_n4, Anim; //Card apenas para teste
+    public GameObject Card_n1, Card_n2, Card_n3, Card_n4, Anim, BlackScreen; 
     public AudioSource[] audiosWin;
-    public bool Test; 
+    public bool Test;
+    public static bool IsActive;
+    CameraMovement camMove;
+
+
     // private bool Finished=true;
 
     private GameObject cardTmp, animTmp; 
@@ -14,10 +18,12 @@ public class CardArrest : MonoBehaviour
     private Color imgColor;
     private bool IsArrested;
     private Dictionary<string, GameObject> Cards = new Dictionary<string, GameObject>();
-
+    private SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
+        camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         Cards.Add("Fase1", Card_n1);
         Cards.Add("Fase2", Card_n2);
         Cards.Add("Fase3", Card_n3);
@@ -25,8 +31,10 @@ public class CardArrest : MonoBehaviour
     }
 
 
-    // void Update()
-    // {
+    void Update()
+    {
+        IsActive = IsArrested;
+    }
    //   //Teste
    //   if(Test && Finished)
    //   {
@@ -63,6 +71,7 @@ public class CardArrest : MonoBehaviour
 
     private IEnumerator _Arrest(string nivel)
     {
+        BlackScreen.SetActive(false);
         yield return new WaitForSeconds(1);
         cardTmp                         = Instantiate(Cards[nivel]) as GameObject;
         animTmp                         = Instantiate(Anim) as GameObject;
@@ -70,16 +79,13 @@ public class CardArrest : MonoBehaviour
         StartCoroutine("CardFadeIn");
         cardTmp.transform.position      = Camera.main.transform.position+new Vector3(0,0,20);
         // animTmp.transform.position       = currentCamera.transform.position;
-        animTmp.transform.localPosition         = Camera.main.transform.position+new Vector3(-12.92f,9.41f,40);
+        animTmp.transform.localPosition = Camera.main.transform.position+new Vector3(-12.92f,9.41f,40);
         cardTmp.transform.localScale    = new Vector3(1.41f,1.41f,1.41f);
+        BlackScreen.transform.position  = Camera.main.transform.position+new Vector3(0,0,20);
+        BlackScreen.SetActive(true);
         yield return new WaitForSeconds(0.5f);
-<<<<<<< Updated upstream
-    	audiosWin[Random.Range(0, audiosWin.Length)].Play();
-=======
         audiosWin[Random.Range(0, audiosWin.Length)].Play();
->>>>>>> Stashed changes
-        yield return StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>().SetDestiny(PlayerPrefs.GetInt("CurrentLevel") + 1);
+        StartCoroutine(DestroyCardAndAnim(cardTmp, animTmp));
     }
 
     // Faz a carta aparecer aos poucos -----------------------------
@@ -103,9 +109,21 @@ public class CardArrest : MonoBehaviour
     // Faz a carta desaparecer aos poucos e depois a destroi junto da animação
     private IEnumerator DestroyCardAndAnim(GameObject card, GameObject anim)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3f);
         imgColor = img.color;
         float auxTime=0;
+        int CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
+        if(CurrentLevel < 4)
+        {
+            CurrentLevel++;
+            PlayerPrefs.SetInt("CurrentLevel",CurrentLevel);
+            camMove.SetDestiny(CurrentLevel+1);
+        }
+        else
+        {
+            camMove.SetDestiny(6);
+            soundManager.SwitGamePlayAndMenu();
+        }
         while(auxTime<=0.5f)
         {
             auxTime += Time.deltaTime;

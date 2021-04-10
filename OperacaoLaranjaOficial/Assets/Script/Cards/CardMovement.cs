@@ -96,6 +96,7 @@ public class CardMovement : MonoBehaviour
                             print("DEBUG HERE 2");
                             actionMouseClick = true;
                             cardObjective[0].GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            this.GetComponent<CardDisplay>().mySound.Play();
                             Destroy(this.gameObject);
                         }
                     }

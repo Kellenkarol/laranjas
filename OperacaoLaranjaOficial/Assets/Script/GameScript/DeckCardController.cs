@@ -105,8 +105,6 @@ public class DeckCardController : MonoBehaviour
                         PlayerPrefs.SetInt("FaseConcluida", PlayerPrefs.GetInt("CurrentLevel")+1);
                         ManagerGame.Instance.FaseGame = PlayerPrefs.GetInt("FaseConcluida");
                     }
-                    LimparTabuleiro();
-                    PlayerPrefs.SetInt("CurrentLevel", PlayerPrefs.GetInt("CurrentLevel") + 1);
                 }
 
             }

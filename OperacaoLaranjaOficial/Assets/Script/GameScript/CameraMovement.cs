@@ -9,7 +9,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject camReference;
     [SerializeField]float currentDistance;
     [SerializeField]Transform destiny;
-    [SerializeField]string _cenaEmTela;
+    [SerializeField]string _cenaEmTela="";
+    public static string __cenaEmTela; 
     GameControllerScript gm;
     public string CenaEmTela
     {
@@ -24,6 +25,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        __cenaEmTela = _cenaEmTela;
         if (destiny != null)
         {
 

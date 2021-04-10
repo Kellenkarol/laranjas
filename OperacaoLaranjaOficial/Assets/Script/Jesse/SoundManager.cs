@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
 	// }
 
 	public void SwitGamePlayAndMenu()
-	{
+	{	
 		StartCoroutine(SwitFaded());
 	}
 

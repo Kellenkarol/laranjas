@@ -78,18 +78,14 @@ public class ButtonScript : MonoBehaviour
         switch (selectedButton)
         {
             case Button.Play:
-                camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
-<<<<<<< Updated upstream
-	            soundScript.SwitGamePlayAndMenu();
-		        //GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
-=======
                 soundScript.SwitGamePlayAndMenu();
-                //GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
->>>>>>> Stashed changes
-                //camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1));
+                ClearAllDecks();
+                camMove.SetDestiny(2);
+                // camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1)+1);
                 break;
             case Button.Niveis:
+                ClearAllDecks();
                 camMove.SetDestiny(1);
                 break;
             case Button.Gravações:
@@ -102,13 +98,13 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(6);
                 break;
             case Button.Voltar_Menu:
-                soundScript.SwitGamePlayAndMenu();
+                if(CameraMovement.__cenaEmTela != "ForaJogo"){soundScript.SwitGamePlayAndMenu();}
                 camMove.SetDestiny(0);
-                if(deckCard)
-                {
-                    gm.desativarFase();
-                    deckCard.LimparTabuleiro();
-                }
+                // if(deckCard)
+                // {
+                //     gm.desativarFase();
+                //     deckCard.LimparTabuleiro();
+                // }
                 break;
             case Button.GamePlay_Reiniciar:
                 // Reinicia nivel atual
@@ -129,8 +125,8 @@ public class ButtonScript : MonoBehaviour
                 break;
             case Button.GameOver_Voltar_Menu:
                 soundScript.SwitGamePlayAndMenu();
-                gm.desativarFase();
-                GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel")).GetComponent<DeckCardController>().LimparTabuleiro();
+                // gm.desativarFase();
+                // GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
                 if(gameOverScript)
                 {
                     gameOverScript.FinishAnim();
@@ -141,25 +137,21 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
                 break;
-
             case Button.Fase2:
                 soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(3);
                 PlayerPrefs.SetInt("CurrentLevel", 2);
                 break;
-
             case Button.Fase3:
                 soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(4);
                 PlayerPrefs.SetInt("CurrentLevel", 3);
                 break;
-
             case Button.Fase4:
                 soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(5);
                 PlayerPrefs.SetInt("CurrentLevel", 4);
                 break;
-
             case Button.Agente_Kellen:
                 Application.OpenURL("https://www.instagram.com/sophilah.art/");
                 break;
@@ -191,7 +183,7 @@ public class ButtonScript : MonoBehaviour
 
     private bool CanClick()
     {
-        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving() && !Restating)
+        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving() && !Restating && !CardArrest.IsActive)
         {
             if(gameOverScript)
             {
@@ -212,6 +204,15 @@ public class ButtonScript : MonoBehaviour
         GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
         yield return new WaitForSeconds(0.3f);
         gm.inicializarFase(PlayerPrefs.GetInt("CurrentLevel",1)-1);
+        yield return new WaitForSeconds(1.5f);
         Restating = false;
+    }
+
+    private void ClearAllDecks()
+    {
+        GameObject.Find("BoloDeCartas1").GetComponent<DeckCardController>().LimparTabuleiro();
+        GameObject.Find("BoloDeCartas2").GetComponent<DeckCardController>().LimparTabuleiro();
+        GameObject.Find("BoloDeCartas3").GetComponent<DeckCardController>().LimparTabuleiro();
+        GameObject.Find("BoloDeCartas4").GetComponent<DeckCardController>().LimparTabuleiro();
     }
 }
