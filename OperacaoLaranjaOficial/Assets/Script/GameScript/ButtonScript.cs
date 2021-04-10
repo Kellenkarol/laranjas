@@ -80,8 +80,13 @@ public class ButtonScript : MonoBehaviour
             case Button.Play:
                 camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
+<<<<<<< Updated upstream
 	            soundScript.SwitGamePlayAndMenu();
 		        //GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
+=======
+                soundScript.SwitGamePlayAndMenu();
+                //GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
+>>>>>>> Stashed changes
                 //camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1));
                 break;
             case Button.Niveis:
@@ -97,7 +102,7 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(6);
                 break;
             case Button.Voltar_Menu:
-	            soundScript.SwitGamePlayAndMenu();
+                soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(0);
                 if(deckCard)
                 {
@@ -109,8 +114,8 @@ public class ButtonScript : MonoBehaviour
                 // Reinicia nivel atual
                 if(gameOverScript)
                 {
-                	Restating = true;
-                	StartCoroutine(Restart(1));
+                    Restating = true;
+                    StartCoroutine(Restart(1));
                     gameOverScript.FadeInOut(); //goMenu=false
                 }
                 break;
@@ -118,39 +123,39 @@ public class ButtonScript : MonoBehaviour
                 // Reinicia nivel atual
                 if(gameOverScript)
                 {
-                	StartCoroutine(Restart(0));
+                    StartCoroutine(Restart(0));
                     gameOverScript.FinishAnim(false); //goMenu=false
                 }
                 break;
             case Button.GameOver_Voltar_Menu:
-	            soundScript.SwitGamePlayAndMenu();
+                soundScript.SwitGamePlayAndMenu();
                 gm.desativarFase();
-		        GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel")).GetComponent<DeckCardController>().LimparTabuleiro();
+                GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel")).GetComponent<DeckCardController>().LimparTabuleiro();
                 if(gameOverScript)
                 {
                     gameOverScript.FinishAnim();
                 }
                 break;
             case Button.Fase1:
-	            soundScript.SwitGamePlayAndMenu();
+                soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
                 break;
 
             case Button.Fase2:
-	            soundScript.SwitGamePlayAndMenu();
+                soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(3);
                 PlayerPrefs.SetInt("CurrentLevel", 2);
                 break;
 
             case Button.Fase3:
-	            soundScript.SwitGamePlayAndMenu();
+                soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(4);
                 PlayerPrefs.SetInt("CurrentLevel", 3);
                 break;
 
             case Button.Fase4:
-	            soundScript.SwitGamePlayAndMenu();
+                soundScript.SwitGamePlayAndMenu();
                 camMove.SetDestiny(5);
                 PlayerPrefs.SetInt("CurrentLevel", 4);
                 break;
@@ -180,7 +185,7 @@ public class ButtonScript : MonoBehaviour
 
     private void PhoneAnim()
     {
-	    animScript.StartAnim();
+        animScript.StartAnim();
     }
 
 
@@ -202,11 +207,11 @@ public class ButtonScript : MonoBehaviour
 
     private IEnumerator Restart(float delay)
     {
-    	yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(delay);
         gm.desativarFase();
         GameObject.Find("BoloDeCartas"+PlayerPrefs.GetInt("CurrentLevel",1)).GetComponent<DeckCardController>().LimparTabuleiro();
-    	yield return new WaitForSeconds(0.3f);
-		gm.inicializarFase(PlayerPrefs.GetInt("CurrentLevel",1)-1);
-    	Restating = false;
-	}
+        yield return new WaitForSeconds(0.3f);
+        gm.inicializarFase(PlayerPrefs.GetInt("CurrentLevel",1)-1);
+        Restating = false;
+    }
 }
