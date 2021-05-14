@@ -24,7 +24,7 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] Color colorFinal;
     float timerDissolve = 0;
     public AudioSource AttackerSound, mySound;
-
+    Vector3 cardScaleDefaut;
     public int CardOrderDisplay
     {
         get { return _cardOrderDisplayNumber; }
@@ -73,6 +73,7 @@ public class CardDisplay : MonoBehaviour
     {
         cardGame.Influence -= influenceDamage;
         textValueInfluence.text = ""+cardGame.Influence;
+        DeselectCard();
         if (cardGame.Influence <= 0)
         {
             try 
@@ -105,7 +106,20 @@ public class CardDisplay : MonoBehaviour
         deadCard = true;
         textValueInfluence.gameObject.SetActive(false);
     }
+    
+    public void SelectCard()
+    {
+        //transform.localScale = new Vector3(cardScaleDefaut.x-0.2f, cardScaleDefaut.y - 0.2f, cardScaleDefaut.z - 0.2f);
+    }
+    public void DeselectCard()
+    {
+        //transform.localScale = new Vector3(cardScaleDefaut.x + 0.2f, cardScaleDefaut.y + 0.2f, cardScaleDefaut.z + 0.2f);
+    }
 
+    public void initScale()
+    {
+        cardScaleDefaut = transform.lossyScale;
+    }
     [System.Serializable]
     public class Card{
 

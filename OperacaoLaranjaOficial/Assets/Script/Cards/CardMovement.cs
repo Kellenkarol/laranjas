@@ -26,6 +26,7 @@ public class CardMovement : MonoBehaviour
     {
         if (cardInicializada)
         {
+            
             if (Input.GetMouseButtonDown(0))
             {
                
@@ -135,6 +136,7 @@ public class CardMovement : MonoBehaviour
                 cardInicializada = true;
                 ManagerGame.Instance.LockPlayerActive = false;
                 this.transform.SetParent(paiObjeto.transform);
+                GetComponent<CardDisplay>().initScale();
                 //GetComponent<CardDisplay>().GetDamage(100);
                 //checkTypeCard();
             }
@@ -205,6 +207,7 @@ public class CardMovement : MonoBehaviour
             else
             {
                 cardObjective.Add(collision.gameObject);
+                cardObjective[0].GetComponent<CardDisplay>().SelectCard();
             }
 
         }
@@ -221,6 +224,7 @@ public class CardMovement : MonoBehaviour
             }
             else
             {
+                collision.gameObject.GetComponent<CardDisplay>().DeselectCard();
                 cardObjective.Remove(collision.gameObject);
             }
             
