@@ -411,7 +411,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -434,8 +434,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f01634a489ba3240b833d509734e16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnOver: {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
-  OnOut: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  spriteFill:
+  - {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
+  - {fileID: 21300000, guid: 2062f3750c0d01b49aefa3d8e9bd6d8b, type: 3}
+  - {fileID: 21300000, guid: 6487e3561beb98e418efba98b8db3566, type: 3}
+  - {fileID: 21300000, guid: ed2ac7d73ea7d6246995ecebebc4837c, type: 3}
+  - {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  - {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
 --- !u!1 &15807517
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,6 +8095,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9ddc1daaf6d89a847a66e229d015c244,
         type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: Lixeira
+      value: 
+      objectReference: {fileID: 1163581790}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13653,7 +13663,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13676,8 +13686,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f01634a489ba3240b833d509734e16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnOver: {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
-  OnOut: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  spriteFill:
+  - {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
+  - {fileID: 21300000, guid: 2062f3750c0d01b49aefa3d8e9bd6d8b, type: 3}
+  - {fileID: 21300000, guid: 6487e3561beb98e418efba98b8db3566, type: 3}
+  - {fileID: 21300000, guid: ed2ac7d73ea7d6246995ecebebc4837c, type: 3}
+  - {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  - {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
 --- !u!1 &1022784941
 GameObject:
   m_ObjectHideFlags: 0
@@ -14338,6 +14353,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 613f211ff1f96c645b4c6cfb2a03a4e0,
         type: 2}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: Lixeira
+      value: 
+      objectReference: {fileID: 12962220}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16124,7 +16144,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16147,8 +16167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f01634a489ba3240b833d509734e16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnOver: {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
-  OnOut: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  spriteFill:
+  - {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
+  - {fileID: 21300000, guid: 2062f3750c0d01b49aefa3d8e9bd6d8b, type: 3}
+  - {fileID: 21300000, guid: 6487e3561beb98e418efba98b8db3566, type: 3}
+  - {fileID: 21300000, guid: ed2ac7d73ea7d6246995ecebebc4837c, type: 3}
+  - {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  - {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
 --- !u!1 &1167930668
 GameObject:
   m_ObjectHideFlags: 0
@@ -22936,6 +22961,11 @@ PrefabInstance:
       propertyPath: cardSound
       value: 
       objectReference: {fileID: 1235439391}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: Lixeira
+      value: 
+      objectReference: {fileID: 1017895317}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23814,7 +23844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1605826684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32146,8 +32176,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f01634a489ba3240b833d509734e16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnOver: {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
-  OnOut: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  spriteFill:
+  - {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
+  - {fileID: 21300000, guid: 2062f3750c0d01b49aefa3d8e9bd6d8b, type: 3}
+  - {fileID: 21300000, guid: 6487e3561beb98e418efba98b8db3566, type: 3}
+  - {fileID: 21300000, guid: ed2ac7d73ea7d6246995ecebebc4837c, type: 3}
+  - {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  - {fileID: 21300000, guid: 8da00fa484ff05546b64d24762fa9ccd, type: 3}
 --- !u!212 &2119863248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32187,7 +32222,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: bf058a560bb55e1498f0a78579a8946e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0793c9dc142cef64aafe9e9f84284d77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32361,6 +32396,11 @@ PrefabInstance:
       propertyPath: cardSound
       value: 
       objectReference: {fileID: 1235439391}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: Lixeira
+      value: 
+      objectReference: {fileID: 2119863247}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x

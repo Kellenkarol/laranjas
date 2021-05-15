@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -34,9 +35,17 @@ public class CardMovement : MonoBehaviour
             }
             if (Input.GetMouseButtonUp(0) && clicado)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay;
-                this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+1;
                 clicado = false;
+                int num = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay;
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = num;
+                // try
+                // {
+                    this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = num+1;
+                // }
+                // catch(Exception e)
+                // {
+                    //pass
+                // }
                 if (cardObjective.Count > 0 && cardObjective[0].GetComponent<CardDisplay>() != null)
                 {
                     if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")

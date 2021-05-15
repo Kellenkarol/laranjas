@@ -46,6 +46,7 @@ public class CardDisplay : MonoBehaviour
             spriteRenderer.material.SetColor("_Color", colorLerp); 
             if (timerDissolve >= 1)
             {
+                textValueInfluence.gameObject.SetActive(false);
                 Destroy(this.gameObject);
             }
         }
@@ -101,10 +102,11 @@ public class CardDisplay : MonoBehaviour
 
     }
 
-    void EndCard()
+    public void EndCard()
     {
-        deadCard = true;
-        textValueInfluence.gameObject.SetActive(false);
+        deadCard = true;        
+        textValueInfluence.gameObject.transform.position = new Vector3(1000,1000,1000);
+        // textValueInfluence.gameObject.SetActive(false);
     }
     
     public void SelectCard()

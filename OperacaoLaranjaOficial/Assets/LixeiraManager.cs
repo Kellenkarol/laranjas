@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LixeiraManager : MonoBehaviour
 {
-	public Sprite OnOver, OnOut;
+	public Sprite[] spriteFill;
 	private SpriteRenderer mySpt;
+	private int numOfMovements = 0;
 
 	bool enter;
 	GameObject card;
@@ -24,33 +25,48 @@ public class LixeiraManager : MonoBehaviour
     		// mySpt.sprite = OnOver;
 			if(!Input.GetMouseButton(0))
 			{
-				Destroy(card);
+				enter = false;
+				card.GetComponent<CardDisplay>().EndCard();
+				// Destroy(card);
+				numOfMovements = 0;
+	    		mySpt.sprite = spriteFill[0];
 			}
 		}
 		else
 		{
     		// mySpt.sprite = OnOut;
 		}
+
+
 	}
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-    	if(col.gameObject.tag == "Card")
+    	if(col.gameObject.tag == "Card" && numOfMovements >= 4)
     	{
-    		mySpt.sprite = OnOver;
+    		mySpt.sprite = spriteFill[5];
     		card = col.gameObject;
     		enter = true;
     		print("Enter");
     	}
     }
 
+
     public void OnTriggerExit2D(Collider2D col)
     {
-    	if(col.gameObject.tag == "Card")
+    	if(col.gameObject.tag == "Card" && numOfMovements >= 4)
     	{
-    		mySpt.sprite = OnOut;
+    		mySpt.sprite = spriteFill[4];
     		enter = false;
     		print("Out");
     	}
     }
+
+
+    public void UpdateMovements()
+    {
+    	numOfMovements++;
+		mySpt.sprite = spriteFill[numOfMovements <= 4 ? numOfMovements : 4];
+    }
+
 }

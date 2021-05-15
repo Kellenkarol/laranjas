@@ -16,6 +16,7 @@ public class DeckCardController : MonoBehaviour
     const int initialMartaInfluence = 15;
     public GameObject cardsSlots;
     public GameOverManager gov;
+    public LixeiraManager Lixeira;
     public CardArrest cardArrest;
     public AudioSource cardSound;
     bool clicado;
@@ -49,6 +50,7 @@ public class DeckCardController : MonoBehaviour
                         {
                             if (spawnCardSlots[i].gameObject.transform.childCount == 0)
                             {
+                                Lixeira.UpdateMovements();
                                 isCardSpawn = true;
                                 StartCoroutine(MoverNovaCarta(spawnCardSlots[i]));
                                 newCards.RemoveAt(0);
