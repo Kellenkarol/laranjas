@@ -48,6 +48,7 @@ public class CardMovement : MonoBehaviour
                 // }
                 if (cardObjective.Count > 0 && cardObjective[0].GetComponent<CardDisplay>() != null)
                 {
+                    cardObjective[0].GetComponent<CardDisplay>().SelectCard();
                     if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;

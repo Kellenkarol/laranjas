@@ -13,6 +13,7 @@ public class CardDisplay : MonoBehaviour
     public Card cardGame;
     [Header("Card Status ")]
     [Tooltip("Indentifica se a carta está ativa ou desativa")]public bool deadCard;
+    [SerializeField]bool cardSelected=false;
     [Tooltip("Renderer da carta")] [SerializeField]SpriteRenderer spriteRenderer;
     [Tooltip("Texto da influencia da carta")] [SerializeField]TextMeshPro textValueInfluence;
     [Tooltip("Texto da influencia da carta")] [SerializeField] int _cardOrderDisplayNumber;
@@ -38,6 +39,15 @@ public class CardDisplay : MonoBehaviour
 
     private void Update()
     {
+        if (cardScaleDefaut.x!=0)
+        {
+            if (!cardSelected)
+                transform.localScale = new Vector3(cardScaleDefaut.x, cardScaleDefaut.y, cardScaleDefaut.z);
+            else
+                transform.localScale = new Vector3(cardScaleDefaut.x - 0.04f, cardScaleDefaut.y - 0.04f, cardScaleDefaut.z - 0.04f);
+        }
+
+
         if (deadCard)
         {
             timerDissolve += Mathf.Clamp01(Time.deltaTime/2);
@@ -111,11 +121,14 @@ public class CardDisplay : MonoBehaviour
     
     public void SelectCard()
     {
-        //transform.localScale = new Vector3(cardScaleDefaut.x-0.2f, cardScaleDefaut.y - 0.2f, cardScaleDefaut.z - 0.2f);
+        cardSelected = true;
+        
     }
     public void DeselectCard()
     {
-        //transform.localScale = new Vector3(cardScaleDefaut.x + 0.2f, cardScaleDefaut.y + 0.2f, cardScaleDefaut.z + 0.2f);
+
+        cardSelected = false;
+        
     }
 
     public void initScale()
