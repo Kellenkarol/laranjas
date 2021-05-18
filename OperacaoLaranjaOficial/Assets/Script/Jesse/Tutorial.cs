@@ -35,7 +35,7 @@ public class Tutorial : MonoBehaviour
 		        	// print("Step: "+step);
 		        	if(step == 0)
 		        	{
-						t5Out.SetActive(false);
+						// t5Out.SetActive(false);
 						full_tcOut.SetActive(false);
 		        		full_tc.SetActive(true);
 		        		t1.SetActive(true);
