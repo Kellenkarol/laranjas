@@ -5,14 +5,16 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
 	static int step=-1;
-	bool click, t4end=true, t5end=true;
+	bool click, t3end=true, t5end=true;
 	static float waitAux;
 	public static bool TutorialOn;
+	public GameObject[] Tutoriais;
+	public GameObject[] TutoriaisOut;
 	public GameObject t1, t1Out, t2, t2Out, t3, t3Out, t4, t4Out, t5, t5Out, 
-	full_tc, full_tcOut, t4Seta1, t4Seta2, t4Texto1, t4Texto2, t4Destaque1, t4Destaque2, 
-	t4Papel, t4PapelTexto1, t4PapelTexto2, t4PapelTexto3, t4PapelTexto4,
-	t5Papel, t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t5PapelTexto8, t4CardYellow, t4CardBlue, 
-	t4CardRed, DeckSize, InfluenceSize, skipButton, toquePC; 
+	full_tc, full_tcOut, t3Seta1, t3Seta2, t3Texto1, t3Texto2, t3Destaque1, t3Destaque2, 
+	t3Papel, t3PapelTexto1, t3PapelTexto2, t3PapelTexto3,
+	t5Papel, t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t5PapelTexto8, t3CardYellow, t3CardBlue, 
+	t3CardRed, DeckSize, InfluenceSize, skipButton, toquePC; 
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +31,10 @@ public class Tutorial : MonoBehaviour
 	        if(Input.GetMouseButtonDown(0) || step == -1)
 	        {
 		    	click = true;
-	        	if(t4end&&t5end)
+	        	if(t3end&&t5end)
 	        	{
 		        	step++;
+
 		        	// print("Step: "+step);
 		        	if(step == 0)
 		        	{
@@ -39,54 +42,100 @@ public class Tutorial : MonoBehaviour
 						full_tcOut.SetActive(false);
 		        		full_tc.SetActive(true);
 		        		t1.SetActive(true);
+		        		T(0, 0, true);
 		        		skipButton.SetActive(true);
 		        		toquePC.SetActive(true);
 		        	}
-		        	else if(step == 1)
-		        	{
-		        		t1.SetActive(false);
-		        		t1Out.SetActive(true);
-		        		t2.SetActive(true);
-		        	}
 		        	else if(step == 2)
 		        	{
-		        		t1Out.SetActive(false);
-		        		t2.SetActive(false);
-		        		t2Out.SetActive(true);
-		        		t3.SetActive(true);
+		        		T(1, step-2, false);
+		        		T(1, step-1, true);
+		        		T(0, step-1, false);
+		        		// T(0, step, true);
+		        		print("DEBUG!!!!");
+		        		ShowT3();
 		        	}
-		        	else if(step == 3)
+		        	else if(step<9)
 		        	{
-		        		t2Out.SetActive(false);
-		        		t3.SetActive(false);
-		        		t3Out.SetActive(true);
-				        ShowT4();
-		        		// t4.SetActive(true);
+		        		if(step >= 2)
+		        		{
+			        		T(1, step-2, false);
+		        		}
+		        		T(1, step-1, true);
+		        		T(0, step-1, false);
+		        		T(0, step, true);
+
 		        	}
-		        	else if(step == 4)
+		        	else
 		        	{
-		        		t3Out.SetActive(false);
-		        		t4.SetActive(false);
-		        		t4Out.SetActive(true);
-		        		HideT4();
-		        		ShowT5();
-		        	}
-		        	else if(step == 5)
-		        	{
-		        		HideT5();
-						t4Out.SetActive(false);
+		        		T(1, step-1, true);
+		        		T(0, step-1, false);
 						full_tc.SetActive(false);
-						t5.SetActive(false);
-						t5Out.SetActive(true);
 						full_tcOut.SetActive(true);
 						FinishTutorial();
 		        	}
+		    //     	else if(step == 1)
+		    //     	{
+		    //     		T(0, 0, false);
+		    //     		T(1, 0, true);
+		    //     		T(0, 1, true);
+		    //     		// t1.SetActive(false);
+		    //     		// t1Out.SetActive(true);
+		    //     		// t2.SetActive(true);
+		    //     	}
+		    //     	else if(step == 2)
+		    //     	{
+		    //     		T(1, 0, false);
+		    //     		T(0, 1, false);
+		    //     		T(1, 1, true);
+		    //     		T(0, 2, true);
+		        	
+		    //     		// t1Out.SetActive(false);
+		    //     		// t2.SetActive(false);
+		    //     		// t2Out.SetActive(true);
+		    //     		// t3.SetActive(true);
+		    //     	}
+		    //     	else if(step == 3)
+		    //     	{
+		    //     		T(1, 1, false);
+		    //     		T(0, 2, false);
+		    //     		T(1, 2, true);
+		    //     		T(0, 3, true);
+		        	
+		    //     		// t2Out.SetActive(false);
+		    //     		// t3.SetActive(false);
+		    //     		// t3Out.SetActive(true);
+				  //       ShowT4();
+		    //     		// t3.SetActive(true);
+		    //     	}
+		    //     	else if(step == 4)
+		    //     	{
+		    //     		T(1, 2, false);
+		    //     		T(0, 3, false);
+		    //     		T(1, 3, true);
+		        	
+		    //     		// t3Out.SetActive(false);
+		    //     		// t3.SetActive(false);
+		    //     		// t3Out.SetActive(true);
+		    //     		HideT4();
+		    //     		ShowT5();
+		    //     	}
+		    //     	else if(step == 5)
+		    //     	{
+		    //     		HideT5();
+						// t3Out.SetActive(false);
+						// full_tc.SetActive(false);
+						// t5.SetActive(false);
+						// t5Out.SetActive(true);
+						// full_tcOut.SetActive(true);
+						// FinishTutorial();
+		    //     	}
 	        	}
 	        }
     	}
     	else
     	{
-			t5end = t4end = true;
+			t5end = t3end = true;
     		step = -1;
     	}
     }
@@ -100,31 +149,33 @@ public class Tutorial : MonoBehaviour
     	StartCoroutine("_FinishTutorial");
     }
 
-    public void ShowT4()
+    public void ShowT3()
     {
-    	t4end = false;
-    	StartCoroutine("_ShowT4");
+    	t3end = false;
+    	StartCoroutine("_ShowT3");
     }
 
-    public void HideT4()
+    private void T(int tp, int n, bool v)
     {
-		t4Papel.SetActive(false);
-		t4PapelTexto1.SetActive(false);
-		t4Texto1.SetActive(false);
-		t4Seta1.SetActive(false);
-		t4Destaque1.SetActive(false);
-		// InfluenceSize.SetActive(false);
-		t4CardYellow.SetActive(false);
-		t4PapelTexto2.SetActive(false);
-		t4CardBlue.SetActive(false);
-		t4PapelTexto3.SetActive(false);
-		t4CardRed.SetActive(false);
-		t4PapelTexto4.SetActive(false);
-		t4Texto2.SetActive(false);
-		t4Seta2.SetActive(false);
-		t4Destaque2.SetActive(false);
-		// DeckSize.SetActive(false);
+    	if(tp == 0)
+    	{
+			Tutoriais[n].SetActive(v);
+    	}
+    	else
+    	{
+    		TutoriaisOut[n].SetActive(v);
+    	}
+    }
 
+    public void HideT3()
+    {
+		t3Papel.SetActive(false);
+		t3PapelTexto1.SetActive(false);
+		t3CardYellow.SetActive(false);
+		t3PapelTexto2.SetActive(false);
+		t3CardBlue.SetActive(false);
+		t3PapelTexto3.SetActive(false);
+		t3CardRed.SetActive(false);
     }
 
     public void HideT5()
@@ -140,45 +191,29 @@ public class Tutorial : MonoBehaviour
     	StartCoroutine("_ShowT5");
     }
 
-    private IEnumerator _ShowT4()
+    private IEnumerator _ShowT3()
     {
-    	t4.SetActive(true);
-		t4Papel.SetActive(true);
+    	Tutoriais[2].SetActive(true);
+		// t3Papel.SetActive(true);
+		t3CardRed.SetActive(true);
 		yield return Wait(0.5f);
-		t4PapelTexto1.SetActive(true);
+		t3PapelTexto1.SetActive(true);
 		while(!click){ yield return null;}
 		click = false;
 
-		t4Texto1.SetActive(true);
-		t4Seta1.SetActive(true);
-		t4Destaque1.SetActive(true);
-		// InfluenceSize.SetActive(true);
-		while(!click){ yield return null;}
-		click = false;
-
-		t4CardYellow.SetActive(true);
+		t3CardBlue.SetActive(true);
 		yield return Wait(0.75f);
-		t4PapelTexto2.SetActive(true);
+		t3PapelTexto2.SetActive(true);
 		while(!click){ yield return null;}
 		click = false;
 
-		t4CardBlue.SetActive(true);
+		t3CardYellow.SetActive(true);
 		yield return Wait(0.75f);
-		t4PapelTexto3.SetActive(true);
-		while(!click){ yield return null;}
-		click = false;
+		t3PapelTexto3.SetActive(true);
+		// while(!click){ yield return null;}
+		// click = false;
 
-		t4CardRed.SetActive(true);
-		yield return Wait(0.75f);
-		t4PapelTexto4.SetActive(true);
-		while(!click){ yield return null;}
-		click = false;
-
-		t4Texto2.SetActive(true);
-		t4Seta2.SetActive(true);
-		t4Destaque2.SetActive(true);
-		// DeckSize.SetActive(true);
-    	t4end = true;
+    	t3end = true;
     }
 
     private IEnumerator _ShowT5()
@@ -233,7 +268,7 @@ public class Tutorial : MonoBehaviour
 
 		t3.SetActive(false);
 
-		t4.SetActive(false);
+		t3.SetActive(false);
 
 		t5.SetActive(false);
 
@@ -245,12 +280,12 @@ public class Tutorial : MonoBehaviour
 
 		t3Out.SetActive(false);
 
-		t4Out.SetActive(false);
+		t3Out.SetActive(false);
 
 		t5Out.SetActive(false);
 
 
-    	HideT4();
+    	HideT3();
     	HideT5();
 		full_tc.SetActive(false);
 		full_tcOut.SetActive(true);
