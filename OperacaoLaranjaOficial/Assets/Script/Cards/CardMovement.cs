@@ -206,7 +206,33 @@ public class CardMovement : MonoBehaviour
             Destroy(this.GetComponent<CardMovement>());
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
+
+    bool checkCardObjective(CardDisplay thisCard, CardDisplay cardCollision)
+    {
+        switch (thisCard.cardGame.TypeCard)
+        {
+            case"Ally" :
+                string thisCardTypeSolt = thisCard.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString();
+                if (cardCollision.cardGame.TypeCard== "Enemy" || cardCollision.cardGame.TypeCard == "EffectAlly")
+                    if(thisCardTypeSolt == "Ally" || thisCardTypeSolt == "Bag")
+                        return true;                
+                break;
+            case "Effect":
+                if (cardCollision.cardGame.TypeCard == "Enemy")
+                    return true;
+                break;
+            case "EffectAlly":
+                if (cardCollision.GetComponent<MartaPollaroid>())
+                    return true;
+                break;
+        }
+
+        Debug.Log("Teste");
+
+        return false;
+    }
+
+void OnTriggerEnter2D(Collider2D collision)
     {
         if (clicado)
         {
@@ -216,8 +242,11 @@ public class CardMovement : MonoBehaviour
             }
             else
             {
-                cardObjective.Add(collision.gameObject);
-                cardObjective[0].GetComponent<CardDisplay>().SelectCard();
+                if (checkCardObjective(GetComponent<CardDisplay>(),collision.gameObject.GetComponent<CardDisplay>()))
+                {
+                    cardObjective.Add(collision.gameObject);
+                    cardObjective[0].GetComponent<CardDisplay>().SelectCard();
+                }
             }
 
         }
