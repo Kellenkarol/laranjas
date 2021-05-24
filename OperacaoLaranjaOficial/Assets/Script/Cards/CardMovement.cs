@@ -8,7 +8,8 @@ public class CardMovement : MonoBehaviour
 {
     [SerializeField]bool clicado;
     Vector3 touchPosition;
-    [SerializeField]List<GameObject> cardObjective;
+    GameObject cardObjectiveSelected;
+    [SerializeField]List<GameObject> cardsObjective;
     [SerializeField]List<GameObject> cardPosition;
     public bool cardInicializada;
     [HideInInspector]public GameObject paiObjeto;
@@ -46,26 +47,26 @@ public class CardMovement : MonoBehaviour
                 // {
                     //pass
                 // }
-                if (cardObjective.Count > 0 && cardObjective[0].GetComponent<CardDisplay>() != null)
+                if (cardsObjective.Count > 0 && cardsObjective[0].GetComponent<CardDisplay>() != null)
                 {
-                    cardObjective[0].GetComponent<CardDisplay>().SelectCard();
-                    if(cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                    cardsObjective[0].GetComponent<CardDisplay>().SelectCard();
+                    if(cardsObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;
-                        cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect, this.gameObject, true);
+                        cardsObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect, this.gameObject, true);
                         Destroy(this.gameObject);
 
                     }
 
-                    /*if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    /*if (cardsObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
                         {
                             Debug.Log("Vim aqui");
                             actionMouseClick = true;
-                            this.GetComponent<CardDisplay>().GainLife(cardObjective[0].GetComponent<CardDisplay>().cardGame.InfluenceEffect);
-                            cardPosition.Add(cardObjective[0].transform.parent.gameObject);
-                            Destroy(cardObjective[0].gameObject);
+                            this.GetComponent<CardDisplay>().GainLife(cardsObjective[0].GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            cardPosition.Add(cardsObjective[0].transform.parent.gameObject);
+                            Destroy(cardsObjective[0].gameObject);
                             if (cardPosition.Count > 0)
                             {
                                 Debug.Log("Terei que mudar de posicao");
@@ -73,28 +74,28 @@ public class CardMovement : MonoBehaviour
                             }
                         }
                     }*/
-                    if (cardObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    if (cardsObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
                         {
-                            int cardEnemyInfluenceInitial = cardObjective[0].GetComponent<CardDisplay>().cardGame.Influence;
+                            int cardEnemyInfluenceInitial = cardsObjective[0].GetComponent<CardDisplay>().cardGame.Influence;
                             if(cardEnemyInfluenceInitial> this.GetComponent<CardDisplay>().cardGame.Influence)
                             {
                                 deckCardActive.DamageMarta(cardEnemyInfluenceInitial - this.GetComponent<CardDisplay>().cardGame.Influence);
                             }
-                            cardObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence, this.gameObject, false);
-                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial, cardObjective[0], false);
+                            cardsObjective[0].GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.Influence, this.gameObject, false);
+                            this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial, cardsObjective[0], false);
                         }
                     }
                 }
 
-                if (cardObjective.Count > 0 && cardObjective[0].GetComponent<MartaPollaroid>() != null)
+                if (cardsObjective.Count > 0 && cardsObjective[0].GetComponent<MartaPollaroid>() != null)
                 {
-                    if (cardObjective[0].GetComponent<MartaPollaroid>() && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
+                    if (cardsObjective[0].GetComponent<MartaPollaroid>() && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
                     {
-                        Debug.Log("Teste..."+ cardObjective[0]);
+                        Debug.Log("Teste..."+ cardsObjective[0]);
                         int cardEnemyInfluenceAttack =GetComponent<CardDisplay>().cardGame.Influence;
-                        GetComponent<CardDisplay>().GetDamage(cardObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta, cardObjective[0], false);
+                        GetComponent<CardDisplay>().GetDamage(cardsObjective[0].GetComponent<MartaPollaroid>().InfluenciaMarta, cardsObjective[0], false);
                         deckCardActive.DamageMarta(cardEnemyInfluenceAttack);
                     }
 
@@ -106,7 +107,7 @@ public class CardMovement : MonoBehaviour
                         {
                             print("DEBUG HERE 2");
                             actionMouseClick = true;
-                            cardObjective[0].GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            cardsObjective[0].GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
                             this.GetComponent<CardDisplay>().mySound.Play();
                             Destroy(this.gameObject);
                         }
@@ -127,7 +128,7 @@ public class CardMovement : MonoBehaviour
                     this.transform.eulerAngles = paiObjeto.transform.eulerAngles;
                 }
                 cardPosition.RemoveRange(0, cardPosition.Count);
-                cardObjective.RemoveRange(0, cardObjective.Count);
+                cardsObjective.RemoveRange(0, cardsObjective.Count);
             }
             if (clicado)
             {
@@ -207,7 +208,7 @@ public class CardMovement : MonoBehaviour
         }
     }
 
-    bool checkCardObjective(CardDisplay thisCard, CardDisplay cardCollision)
+    bool checkcardsObjective(CardDisplay thisCard, CardDisplay cardCollision)
     {
         switch (thisCard.cardGame.TypeCard)
         {
@@ -242,17 +243,47 @@ void OnTriggerEnter2D(Collider2D collision)
             }
             else
             {
-                if (checkCardObjective(GetComponent<CardDisplay>(),collision.gameObject.GetComponent<CardDisplay>()))
+                if (checkcardsObjective(GetComponent<CardDisplay>(),collision.gameObject.GetComponent<CardDisplay>()))
                 {
-                    cardObjective.Add(collision.gameObject);
-                    cardObjective[0].GetComponent<CardDisplay>().SelectCard();
+                    cardsObjective.Add(collision.gameObject);
+                    cardsObjective[0].GetComponent<CardDisplay>().SelectCard();
+                    if(GetComponent<CardDisplay>().cardGame.TypeCard=="Ally" || GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                    {
+                        cardObjectiveSelected.GetComponent<CardDisplay>().DeselectCard();
+                        cardObjectiveSelected = SelectedLowestInfluence();
+                        if (cardsObjective != null)
+                        {
+                            cardObjectiveSelected.GetComponent<CardDisplay>().SelectCard();
+                        }
+                    } 
+
                 }
             }
 
         }
         
     }
+    GameObject SelectedLowestInfluence()
+    {
+        GameObject cardLowestInfluence=null;
+        int lowestInfluence=0;
+        if (cardsObjective.Count > 0)
+        {
+            cardLowestInfluence = cardsObjective[0];
+            lowestInfluence = cardLowestInfluence.GetComponent<CardDisplay>().cardGame.Influence;
+        }
 
+        foreach (GameObject card in cardsObjective)
+        {
+            if(card.GetComponent<CardDisplay>().cardGame.Influence< lowestInfluence)
+            {
+                cardLowestInfluence = card;
+                lowestInfluence = cardLowestInfluence.GetComponent<CardDisplay>().cardGame.Influence;
+            }
+        }
+
+        return cardLowestInfluence;
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (clicado)
@@ -263,8 +294,17 @@ void OnTriggerEnter2D(Collider2D collision)
             }
             else
             {
-                collision.gameObject.GetComponent<CardDisplay>().DeselectCard();
-                cardObjective.Remove(collision.gameObject);
+                if (cardObjectiveSelected == collision.gameObject)
+                {
+                    cardObjectiveSelected.gameObject.GetComponent<CardDisplay>().DeselectCard();
+                    cardObjectiveSelected = SelectedLowestInfluence();
+                    if (cardsObjective != null)
+                    {
+                        cardObjectiveSelected.GetComponent<CardDisplay>().SelectCard();
+                    }
+
+                }
+                cardsObjective.Remove(collision.gameObject);
             }
             
         }
