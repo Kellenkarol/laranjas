@@ -10,11 +10,10 @@ public class Tutorial : MonoBehaviour
 	public static bool TutorialOn;
 	public GameObject[] Tutoriais;
 	public GameObject[] TutoriaisOut;
-	public GameObject t1, t1Out, t2, t2Out, t3, t3Out, t4, t4Out, t5, t5Out, 
-	full_tc, full_tcOut, t3Seta1, t3Seta2, t3Texto1, t3Texto2, t3Destaque1, t3Destaque2, 
-	t3Papel, t3PapelTexto1, t3PapelTexto2, t3PapelTexto3,
-	t5Papel, t5PapelTexto5, t5PapelTexto6, t5PapelTexto7, t5PapelTexto8, t3CardYellow, t3CardBlue, 
-	t3CardRed, DeckSize, InfluenceSize, skipButton, toquePC; 
+	public GameObject full_tc, full_tcOut, 
+	t3PapelTexto1, t3PapelTexto2, t3PapelTexto3,
+	t3CardYellow, t3CardBlue, 
+	t3CardRed, skipButton, toquePC; 
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +40,7 @@ public class Tutorial : MonoBehaviour
 						// t5Out.SetActive(false);
 						full_tcOut.SetActive(false);
 		        		full_tc.SetActive(true);
-		        		t1.SetActive(true);
+		        		// t1.SetActive(true);
 		        		T(0, 0, true);
 		        		skipButton.SetActive(true);
 		        		toquePC.SetActive(true);
@@ -57,7 +56,11 @@ public class Tutorial : MonoBehaviour
 		        	}
 		        	else if(step<9)
 		        	{
-		        		if(step >= 2)
+		        		if(step == 3)
+		        		{
+		        			HideT3();
+		        		}
+		        		else if(step >= 2)
 		        		{
 			        		T(1, step-2, false);
 		        		}
@@ -169,7 +172,7 @@ public class Tutorial : MonoBehaviour
 
     public void HideT3()
     {
-		t3Papel.SetActive(false);
+		// t3Papel.SetActive(false);
 		t3PapelTexto1.SetActive(false);
 		t3CardYellow.SetActive(false);
 		t3PapelTexto2.SetActive(false);
@@ -180,9 +183,9 @@ public class Tutorial : MonoBehaviour
 
     public void HideT5()
     {
-		t5PapelTexto5.SetActive(false);
-		t5PapelTexto6.SetActive(false);
-		t5PapelTexto7.SetActive(false);
+		// t5PapelTexto5.SetActive(false);
+		// t5PapelTexto6.SetActive(false);
+		// t5PapelTexto7.SetActive(false);
 	}
 
     public void ShowT5()
@@ -218,24 +221,24 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator _ShowT5()
     {
-		yield return Wait(0.5f);
-		click = false;
-		t5.SetActive(true);
-        t5Papel.SetActive(true);
-		yield return Wait(0.5f);
-		t5PapelTexto5.SetActive(true);
+		// yield return Wait(0.5f);
+		// click = false;
+		// t5.SetActive(true);
+  //       t5Papel.SetActive(true);
+		// yield return Wait(0.5f);
+		// t5PapelTexto5.SetActive(true);
+
+		// while(!click){ yield return null;}
+		// click = false;
+		// t5PapelTexto6.SetActive(true);
+
+		// while(!click){ yield return null;}
+		// click = false;
+		// t5PapelTexto7.SetActive(true);
 
 		while(!click){ yield return null;}
 		click = false;
-		t5PapelTexto6.SetActive(true);
-
-		while(!click){ yield return null;}
-		click = false;
-		t5PapelTexto7.SetActive(true);
-
-		while(!click){ yield return null;}
-		click = false;
-		t5PapelTexto8.SetActive(true);
+		// t5PapelTexto8.SetActive(true);
 
     	t5end = true;
 	}    
@@ -262,31 +265,35 @@ public class Tutorial : MonoBehaviour
     public void Skip()
     {
     	StopAllCoroutines();
-		t1.SetActive(false);
+    	for(int c=0; c<Tutoriais.Length; c++)
+    	{
+			Tutoriais[c].SetActive(false);
+			TutoriaisOut[c].SetActive(false);
+    	}
 
-		t2.SetActive(false);
+		// Tutoriais[].SetActive(false);
 
-		t3.SetActive(false);
+		// Tutoriais[].SetActive(false);
 
-		t3.SetActive(false);
+		// Tutoriais[].SetActive(false);
 
-		t5.SetActive(false);
+		// Tutoriais[].SetActive(false);
 
 
 
-		t1Out.SetActive(false);
+		// t1Out.SetActive(false);
 
-		t2Out.SetActive(false);
+		// t2Out.SetActive(false);
 
-		t3Out.SetActive(false);
+		// t3Out.SetActive(false);
 
-		t3Out.SetActive(false);
+		// t3Out.SetActive(false);
 
-		t5Out.SetActive(false);
+		// t5Out.SetActive(false);
 
 
     	HideT3();
-    	HideT5();
+    	// HideT5();
 		full_tc.SetActive(false);
 		full_tcOut.SetActive(true);
 		TutorialOn = false;
