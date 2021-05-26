@@ -49,7 +49,7 @@ public class CardMovement : MonoBehaviour
                 // }
                 if (cardsObjective.Count > 0 && cardsObjective[0].GetComponent<CardDisplay>() != null)
                 {
-                    cardsObjective[0].GetComponent<CardDisplay>().SelectCard();
+                    cardsObjective[0].GetComponent<CardDisplay>().CardSelectStatus();
                     if(cardsObjective[0].GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;
@@ -214,7 +214,7 @@ public class CardMovement : MonoBehaviour
         {
             case"Ally" :
                 string thisCardTypeSolt = thisCard.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString();
-                if (cardCollision.cardGame.TypeCard== "Enemy" || cardCollision.cardGame.TypeCard == "EffectAlly")
+                if (cardCollision.cardGame.TypeCard== "Enemy")
                     if(thisCardTypeSolt == "Ally" || thisCardTypeSolt == "Bag")
                         return true;                
                 break;
@@ -246,14 +246,14 @@ void OnTriggerEnter2D(Collider2D collision)
                 if (checkcardsObjective(GetComponent<CardDisplay>(),collision.gameObject.GetComponent<CardDisplay>()))
                 {
                     cardsObjective.Add(collision.gameObject);
-                    cardsObjective[0].GetComponent<CardDisplay>().SelectCard();
+                    cardsObjective[0].GetComponent<CardDisplay>().CardSelectStatus();
                     if(GetComponent<CardDisplay>().cardGame.TypeCard=="Ally" || GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
-                        cardObjectiveSelected.GetComponent<CardDisplay>().DeselectCard();
+                        cardObjectiveSelected.GetComponent<CardDisplay>().CardSelectStatus();
                         cardObjectiveSelected = SelectedLowestInfluence();
                         if (cardsObjective != null)
                         {
-                            cardObjectiveSelected.GetComponent<CardDisplay>().SelectCard();
+                            cardObjectiveSelected.GetComponent<CardDisplay>().CardSelectStatus();
                         }
                     } 
 
@@ -296,11 +296,11 @@ void OnTriggerEnter2D(Collider2D collision)
             {
                 if (cardObjectiveSelected == collision.gameObject)
                 {
-                    cardObjectiveSelected.gameObject.GetComponent<CardDisplay>().DeselectCard();
+                    cardObjectiveSelected.gameObject.GetComponent<CardDisplay>().CardSelectStatus();
                     cardObjectiveSelected = SelectedLowestInfluence();
                     if (cardsObjective != null)
                     {
-                        cardObjectiveSelected.GetComponent<CardDisplay>().SelectCard();
+                        cardObjectiveSelected.GetComponent<CardDisplay>().CardSelectStatus();
                     }
 
                 }

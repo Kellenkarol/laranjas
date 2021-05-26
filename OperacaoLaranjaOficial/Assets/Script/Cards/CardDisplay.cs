@@ -84,7 +84,7 @@ public class CardDisplay : MonoBehaviour
     {
         cardGame.Influence -= influenceDamage;
         textValueInfluence.text = ""+cardGame.Influence;
-        DeselectCard();
+        CardSelectStatus();
         if (cardGame.Influence <= 0)
         {
             try 
@@ -119,16 +119,9 @@ public class CardDisplay : MonoBehaviour
         // textValueInfluence.gameObject.SetActive(false);
     }
     
-    public void SelectCard()
+    public void CardSelectStatus()
     {
-        cardSelected = true;
-        
-    }
-    public void DeselectCard()
-    {
-
-        cardSelected = false;
-        
+        cardSelected = !cardSelected;
     }
 
     public void initScale()
