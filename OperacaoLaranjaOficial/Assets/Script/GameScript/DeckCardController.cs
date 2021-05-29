@@ -167,7 +167,9 @@ public class DeckCardController : MonoBehaviour
     public void SortearNovaCartaSimples()
     {
         randomNumberCard = Random.Range(0, CardDeck.Length);
-        newCards.Add(CardDeck[randomNumberCard]);
+        CardScriptable aux = CardDeck[randomNumberCard];
+        print("DEBUG__  "+aux);
+        newCards.Add(aux);
     }
     public IEnumerator MoverNovaCarta(GameObject slot)
     {

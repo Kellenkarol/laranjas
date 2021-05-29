@@ -116,6 +116,10 @@ public class CardArrest : MonoBehaviour
         if(CurrentLevel < 4)
         {
             CurrentLevel++;
+            if(CurrentLevel == 2)
+            {
+                Tutorial.StartTutorial2();
+            }
             PlayerPrefs.SetInt("CurrentLevel",CurrentLevel);
             camMove.SetDestiny(CurrentLevel+1);
         }

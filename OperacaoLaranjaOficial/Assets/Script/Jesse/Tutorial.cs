@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
 	static int step=-1;
-	bool click, t3end=true, t5end=true;
+	bool click, t3end=true, t10end=true;
 	static float waitAux;
 	public static bool TutorialOn;
 	public GameObject[] Tutoriais;
@@ -13,7 +13,8 @@ public class Tutorial : MonoBehaviour
 	public GameObject full_tc, full_tcOut, 
 	t3PapelTexto1, t3PapelTexto2, t3PapelTexto3,
 	t3CardYellow, t3CardBlue, 
-	t3CardRed, skipButton, toquePC; 
+	t3CardRed, skipButton, toquePC,
+	t10PapelTexto1, t10PapelTexto2, t10CardDelator;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,10 @@ public class Tutorial : MonoBehaviour
     	{
 
 			click = false;
-	        if(Input.GetMouseButtonDown(0) || step == -1)
+	        if(Input.GetMouseButtonDown(0) || step == -1 || step == 9)
 	        {
 		    	click = true;
-	        	if(t3end&&t5end)
+	        	if(t3end&&t10end)
 	        	{
 		        	step++;
 
@@ -67,14 +68,24 @@ public class Tutorial : MonoBehaviour
 		        		T(1, step-1, true);
 		        		T(0, step-1, false);
 		        		T(0, step, true);
-
+		        	}
+		        	else if(step == 10)
+		        	{
+		        		ShowT10();
+		        	}
+		        	else if(step == 11)
+		        	{
+		        		T(1, 9, true);
+		        		T(0, 9, false);
+						FinishTutorial();
 		        	}
 		        	else
 		        	{
-		        		T(1, step-1, true);
-		        		T(0, step-1, false);
-						full_tc.SetActive(false);
-						full_tcOut.SetActive(true);
+		        		if(step != 12)
+		        		{
+			        		T(1, step-1, true);
+			        		T(0, step-1, false);
+		        		}
 						FinishTutorial();
 		        	}
 		    //     	else if(step == 1)
@@ -121,11 +132,11 @@ public class Tutorial : MonoBehaviour
 		    //     		// t3.SetActive(false);
 		    //     		// t3Out.SetActive(true);
 		    //     		HideT4();
-		    //     		ShowT5();
+		    //     		ShowT10();
 		    //     	}
 		    //     	else if(step == 5)
 		    //     	{
-		    //     		HideT5();
+		    //     		HideT10();
 						// t3Out.SetActive(false);
 						// full_tc.SetActive(false);
 						// t5.SetActive(false);
@@ -138,12 +149,19 @@ public class Tutorial : MonoBehaviour
     	}
     	else
     	{
-			t5end = t3end = true;
-    		step = -1;
+			t10end = t3end = true;
+    		// step = 8;
     	}
     }
     public static void StartTutorial()
     {
+		step = -1;
+    	TutorialOn = true;
+    }
+
+    public static void StartTutorial2()
+    {
+		step = 9;
     	TutorialOn = true;
     }
 
@@ -181,17 +199,17 @@ public class Tutorial : MonoBehaviour
 		t3CardRed.SetActive(false);
     }
 
-    public void HideT5()
+    public void HideT10()
     {
-		// t5PapelTexto5.SetActive(false);
-		// t5PapelTexto6.SetActive(false);
-		// t5PapelTexto7.SetActive(false);
+		t10PapelTexto1.SetActive(false);
+		t10PapelTexto2.SetActive(false);
+		t10CardDelator.SetActive(false);
 	}
 
-    public void ShowT5()
+    public void ShowT10()
     {
-    	t5end = false;
-    	StartCoroutine("_ShowT5");
+    	t10end = false;
+    	StartCoroutine("_ShowT10");
     }
 
     private IEnumerator _ShowT3()
@@ -219,28 +237,27 @@ public class Tutorial : MonoBehaviour
     	t3end = true;
     }
 
-    private IEnumerator _ShowT5()
+    private IEnumerator _ShowT10()
     {
-		// yield return Wait(0.5f);
+		yield return Wait(1.6f);
+		full_tc.SetActive(true);
+		skipButton.SetActive(true);
+		toquePC.SetActive(true);
+		yield return Wait(0.3f);
+    	Tutoriais[9].SetActive(true);
+		yield return Wait(0.5f);
+		t10PapelTexto1.SetActive(true);
+		yield return Wait(0.8f);
+		t10CardDelator.SetActive(true);
+		yield return Wait(1.75f);
+		t10PapelTexto2.SetActive(true);
+		// while(!click){ yield return null;}
 		// click = false;
-		// t5.SetActive(true);
-  //       t5Papel.SetActive(true);
-		// yield return Wait(0.5f);
-		// t5PapelTexto5.SetActive(true);
 
 		// while(!click){ yield return null;}
 		// click = false;
-		// t5PapelTexto6.SetActive(true);
 
-		// while(!click){ yield return null;}
-		// click = false;
-		// t5PapelTexto7.SetActive(true);
-
-		while(!click){ yield return null;}
-		click = false;
-		// t5PapelTexto8.SetActive(true);
-
-    	t5end = true;
+    	t10end = true;
 	}    
 
 
@@ -252,6 +269,8 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator _FinishTutorial()
     {
+		full_tc.SetActive(false);
+		full_tcOut.SetActive(true);
 		toquePC.SetActive(false);
 		skipButton.SetActive(false);
     	// yield return new WaitForSeconds(0.5f);
@@ -293,7 +312,7 @@ public class Tutorial : MonoBehaviour
 
 
     	HideT3();
-    	// HideT5();
+    	HideT10();
 		full_tc.SetActive(false);
 		full_tcOut.SetActive(true);
 		TutorialOn = false;

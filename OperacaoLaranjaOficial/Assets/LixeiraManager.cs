@@ -42,12 +42,16 @@ public class LixeiraManager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
+    	// CardScriptable
     	if(col.gameObject.tag == "Card" && numOfMovements >= 4)
     	{
-    		mySpt.sprite = spriteFill[5];
-    		card = col.gameObject;
-    		enter = true;
-    		print("Enter");
+    		if(col.gameObject.GetComponent<CardDisplay>().cardGame.TypeCard != "Enemy")
+    		{
+	    		mySpt.sprite = spriteFill[5];
+	    		card = col.gameObject;
+	    		enter = true;
+	    		print("Enter");
+    		}
     	}
     }
 
@@ -56,9 +60,12 @@ public class LixeiraManager : MonoBehaviour
     {
     	if(col.gameObject.tag == "Card" && numOfMovements >= 4)
     	{
-    		mySpt.sprite = spriteFill[4];
-    		enter = false;
-    		print("Out");
+    		if(col.gameObject.GetComponent<CardDisplay>().cardGame.TypeCard != "Enemy")
+    		{
+	    		mySpt.sprite = spriteFill[4];
+	    		enter = false;
+	    		print("Out");
+	    	}
     	}
     }
 

@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -1736297237571422790
     second: Tutorial_seta_indicar_0
+  - first:
+      213: 6173976514241169984
+    second: Tutorial_seta_indicar_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,10 +108,10 @@ TextureImporter:
       name: Tutorial_seta_indicar_0
       rect:
         serializedVersion: 2
-        x: 435
-        y: 2875
-        width: 297
-        height: 496
+        x: 419
+        y: 2859
+        width: 329
+        height: 528
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab5301a9cde67e7e0800000000000000
-      internalID: -1736297237571422790
+      spriteID: 04a03f6bdee5ea550800000000000000
+      internalID: 6173976514241169984
       vertices: []
       indices: 
       edges: []
