@@ -123,7 +123,10 @@ public class CardDisplay : MonoBehaviour
     {
         cardSelected = !cardSelected;
     }
-
+    public void DeselectCard()
+    {
+        cardSelected = false;
+    }
     public void initScale()
     {
         cardScaleDefaut = transform.lossyScale;

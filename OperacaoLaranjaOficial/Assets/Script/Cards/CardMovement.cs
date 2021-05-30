@@ -8,7 +8,7 @@ public class CardMovement : MonoBehaviour
 {
     [SerializeField]bool clicado;
     Vector3 touchPosition;
-    GameObject cardObjectiveSelected;
+    [SerializeField]GameObject cardObjectiveSelected;
     [SerializeField]List<GameObject> cardsObjective;
     [SerializeField]List<GameObject> cardPosition;
     public bool cardInicializada;
@@ -294,9 +294,12 @@ void OnTriggerEnter2D(Collider2D collision)
             }
             else
             {
-                if (cardObjectiveSelected == collision.gameObject)
+                if (cardsObjective.Contains(collision.gameObject))
                 {
-                    cardObjectiveSelected.gameObject.GetComponent<CardDisplay>().CardSelectStatus();
+                    foreach (GameObject card in cardsObjective)
+                    {
+                        cardObjectiveSelected.gameObject.GetComponent<CardDisplay>().DeselectCard();
+                    }                    
                     cardObjectiveSelected = SelectedLowestInfluence();
                     if (cardsObjective != null)
                     {
