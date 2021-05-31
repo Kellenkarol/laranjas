@@ -9,9 +9,6 @@ public class FasesButtonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Fase atual: "+ ManagerGame.Instance.FaseGame + " , "+ numFase);
-        
-        Debug.Log(gameObject.transform.name + ": " + iteractableFaseButton);
     }
 
     // Update is called once per frame

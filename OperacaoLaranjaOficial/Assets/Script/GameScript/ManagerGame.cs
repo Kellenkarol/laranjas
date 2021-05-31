@@ -23,7 +23,6 @@ public class ManagerGame : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            Debug.Log("Teste: "+ PlayerPrefs.GetInt("FaseConcluida"));
             if (PlayerPrefs.GetInt("FaseConcluida") == 0)
             {
                 _faseGame = 1;
