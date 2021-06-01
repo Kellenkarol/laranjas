@@ -132,7 +132,7 @@ public class DeckCardController : MonoBehaviour
     public void InicializarDeck()
     {
         canRun = true;
-        numCard = 40;
+        numCard = 2;
         AlterarUINumCard(numCard);
         marta.AlterarInfluenciaMarta(initialMartaInfluence);
         Debug.Log(gameObject.name + " Inicializar teste");
