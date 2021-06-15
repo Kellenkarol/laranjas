@@ -31426,7 +31426,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5642458, y: 1}
+    m_SensorSize: {x: 0.5, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -33964,7 +33964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1605826684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34449,7 +34449,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633437430}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d5fd3b6f1d937c144879f487416d8534, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: bb43a5aa855e94e428dc72b838882100, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1652585722}
