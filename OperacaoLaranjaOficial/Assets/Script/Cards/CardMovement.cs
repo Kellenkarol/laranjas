@@ -39,14 +39,7 @@ public class CardMovement : MonoBehaviour
                 clicado = false;
                 int num = this.gameObject.GetComponent<CardDisplay>().CardOrderDisplay;
                 this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = num;
-                // try
-                // {
-                    this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = num+1;
-                // }
-                // catch(Exception e)
-                // {
-                    //pass
-                // }
+                this.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = num+1;
                 if (cardsObjective.Count > 0 && cardObjectiveSelected.GetComponent<CardDisplay>() != null)
                 {
                     if(cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
@@ -190,6 +183,7 @@ public class CardMovement : MonoBehaviour
                         return true;                
                 break;
             case "Effect":
+                Debug.Log("Testando");
                 if (cardCollision.cardGame.TypeCard == "Enemy")
                     return true;
                 break;
@@ -211,19 +205,24 @@ void OnTriggerEnter2D(Collider2D collision)
             }
             else
             {
+                Debug.Log(GetComponent<CardDisplay>()+ " , "+ collision.gameObject.GetComponent<CardDisplay>());
                 if (checkcardsObjective(GetComponent<CardDisplay>(),collision.gameObject.GetComponent<CardDisplay>()))
                 {
                     cardsObjective.Add(collision.gameObject);
                     if(GetComponent<CardDisplay>().cardGame.TypeCard=="Ally" || GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
-                        Debug.Log("Estou segurando uma carta do tipo Aliada");
+                        Debug.Log("Estou segurando uma carta do tipo Aliada ou efeito no inimigo" );
                         foreach (GameObject card in cardsObjective)
                         {
                             card.gameObject.GetComponent<CardDisplay>().DeselectCard();
                         }
                         cardObjectiveSelected = SelectedLowestInfluence();
                         cardObjectiveSelected.GetComponent<CardDisplay>().CardSelect();
-                    } 
+                    }
+                    else
+                    {
+                        Debug.Log("Outro tipo de carta");
+                    }
 
                 }
             }
