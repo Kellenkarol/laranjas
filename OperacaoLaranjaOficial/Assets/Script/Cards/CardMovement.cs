@@ -49,14 +49,16 @@ public class CardMovement : MonoBehaviour
                 // }
                 if (cardsObjective.Count > 0 && cardObjectiveSelected.GetComponent<CardDisplay>() != null)
                 {
-                    if(cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                    if(cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" 
+                        && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
                         actionMouseClick = true;
                         cardObjectiveSelected.GetComponent<CardDisplay>().GetDamage(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect, this.gameObject, true);
                         Destroy(this.gameObject);
 
                     }
-                    if (cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
+                    if (cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy" 
+                        && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Ally")
                     {
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally")
                         {
@@ -179,18 +181,18 @@ public class CardMovement : MonoBehaviour
         }
     }
 
-    bool checkcardsObjective(CardDisplay thisCard, CardDisplay cardCollision)
+    bool checkcardsObjective(GameObject thisCard, GameObject cardCollision)
     {
-        switch (thisCard.cardGame.TypeCard)
+        switch (thisCard.GetComponent<CardDisplay>().cardGame.TypeCard)
         {
             case"Ally" :
                 string thisCardTypeSolt = thisCard.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString();
-                if (cardCollision.cardGame.TypeCard== "Enemy")
+                if (cardCollision.GetComponent<CardDisplay>().cardGame.TypeCard== "Enemy")
                     if(thisCardTypeSolt == "Ally" || thisCardTypeSolt == "Bag")
                         return true;                
                 break;
             case "Effect":
-                if (cardCollision.cardGame.TypeCard == "Enemy")
+                if (cardCollision.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
                     return true;
                 break;
             case "EffectAlly":
@@ -211,7 +213,7 @@ void OnTriggerEnter2D(Collider2D collision)
             }
             else
             {
-                if (checkcardsObjective(GetComponent<CardDisplay>(),collision.gameObject.GetComponent<CardDisplay>()))
+                if (checkcardsObjective(this.gameObject,collision.gameObject))
                 {
                     cardsObjective.Add(collision.gameObject);
                     if(GetComponent<CardDisplay>().cardGame.TypeCard=="Ally" || GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
@@ -223,8 +225,19 @@ void OnTriggerEnter2D(Collider2D collision)
                         }
                         cardObjectiveSelected = SelectedLowestInfluence();
                         cardObjectiveSelected.GetComponent<CardDisplay>().CardSelect();
-                    } 
-
+                    }
+                }
+                else
+                {
+                    if (GetComponent<CardDisplay>().cardGame.TypeCard == "EffectAlly" 
+                        || GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
+                    {
+                        Debug.Log("Estou segurando uma carta de efeito aliada ou inimiga");
+                        if (checkcardsObjective(this.gameObject, collision.gameObject))
+                        {
+                            cardObjectiveSelected = collision.gameObject;
+                        }
+                    }
                 }
             }
 
