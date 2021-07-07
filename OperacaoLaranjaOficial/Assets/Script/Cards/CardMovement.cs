@@ -64,6 +64,14 @@ public class CardMovement : MonoBehaviour
                             this.GetComponent<CardDisplay>().GetDamage(cardEnemyInfluenceInitial, cardsObjective[0], false);
                         }
                     }
+
+                    if (cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect"
+                        && this.GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
+                    {
+                        actionMouseClick = true;
+                        this.GetComponent<CardDisplay>().GetDamage(cardObjectiveSelected.GetComponent<CardDisplay>().cardGame.InfluenceEffect, cardObjectiveSelected.gameObject, true);
+                        Destroy(cardObjectiveSelected.gameObject);
+                    }
                 }
 
                 if (cardsObjective.Count > 0 && cardObjectiveSelected.GetComponent<MartaPollaroid>() != null)
@@ -191,8 +199,11 @@ public class CardMovement : MonoBehaviour
                     return true;
                 break;
             case "Enemy":
-                if (cardCollision.GetComponent<MartaPollaroid>() || cardCollision.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                if (cardCollision.GetComponent<MartaPollaroid>())
                     return true;
+                if (cardCollision.GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
+                    return true;
+                
                 break;
         }
         return false;
@@ -230,8 +241,9 @@ void OnTriggerEnter2D(Collider2D collision)
                             Debug.Log("Estou segurando uma carta de efeito aliada ou inimiga");
                             if (checkcardsObjective(this.gameObject, collision.gameObject))
                             {
-                                Debug.Log("Vim aqui");
                                 cardObjectiveSelected = collision.gameObject;
+                                if(cardObjectiveSelected.GetComponent<MartaPollaroid>()==null)
+                                    cardObjectiveSelected.GetComponent<CardDisplay>().CardSelect();
                             }
                         }
                     }
