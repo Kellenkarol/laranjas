@@ -11696,6 +11696,7 @@ Transform:
   - {fileID: 534357365}
   - {fileID: 1677810550}
   - {fileID: 483515874}
+  - {fileID: 716244580}
   m_Father: {fileID: 1305818183}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12427,7 +12428,7 @@ PrefabInstance:
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: CardDeck.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
@@ -12525,6 +12526,12 @@ PrefabInstance:
       propertyPath: Lixeira
       value: 
       objectReference: {fileID: 1163581790}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: f4797358e083c1b4fb142a4815cb1eb5,
+        type: 2}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14429,6 +14436,133 @@ Transform:
   m_Father: {fileID: 348924355}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &716244579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 716244580}
+  - component: {fileID: 716244581}
+  m_Layer: 0
+  m_Name: Delator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &716244580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716244579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 560543846}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &716244581
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716244579}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 016d37d8163f178468ac8d548234b67e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &718163411
 GameObject:
   m_ObjectHideFlags: 0
@@ -20759,7 +20893,7 @@ PrefabInstance:
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: CardDeck.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
@@ -20857,6 +20991,12 @@ PrefabInstance:
       propertyPath: Lixeira
       value: 
       objectReference: {fileID: 12962220}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: f4797358e083c1b4fb142a4815cb1eb5,
+        type: 2}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30945,7 +31085,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.4991453, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -32443,7 +32583,7 @@ PrefabInstance:
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: CardDeck.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
@@ -32546,6 +32686,12 @@ PrefabInstance:
       propertyPath: Lixeira
       value: 
       objectReference: {fileID: 1017895317}
+    - target: {fileID: 3707901020182482590, guid: 0239c5156a6cda04fa50c07d207fd211,
+        type: 3}
+      propertyPath: CardDeck.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: f4797358e083c1b4fb142a4815cb1eb5,
+        type: 2}
     - target: {fileID: 3707901020182482591, guid: 0239c5156a6cda04fa50c07d207fd211,
         type: 3}
       propertyPath: m_LocalPosition.x

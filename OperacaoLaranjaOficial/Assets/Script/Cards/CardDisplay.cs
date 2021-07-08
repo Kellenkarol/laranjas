@@ -68,15 +68,24 @@ public class CardDisplay : MonoBehaviour
         textValueInfluence = GetComponentInChildren<TextMeshPro>();
         _cardOrderDisplayNumber = spriteRenderer.sortingOrder;
         cardGame = new Card(cardInfo.name, cardInfo.imageCard, cardInfo.baseCard, cardInfo.typeCard.ToString(),
-                            UnityEngine.Random.Range(cardInfo.influence[0], cardInfo.influence[1]+1), UnityEngine.Random.Range(cardInfo.influenceEffect[0], cardInfo.influenceEffect[1]+1));
+                            UnityEngine.Random.Range(cardInfo.influence[0], cardInfo.influence[1]+1), UnityEngine.Random.Range(cardInfo.influenceEffect[0], cardInfo.influenceEffect[1]+1), cardInfo.influenceBothEffect);
         spriteRenderer.sprite = cardGame.SpriteCard;
+        Debug.Log(cardInfo.influenceBothEffect + ", " + cardGame.BothEffect);
         if (cardGame.TypeCard == "Effect" || cardGame.TypeCard == "EffectAlly")
         {
             textValueInfluence.text = "" + cardGame.InfluenceEffect;
         }
         else
         {
-            textValueInfluence.text = "" + cardGame.Influence;
+            if (cardGame.TypeCard == "EffectBoth")
+            {
+                textValueInfluence.text = "" + cardGame.BothEffect;
+            }
+            else
+            {
+                textValueInfluence.text = "" + cardGame.Influence;
+
+            }
         }
         spriteRenderer.material.SetTexture("_MainText", cardInfo.imageCard.texture);
     }
@@ -140,7 +149,7 @@ public class CardDisplay : MonoBehaviour
         [SerializeField] string typeCard;
         [SerializeField] int influence;
         [SerializeField] int influenceEffect;
-
+        [SerializeField] int bothEffect;
         public string Name
         {
             get { return cardName; }
@@ -167,8 +176,11 @@ public class CardDisplay : MonoBehaviour
         {
             get { return influenceEffect; }
         }
-
-        public Card(string newCardName, Sprite newSprite,Sprite newBaseCard, string newTypeCard, int newInfluence, int newInfluenceEffect)
+        public int BothEffect
+        {
+            get { return bothEffect; }
+        }
+        public Card(string newCardName, Sprite newSprite,Sprite newBaseCard, string newTypeCard, int newInfluence, int newInfluenceEffect, int newInfluenceBothEffect)
         {
             cardName = newCardName;
             imageCard = newSprite;
@@ -176,6 +188,7 @@ public class CardDisplay : MonoBehaviour
             typeCard = newTypeCard;
             influence = newInfluence;
             influenceEffect = newInfluenceEffect;
+            bothEffect = newInfluenceBothEffect;
         }
 
 
