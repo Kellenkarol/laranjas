@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3789831136093097518}
   - component: {fileID: 6952801273623091873}
   - component: {fileID: 5307334854772698570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 1042750707450165499}
   - component: {fileID: 1403602833323937982}
   - component: {fileID: 7868667511320720600}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Card
   m_TagString: Card
   m_Icon: {fileID: 0}
@@ -311,7 +311,9 @@ MonoBehaviour:
     typeCard: Ally
     influence: 15
     influenceEffect: 0
+    bothEffect: 0
   deadCard: 0
+  cardSelected: 0
   spriteRenderer: {fileID: 7900349356548705154}
   textValueInfluence: {fileID: 5307334854772698570}
   _cardOrderDisplayNumber: 0
@@ -332,7 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicado: 0
-  cardObjective: []
+  cardObjectiveSelected: {fileID: 0}
+  cardsObjective: []
   cardPosition: []
   cardInicializada: 1
   paiObjeto: {fileID: 0}

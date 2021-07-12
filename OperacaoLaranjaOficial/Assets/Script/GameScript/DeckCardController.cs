@@ -97,13 +97,11 @@ public class DeckCardController : MonoBehaviour
                 if (vitoriaDetected)
                 {
                     delayAux = 0;
-                    Debug.Log("Vitoria fase uhu");
                     cardArrest.Arrest(transform.parent.name);
                     canRun = false;
                     Debug.Log(PlayerPrefs.GetInt("FaseConcluida"));
                     if(PlayerPrefs.GetInt("CurrentLevel") == PlayerPrefs.GetInt("FaseConcluida"))
                     {
-                        Debug.Log("Vim aqui");
                         PlayerPrefs.SetInt("FaseConcluida", PlayerPrefs.GetInt("CurrentLevel")+1);
                         ManagerGame.Instance.FaseGame = PlayerPrefs.GetInt("FaseConcluida");
                     }
@@ -233,5 +231,11 @@ public class DeckCardController : MonoBehaviour
             hit2D.collider.gameObject.GetComponent<DeckCardController>().clicado = true;
             ManagerGame.Instance.LockPlayerActive = true;
         }
+    }
+
+    public void DecreaseCards(int amount)
+    {
+        numCard=Mathf.Clamp(numCard - amount, 0, numCard);
+        AlterarUINumCard(numCard);
     }
 }

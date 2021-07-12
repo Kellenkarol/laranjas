@@ -89,11 +89,27 @@ public class CardMovement : MonoBehaviour
                         if (this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString() == "Ally" || this.gameObject.GetComponentInParent<SlotController>().SlotObjective.TypeSlot.ToString()== "Bag")
                         {
                             actionMouseClick = true;
-                            cardsObjective[0].GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
+                            cardObjectiveSelected.GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.InfluenceEffect);
                             this.GetComponent<CardDisplay>().mySound.Play();
                             Destroy(this.gameObject);
                         }
                     }
+
+                    if (this.GetComponent<CardDisplay>().cardGame.TypeCard == "EffectBoth")
+                    {
+                        actionMouseClick = true;
+                        cardObjectiveSelected.GetComponent<MartaPollaroid>().AlterarInfluenciaMarta(this.GetComponent<CardDisplay>().cardGame.BothEffect);
+                        this.GetComponent<CardDisplay>().mySound.Play();
+                        Destroy(this.gameObject);
+                    }
+                }
+
+                if(cardsObjective.Count > 0 && cardObjectiveSelected.GetComponent<EnemyPollaroid>() != null)
+                {
+                    actionMouseClick = true;
+                    cardObjectiveSelected.GetComponent<EnemyPollaroid>().DecreaseNumberOfCards(this.GetComponent<CardDisplay>().cardGame.BothEffect);
+                    this.GetComponent<CardDisplay>().mySound.Play();
+                    Destroy(this.gameObject);
                 }
 
                 if (cardPosition.Count>0 && !actionMouseClick)
@@ -205,6 +221,14 @@ public class CardMovement : MonoBehaviour
                     return true;
                 
                 break;
+
+            case "EffectBoth":
+                if (cardCollision.GetComponent<MartaPollaroid>())
+                    return true;
+                if (cardCollision.GetComponent<EnemyPollaroid>())
+                    return true;
+
+                break;
         }
         return false;
     }
@@ -221,7 +245,7 @@ void OnTriggerEnter2D(Collider2D collision)
             {
                 if (checkcardsObjective(this.gameObject,collision.gameObject))
                 {
-                    Debug.Log("Teste");
+                    Debug.Log("Estou apto a executar algum tipo de ação");
                     cardsObjective.Add(collision.gameObject);
                     if(GetComponent<CardDisplay>().cardGame.TypeCard=="Ally" || GetComponent<CardDisplay>().cardGame.TypeCard == "Effect")
                     {
@@ -239,12 +263,13 @@ void OnTriggerEnter2D(Collider2D collision)
                             || GetComponent<CardDisplay>().cardGame.TypeCard == "Enemy")
                         {
                             Debug.Log("Estou segurando uma carta de efeito aliada ou inimiga");
-                            if (checkcardsObjective(this.gameObject, collision.gameObject))
-                            {
-                                cardObjectiveSelected = collision.gameObject;
-                                if(cardObjectiveSelected.GetComponent<MartaPollaroid>()==null)
-                                    cardObjectiveSelected.GetComponent<CardDisplay>().CardSelect();
-                            }
+                            cardObjectiveSelected = collision.gameObject;
+                            if (cardObjectiveSelected.GetComponent<MartaPollaroid>() == null)
+                                cardObjectiveSelected.GetComponent<CardDisplay>().CardSelect();
+                        }
+                        else
+                        {
+                            cardObjectiveSelected = collision.gameObject;
                         }
                     }
                 }

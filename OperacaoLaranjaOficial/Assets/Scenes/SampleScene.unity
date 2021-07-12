@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 12962220}
   - component: {fileID: 12962219}
   - component: {fileID: 12962218}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lixeira (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1716,7 +1716,7 @@ GameObject:
   - component: {fileID: 55177877}
   - component: {fileID: 55177878}
   - component: {fileID: 55177879}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3009,7 +3009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123560228}
   - component: {fileID: 123560229}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3853,7 +3853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167741433}
   - component: {fileID: 167741434}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4902,7 +4902,7 @@ GameObject:
   - component: {fileID: 273026773}
   - component: {fileID: 273026772}
   - component: {fileID: 273026771}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7444,7 +7444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397331184}
   - component: {fileID: 397331185}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7492,7 +7492,7 @@ GameObject:
   - component: {fileID: 397490811}
   - component: {fileID: 397490812}
   - component: {fileID: 397490813}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8458,7 +8458,7 @@ GameObject:
   - component: {fileID: 437914867}
   - component: {fileID: 437914866}
   - component: {fileID: 437914868}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
   m_Icon: {fileID: 0}
@@ -8974,7 +8974,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455671486}
-  m_Layer: 0
+  - component: {fileID: 455671488}
+  - component: {fileID: 455671487}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8997,6 +8999,48 @@ Transform:
   m_Father: {fileID: 1476050552}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &455671487
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455671485}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 21.244545, y: -26.735756}
+      - {x: 29.496199, y: -28.82112}
+      - {x: 27.374414, y: -37.28584}
+      - {x: 19.579613, y: -34.481953}
+--- !u!114 &455671488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455671485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836eabba891d7e8409109c721c8b4b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDeck: {fileID: 1612969529}
 --- !u!1 &457606769
 GameObject:
   m_ObjectHideFlags: 0
@@ -11845,7 +11889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579001884}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12614,7 +12658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602451828}
   - component: {fileID: 602451829}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13115,7 +13159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 632436245}
   - component: {fileID: 632436246}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13294,7 +13338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 641413925}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16132,7 +16176,7 @@ GameObject:
   - component: {fileID: 781004534}
   - component: {fileID: 781004535}
   - component: {fileID: 781004536}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16237,7 +16281,7 @@ GameObject:
   - component: {fileID: 787427841}
   - component: {fileID: 787427842}
   - component: {fileID: 787427843}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17404,7 +17448,7 @@ GameObject:
   - component: {fileID: 873611783}
   - component: {fileID: 873611784}
   - component: {fileID: 873611785}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotBagPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18162,9 +18206,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 936977888}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
+  - component: {fileID: 936977889}
+  - component: {fileID: 936977890}
+  m_Layer: 10
+  m_Name: PolaroidEnemy
+  m_TagString: PolaroidEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18185,6 +18231,50 @@ Transform:
   m_Father: {fileID: 522111424}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &936977889
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936977887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 29.364079, y: -32.53391}
+      - {x: 27.943596, y: -32.37295}
+      - {x: 27.72474, y: -34.666348}
+      - {x: 20.929962, y: -35.17088}
+      - {x: 20.24982, y: -26.617386}
+      - {x: 28.760815, y: -25.84018}
+--- !u!114 &936977890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936977887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836eabba891d7e8409109c721c8b4b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDeck: {fileID: 992533088}
 --- !u!1 &937139697
 GameObject:
   m_ObjectHideFlags: 0
@@ -18593,7 +18683,7 @@ GameObject:
   - component: {fileID: 944296117}
   - component: {fileID: 944296118}
   - component: {fileID: 944296119}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18890,7 +18980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972031536}
   - component: {fileID: 972031537}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18971,7 +19061,7 @@ GameObject:
   - component: {fileID: 980567343}
   - component: {fileID: 980567342}
   - component: {fileID: 980567341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20083,7 +20173,7 @@ GameObject:
   - component: {fileID: 1017895317}
   - component: {fileID: 1017895316}
   - component: {fileID: 1017895315}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lixeira (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21113,7 +21203,7 @@ GameObject:
   - component: {fileID: 1046201749}
   - component: {fileID: 1046201748}
   - component: {fileID: 1046201747}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23051,7 +23141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147064248}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23082,7 +23172,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1150807350}
-  m_Layer: 0
+  - component: {fileID: 1150807352}
+  - component: {fileID: 1150807351}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23105,6 +23197,50 @@ Transform:
   m_Father: {fileID: 620899267}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150807351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150807349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836eabba891d7e8409109c721c8b4b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDeck: {fileID: 94575613}
+--- !u!60 &1150807352
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150807349}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 28.207851, y: -26.911823}
+      - {x: 30.166325, y: -34.6444}
+      - {x: 28.125233, y: -34.936333}
+      - {x: 28.517698, y: -35.657784}
+      - {x: 21.869686, y: -37.475796}
+      - {x: 19.677448, y: -29.00787}
 --- !u!1 &1155032531
 GameObject:
   m_ObjectHideFlags: 0
@@ -23432,7 +23568,7 @@ GameObject:
   - component: {fileID: 1163581790}
   - component: {fileID: 1163581789}
   - component: {fileID: 1163581788}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lixeira (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23724,7 +23860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185990796}
   - component: {fileID: 1185990797}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24283,7 +24419,7 @@ GameObject:
   - component: {fileID: 1209603902}
   - component: {fileID: 1209603903}
   - component: {fileID: 1209603904}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25738,7 +25874,7 @@ GameObject:
   - component: {fileID: 1284457230}
   - component: {fileID: 1284457229}
   - component: {fileID: 1284457228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26714,7 +26850,7 @@ GameObject:
   - component: {fileID: 1318820751}
   - component: {fileID: 1318820750}
   - component: {fileID: 1318820752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
   m_Icon: {fileID: 0}
@@ -26944,7 +27080,7 @@ GameObject:
   - component: {fileID: 1323455357}
   - component: {fileID: 1323455356}
   - component: {fileID: 1323455355}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27216,7 +27352,7 @@ GameObject:
   - component: {fileID: 1349419301}
   - component: {fileID: 1349419302}
   - component: {fileID: 1349419303}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27591,7 +27727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363478737}
   - component: {fileID: 1363478738}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27641,7 +27777,7 @@ GameObject:
   - component: {fileID: 1365869390}
   - component: {fileID: 1365869389}
   - component: {fileID: 1365869388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28151,7 +28287,7 @@ GameObject:
   - component: {fileID: 1378636167}
   - component: {fileID: 1378636166}
   - component: {fileID: 1378636168}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
   m_Icon: {fileID: 0}
@@ -28532,7 +28668,7 @@ GameObject:
   - component: {fileID: 1385011662}
   - component: {fileID: 1385011663}
   - component: {fileID: 1385011664}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotBagPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28813,7 +28949,7 @@ GameObject:
   - component: {fileID: 1392150841}
   - component: {fileID: 1392150842}
   - component: {fileID: 1392150843}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29395,7 +29531,7 @@ GameObject:
   - component: {fileID: 1424731737}
   - component: {fileID: 1424731736}
   - component: {fileID: 1424731735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30911,7 +31047,7 @@ GameObject:
   - component: {fileID: 1485174936}
   - component: {fileID: 1485174937}
   - component: {fileID: 1485174938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31085,7 +31221,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.4991453, y: 1}
+    m_SensorSize: {x: 0.50044054, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -31513,7 +31649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1517984529}
   - component: {fileID: 1517984530}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31851,7 +31987,7 @@ GameObject:
   - component: {fileID: 1530352965}
   - component: {fileID: 1530352966}
   - component: {fileID: 1530352967}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32089,7 +32225,7 @@ GameObject:
   - component: {fileID: 1540416800}
   - component: {fileID: 1540416801}
   - component: {fileID: 1540416802}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32766,7 +32902,7 @@ GameObject:
   - component: {fileID: 1555971395}
   - component: {fileID: 1555971396}
   - component: {fileID: 1555971397}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotBagPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35815,7 +35951,7 @@ GameObject:
   - component: {fileID: 1699517035}
   - component: {fileID: 1699517036}
   - component: {fileID: 1699517037}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotBagPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36151,7 +36287,7 @@ GameObject:
   - component: {fileID: 1701018737}
   - component: {fileID: 1701018736}
   - component: {fileID: 1701018735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37170,7 +37306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737542919}
   - component: {fileID: 1737542920}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37300,7 +37436,7 @@ GameObject:
   - component: {fileID: 1739992839}
   - component: {fileID: 1739992840}
   - component: {fileID: 1739992841}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta
   m_TagString: PolaroidMarta
   m_Icon: {fileID: 0}
@@ -37556,7 +37692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1751865827}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PolaroidMarta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37587,7 +37723,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1756620071}
-  m_Layer: 0
+  - component: {fileID: 1756620073}
+  - component: {fileID: 1756620072}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37610,6 +37748,50 @@ Transform:
   m_Father: {fileID: 478447340}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1756620072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756620070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836eabba891d7e8409109c721c8b4b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDeck: {fileID: 1396128882}
+--- !u!60 &1756620073
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756620070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 12.814804, y: -29.64262}
+      - {x: 14.884155, y: -38.098835}
+      - {x: 19.92273, y: -36.86859}
+      - {x: 20.68303, y: -34.597187}
+      - {x: 23.09586, y: -35.495453}
+      - {x: 21.217129, y: -27.613388}
 --- !u!1 &1760852208
 GameObject:
   m_ObjectHideFlags: 0
@@ -37960,7 +38142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784533633}
   - component: {fileID: 1784533634}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40841,7 +41023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955173087}
   - component: {fileID: 1955173088}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41129,7 +41311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1966767190}
   - component: {fileID: 1966767191}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41278,7 +41460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1974114679}
   - component: {fileID: 1974114680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41328,7 +41510,7 @@ GameObject:
   - component: {fileID: 1979200917}
   - component: {fileID: 1979200916}
   - component: {fileID: 1979200915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41905,7 +42087,7 @@ GameObject:
   - component: {fileID: 2010400942}
   - component: {fileID: 2010400941}
   - component: {fileID: 2010400940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42111,7 +42293,7 @@ GameObject:
   - component: {fileID: 2013077638}
   - component: {fileID: 2013077637}
   - component: {fileID: 2013077636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42484,7 +42666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2043030595}
   - component: {fileID: 2043030596}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42764,7 +42946,7 @@ GameObject:
   - component: {fileID: 2054772570}
   - component: {fileID: 2054772569}
   - component: {fileID: 2054772568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43184,7 +43366,7 @@ GameObject:
   - component: {fileID: 2064784766}
   - component: {fileID: 2064784767}
   - component: {fileID: 2064784768}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotAllyPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43594,7 +43776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2082922837}
   - component: {fileID: 2082922838}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SlotEnemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44526,7 +44708,7 @@ GameObject:
   - component: {fileID: 2119863247}
   - component: {fileID: 2119863248}
   - component: {fileID: 2119863249}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lixeira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
