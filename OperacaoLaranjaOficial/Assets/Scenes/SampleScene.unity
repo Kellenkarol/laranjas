@@ -5473,7 +5473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296466951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.69, y: 0.38, z: 0}
+  m_LocalPosition: {x: -0.69, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1383433387}
@@ -5518,7 +5518,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eea6e30e5a0a58340a4404d112f8e81f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a2c1cc4cd407f54692cb787067666a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12138,13 +12138,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584146223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.18, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.017662609, w: 0.999844}
+  m_LocalPosition: {x: 0.66, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 659056608}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.0240002}
 --- !u!212 &584146225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12184,7 +12184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d9ca23dd5b5df34b93bc868b3157d42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c079b6dd90a5524c867011bdb371675, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13632,8 +13632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 3
   status:
-  - {fileID: 21300000, guid: 8d9ca23dd5b5df34b93bc868b3157d42, type: 3}
-  - {fileID: 21300000, guid: f162feb8508282543b3e768d63eb78bc, type: 3}
+  - {fileID: 21300000, guid: 1c079b6dd90a5524c867011bdb371675, type: 3}
+  - {fileID: 21300000, guid: dd72d5400a266b144bfd2d4f0e1d6ed6, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &674921285
@@ -13890,8 +13890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 2
   status:
-  - {fileID: 21300000, guid: 2dc043b9b77a8df44ba5b567a4dd5d3d, type: 3}
-  - {fileID: 21300000, guid: 2ea184b0e32929d42b7033ad86e0a9c3, type: 3}
+  - {fileID: 21300000, guid: 559e35f35dc83794db05b5f28d9195d8, type: 3}
+  - {fileID: 21300000, guid: 0ea26581ebef2c847984d1dcea3a958b, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &685762294
@@ -14393,7 +14393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710308381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 0.28, z: 0}
+  m_LocalPosition: {x: -0.09, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 685338400}
@@ -14438,7 +14438,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2dc043b9b77a8df44ba5b567a4dd5d3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 559e35f35dc83794db05b5f28d9195d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20931,8 +20931,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 0
   status:
-  - {fileID: 21300000, guid: 16f232c583cf2984da74a1fa647751c4, type: 3}
-  - {fileID: 21300000, guid: fbcf6b3b29eb57b40b7ba2e9789258de, type: 3}
+  - {fileID: 21300000, guid: 3bcda1e725ee682458cf0b5c0875234f, type: 3}
+  - {fileID: 21300000, guid: beb83ad4e95339a4fa6b3b174d664400, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1043376181
@@ -25184,7 +25184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243183915}
   m_LocalRotation: {x: -0, y: -0, z: 0.024640817, w: -0.9996964}
-  m_LocalPosition: {x: 0.31, y: 0.24, z: 0}
+  m_LocalPosition: {x: 0.29, y: -0.09, z: 0}
   m_LocalScale: {x: 0.9188005, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1040703079}
@@ -25229,7 +25229,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 16f232c583cf2984da74a1fa647751c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bcda1e725ee682458cf0b5c0875234f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -28653,8 +28653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 1
   status:
-  - {fileID: 21300000, guid: eea6e30e5a0a58340a4404d112f8e81f, type: 3}
-  - {fileID: 21300000, guid: 45b877eacb2ddbb4a80d43d9704bbe14, type: 3}
+  - {fileID: 21300000, guid: 8a2c1cc4cd407f54692cb787067666a6, type: 3}
+  - {fileID: 21300000, guid: 277eb8afeb3a69b4296c87ab17296f72, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1385011661
@@ -31221,7 +31221,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.50044054, y: 1}
+    m_SensorSize: {x: 0.5, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -40301,8 +40301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: 4
   status:
-  - {fileID: 21300000, guid: 17efcd612c8d21d4c83f2a8c9acaf71d, type: 3}
-  - {fileID: 21300000, guid: 5ab1f432e8d1d0c41862155ad751530b, type: 3}
+  - {fileID: 21300000, guid: e569697d0e1e0fa4d857c72adc9d7e4a, type: 3}
+  - {fileID: 21300000, guid: fe7989fb37c9e1c4b885da1f33337f19, type: 3}
   gameOverScript: {fileID: 0}
   deckCard: {fileID: 0}
 --- !u!1 &1916403399
@@ -41728,7 +41728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981482246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 0.33, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1914074191}
@@ -41773,7 +41773,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17efcd612c8d21d4c83f2a8c9acaf71d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e569697d0e1e0fa4d857c72adc9d7e4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

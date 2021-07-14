@@ -5,6 +5,7 @@ using UnityEngine;
 public class LixeiraManager : MonoBehaviour
 {
 	public Sprite[] spriteFill;
+	public AudioSource audio;
 	private SpriteRenderer mySpt;
 	private int numOfMovements = 0;
 
@@ -15,6 +16,7 @@ public class LixeiraManager : MonoBehaviour
 	void Start()
 	{
 		mySpt = GetComponent<SpriteRenderer>();
+		audio = GetComponent<AudioSource>();
 	}
 
 
@@ -25,6 +27,7 @@ public class LixeiraManager : MonoBehaviour
     		// mySpt.sprite = OnOver;
 			if(!Input.GetMouseButton(0))
 			{
+				audio.Play();
 				enter = false;
 				card.GetComponent<CardDisplay>().EndCard();
 				// Destroy(card);
