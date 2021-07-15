@@ -54,7 +54,7 @@ public class ButtonScript : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        Debug.Log(animScript.gameObject.name);
+        // Debug.Log(animScript.gameObject.name);
         if (CanClick())
         {
             if (GetComponent<FasesButtonScript>() != null)
