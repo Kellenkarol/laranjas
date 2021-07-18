@@ -16,7 +16,8 @@ public class LixeiraManager : MonoBehaviour
 	void Start()
 	{
 		mySpt = GetComponent<SpriteRenderer>();
-		audio = GetComponent<AudioSource>();
+		// audio = GetComponent<AudioSource>();
+        audio = GameObject.Find("SFX/Lixeira").GetComponent<AudioSource>();
 	}
 
 

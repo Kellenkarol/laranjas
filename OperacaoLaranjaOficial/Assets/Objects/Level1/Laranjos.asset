@@ -18,3 +18,4 @@ MonoBehaviour:
   typeCard: 1
   influence: 020000000d000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

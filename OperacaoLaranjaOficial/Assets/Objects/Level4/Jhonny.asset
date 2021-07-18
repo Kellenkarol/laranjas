@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Jhonny
   m_EditorClassIdentifier: 
   cardName: Jhonny
-  imageCard: {fileID: 21300000, guid: dcc10bd040111054ca29c456a3ec4356, type: 3}
+  imageCard: {fileID: 21300000, guid: 43a67209341d90743946498b28b79390, type: 3}
   baseCard: {fileID: 21300000, guid: 9a72950e4d8fa2243b3430f486a2c199, type: 3}
   typeCard: 0
   influence: 0200000008000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

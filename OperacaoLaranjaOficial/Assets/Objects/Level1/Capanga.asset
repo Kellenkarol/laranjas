@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Capanga
   m_EditorClassIdentifier: 
   cardName: Capanga
-  imageCard: {fileID: 21300000, guid: 2dadee93e063454448ca0ae093e78abf, type: 3}
+  imageCard: {fileID: 21300000, guid: 534386c8be7371f4798b1df5557f18c6, type: 3}
   baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
   typeCard: 1
   influence: 020000000d000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

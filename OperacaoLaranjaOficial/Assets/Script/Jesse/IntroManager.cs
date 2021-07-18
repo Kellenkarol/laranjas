@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class IntroManager : MonoBehaviour
 {
 	public Camera camPrincipal, camSecundaria;
-	public VideoPlayer videoIntro, videoAbertura;
+	public VideoPlayer videoIntro, videoAbertura, videoN1, videoN2;
 	public Button bt;
 	public Text btText;
     public AudioSource menuMusic;
@@ -107,8 +107,9 @@ public class IntroManager : MonoBehaviour
 			camPrincipal.enabled = true;  
 			camSecundaria.enabled = false;
 			videoIntro.gameObject.SetActive(false); 
+            Destroy(this.gameObject);
             yield return new WaitForSeconds(2);
-
+            bt.gameObject.SetActive(false);
 
 	    	// SceneManager.LoadScene(1);
 	        // asyncOperation.allowSceneActivation = true;
@@ -147,6 +148,7 @@ public class IntroManager : MonoBehaviour
 
     private IEnumerator AllScript()
     {
+        menuMusic.volume = ApplicationController.GetVolumeMusic();
     	StartCoroutine(ShowVideoGradually(videoAbertura, 1, 0));
     	yield return new WaitForSeconds(14.5f);
 

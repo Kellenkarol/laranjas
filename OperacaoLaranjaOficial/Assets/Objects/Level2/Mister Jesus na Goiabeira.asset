@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Mister Jesus na Goiabeira
   m_EditorClassIdentifier: 
   cardName: Mister Jesus na Goiabeira
-  imageCard: {fileID: 21300000, guid: 3edc1a3c806c25a41b227946121d333f, type: 3}
+  imageCard: {fileID: 21300000, guid: b16d9ccfdad46a84ea0197b6af0cd42d, type: 3}
   baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
   typeCard: 1
   influence: 020000000d000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

@@ -26,6 +26,7 @@ public class DeckCardController : MonoBehaviour
     bool canRun, isCardSpawn;
     float delayAux;
 
+
     void Start()
     {
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
@@ -81,20 +82,37 @@ public class DeckCardController : MonoBehaviour
             else
             {
                 // Declarar Vitoria
-                bool vitoriaDetected = true;
-                foreach (GameObject spawnSlot in spawnCardSlots)
+                bool vitoriaDetected = true, derrotaDetected = false;
+                if(marta.InfluenciaMarta <= 0)
                 {
-                    if (spawnSlot.transform.childCount > 0)
+                    derrotaDetected = true;
+                }
+                else
+                {
+
+                    foreach (GameObject spawnSlot in spawnCardSlots)
                     {
-                        if (spawnSlot.GetComponentInChildren<CardDisplay>().cardGame.TypeCard == "Enemy")
+                        if (spawnSlot.transform.childCount > 0)
                         {
-                            vitoriaDetected = false;
+                            if (spawnSlot.GetComponentInChildren<CardDisplay>().cardGame.TypeCard == "Enemy")
+                            {
+                                vitoriaDetected = false;
+                            }
+
                         }
+
                     }
 
                 }
+                if (derrotaDetected){
 
-                if (vitoriaDetected)
+                    delayAux = 0;
+                    Debug.Log("Derrota");
+                    gov.ShowGameOverAnim();
+                    canRun = false;
+                
+                }
+                else if (vitoriaDetected)
                 {
                     delayAux = 0;
                     cardArrest.Arrest(transform.parent.name);
@@ -106,6 +124,7 @@ public class DeckCardController : MonoBehaviour
                         ManagerGame.Instance.FaseGame = PlayerPrefs.GetInt("FaseConcluida");
                     }
                 }
+                    
 
             }
         }

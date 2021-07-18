@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Vice Presidente
   m_EditorClassIdentifier: 
   cardName: Vice Presidente
-  imageCard: {fileID: 21300000, guid: a7da310bf55357b418b6a43fa9c93788, type: 3}
+  imageCard: {fileID: 21300000, guid: 1b9f5c2b0d1dfb648af182e7e694b3cb, type: 3}
   baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
   typeCard: 1
   influence: 020000000d000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

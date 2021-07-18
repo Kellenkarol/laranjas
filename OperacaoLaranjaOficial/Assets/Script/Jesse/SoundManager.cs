@@ -45,7 +45,78 @@ public class SoundManager : MonoBehaviour
 	}
 
 
+	public void FadeInGameplaySound()
+	{
+		StartCoroutine(FadeInGameplay());
+	}
 
+
+	public void FadeOutGameplaySound()
+	{
+		StartCoroutine(FadeOutGameplay());
+	}
+
+
+	public void FadeInMenuSound()
+	{
+		StartCoroutine(FadeInMenu());
+	}
+
+
+	public void FadeOutMenuSound()
+	{
+		StartCoroutine(FadeOutMenu());
+	}
+
+
+	private IEnumerator FadeInGameplay()
+	{
+		float auxTime = 0, time = 0.5f;
+		float maxV=GamePlay.volume;
+    	while(auxTime <= time)
+    	{
+    		auxTime += Time.deltaTime;
+    		GamePlay.volume = maxV - auxTime*maxV/time;
+            yield return null;
+    	}
+	}
+
+	private IEnumerator FadeOutGameplay()
+	{
+		float auxTime = 0, time = 0.5f;
+		float maxV=ApplicationController.GetVolumeMusic();
+    	while(auxTime <= time)
+    	{
+    		auxTime += Time.deltaTime;
+    		GamePlay.volume = auxTime*maxV/time;
+            yield return null;
+    	}
+	}
+
+
+	private IEnumerator FadeInMenu()
+	{
+		float auxTime = 0, time = 0.5f;
+		float maxV=GamePlay.volume;
+    	while(auxTime <= time)
+    	{
+    		auxTime += Time.deltaTime;
+    		Menu.volume = maxV - auxTime*maxV/time;
+            yield return null;
+    	}
+	}
+
+	private IEnumerator FadeOutMenu()
+	{
+		float auxTime = 0, time = 0.5f;
+		float maxV=ApplicationController.GetVolumeMusic();
+    	while(auxTime <= time)
+    	{
+    		auxTime += Time.deltaTime;
+    		Menu.volume = auxTime*maxV/time;
+            yield return null;
+    	}
+	}
 
 
 

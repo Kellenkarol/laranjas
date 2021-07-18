@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Pastor MonteCristo
   m_EditorClassIdentifier: 
   cardName: Pastor MonteCristo
-  imageCard: {fileID: 21300000, guid: a8db04c540a6a414198a56bf461b7e4e, type: 3}
+  imageCard: {fileID: 21300000, guid: 1cec5dcda75ba404eaf159e3b0524d60, type: 3}
   baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
   typeCard: 1
   influence: 020000000d000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

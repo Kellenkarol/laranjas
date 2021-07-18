@@ -18,6 +18,8 @@ public class ButtonScript : MonoBehaviour
     public GameOverManager gameOverScript;
     private SmartPhoneAnimation animScript;
     private AudioSource clickSound, gamePlaySound, menuSound;
+    private CapitulosManager CM;
+    private GravacoesManager GM;
     GameControllerScript gm;
     bool Restating;
     SoundManager soundScript;
@@ -25,9 +27,11 @@ public class ButtonScript : MonoBehaviour
     private void Start()
     {
         spriteRenderer=GetComponentInChildren<SpriteRenderer>();
+        CM = GameObject.Find("CapitulosManager").GetComponent<CapitulosManager>();
         animScript = GameObject.Find("SmartPhoneGameObject/SmartPhone").GetComponent<SmartPhoneAnimation>();
         soundScript = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         clickSound = GameObject.Find("SFX/Click").GetComponent<AudioSource>();
+        GM = GameObject.Find("BGCompleto/Gravações").GetComponent<GravacoesManager>();
         spriteRenderer.sprite = status[0];
         camMove = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
         gm = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameControllerScript>();
@@ -79,9 +83,13 @@ public class ButtonScript : MonoBehaviour
         {
             case Button.Play:
                 PlayerPrefs.SetInt("CurrentLevel", 1);
-                soundScript.SwitGamePlayAndMenu();
+                // StartCoroutine(CM.ShowVideo(0));
+	            CM.CurrentCoroutine = StartCoroutine(CM.ShowVideo(0));
+	            CM.SetMaxLevel(1);
+
+                // soundScript.SwitGamePlayAndMenu();
                 ClearAllDecks();
-                camMove.SetDestiny(2);
+                // camMove.SetDestiny(2);
                 // camMove.SetDestiny(PlayerPrefs.GetInt("CurrentLevel", 1)+1);
                 break;
             case Button.Niveis:
@@ -90,6 +98,7 @@ public class ButtonScript : MonoBehaviour
                 break;
             case Button.Gravações:
                 camMove.SetDestiny(7);
+                GM.ShowPolaroids();
                 break;
             case Button.Configurações:
                 PhoneAnim();
@@ -98,6 +107,7 @@ public class ButtonScript : MonoBehaviour
                 camMove.SetDestiny(6);
                 break;
             case Button.Voltar_Menu:
+                ClearAllDecks();
                 if(CameraMovement.__cenaEmTela != "ForaJogo"){soundScript.SwitGamePlayAndMenu();}
                 camMove.SetDestiny(0);
                 // if(deckCard)
@@ -133,27 +143,38 @@ public class ButtonScript : MonoBehaviour
                 }
                 break;
             case Button.Fase1:
-                soundScript.SwitGamePlayAndMenu();
-                camMove.SetDestiny(2);
+	            CM.CurrentCoroutine = StartCoroutine(CM.ShowVideo(0)); 
+	            CM.SetMaxLevel(1);
+                // soundScript.SwitGamePlayAndMenu();
+                // camMove.SetDestiny(2);
                 PlayerPrefs.SetInt("CurrentLevel", 1);
                 break;
             case Button.Fase2:
-                soundScript.SwitGamePlayAndMenu();
-                camMove.SetDestiny(3);
-                PlayerPrefs.SetInt("CurrentLevel", 2);
+		        if(CapitulosManager.MaxLevel >= 2)
+		        {
+	                soundScript.SwitGamePlayAndMenu();
+	                camMove.SetDestiny(3);
+	                PlayerPrefs.SetInt("CurrentLevel", 2);
+		        }
                 break;
             case Button.Fase3:
-                soundScript.SwitGamePlayAndMenu();
-                camMove.SetDestiny(4);
-                PlayerPrefs.SetInt("CurrentLevel", 3);
+		        if(CapitulosManager.MaxLevel >= 3)
+		        {
+	                soundScript.SwitGamePlayAndMenu();
+		            camMove.SetDestiny(4);
+	                PlayerPrefs.SetInt("CurrentLevel", 3);
+		        }
                 break;
             case Button.Fase4:
-                soundScript.SwitGamePlayAndMenu();
-                camMove.SetDestiny(5);
-                PlayerPrefs.SetInt("CurrentLevel", 4);
+		        if(CapitulosManager.MaxLevel >= 4)
+		        {
+	                soundScript.SwitGamePlayAndMenu();
+	                camMove.SetDestiny(5);
+	                PlayerPrefs.SetInt("CurrentLevel", 4);
+		        }
                 break;
             case Button.Agente_Kellen:
-                Application.OpenURL("https://www.instagram.com/sophilah.art/");
+                Application.OpenURL("https://www.instagram.com/ascronicasdekellen/");
                 break;
             case Button.Agente_Matheus:
                 Application.OpenURL("https://www.instagram.com/miauzfuzzy/");
@@ -183,7 +204,12 @@ public class ButtonScript : MonoBehaviour
 
     private bool CanClick()
     {
-        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive && !Tutorial.TutorialOn && !camMove.GetIsMoving() && !Restating && !CardArrest.IsActive)
+        if(!animScript.GetIfIsShowing() && !ManagerGame.Instance.LockPlayerActive 
+        	&& !Tutorial.TutorialOn && !camMove.GetIsMoving() 
+        	&& !Restating && !CardArrest.IsActive
+        	&& !GM.ShowingPolaroidImage
+        	&& !GM.SpawningPolaroids
+        	&& !GM.ShowingVideo)
         {
             if(gameOverScript)
             {

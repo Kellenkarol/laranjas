@@ -178,14 +178,19 @@ public class CardMovement : MonoBehaviour
     }
     void checkHitObject()
     {
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
-        if (hit2D.collider != null && hit2D.collider.GetComponent<CardMovement>()!=null)
-        {
-            hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+2;
-            hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay + 3;
-            hit2D.collider.gameObject.GetComponent<CardMovement>().clicado = true;
-            hit2D.collider.gameObject.GetComponent<CardMovement>().actionMouseClick = false;
-            hit2D.collider.gameObject.transform.eulerAngles = new Vector3(0,0,0);
+        if(Camera.main != null){
+            print(Camera.main.name);
+
+            RaycastHit2D hit2D = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+            if (hit2D.collider != null && hit2D.collider.GetComponent<CardMovement>()!=null)
+            {
+                hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay+2;
+                hit2D.collider.gameObject.GetComponentInChildren<TextMeshPro>().sortingOrder = hit2D.collider.gameObject.GetComponent<CardDisplay>().CardOrderDisplay + 3;
+                hit2D.collider.gameObject.GetComponent<CardMovement>().clicado = true;
+                hit2D.collider.gameObject.GetComponent<CardMovement>().actionMouseClick = false;
+                hit2D.collider.gameObject.transform.eulerAngles = new Vector3(0,0,0);
+            }
+
         }
     }
     void checkTypeCard()

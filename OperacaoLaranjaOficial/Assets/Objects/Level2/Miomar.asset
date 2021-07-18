@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Miomar
   m_EditorClassIdentifier: 
   cardName: Miomar
-  imageCard: {fileID: 21300000, guid: 634c24a357b837140833ee075dfbf11e, type: 3}
+  imageCard: {fileID: 21300000, guid: 4f801712bf6df924fb5013feaf295dc9, type: 3}
   baseCard: {fileID: 21300000, guid: 2eefe298bf099f14a9067385085b0b26, type: 3}
   typeCard: 1
   influence: 020000000d000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Marta
   m_EditorClassIdentifier: 
   cardName: Marta
-  imageCard: {fileID: 21300000, guid: 6650f5879af3cc5488ba10a530c440ee, type: 3}
+  imageCard: {fileID: 21300000, guid: 064c73a28a06edb4b9aae2b704e59e3e, type: 3}
   baseCard: {fileID: 21300000, guid: 9a72950e4d8fa2243b3430f486a2c199, type: 3}
   typeCard: 0
   influence: 0200000008000000
   influenceEffect: 0000000000000000
+  influenceBothEffect: 0

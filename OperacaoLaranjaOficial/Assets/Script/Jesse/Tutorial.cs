@@ -283,6 +283,7 @@ public class Tutorial : MonoBehaviour
 
     public void Skip()
     {
+    	print("BUUUUUUUUUUUUUUUUUUG");
     	StopAllCoroutines();
     	for(int c=0; c<Tutoriais.Length; c++)
     	{
