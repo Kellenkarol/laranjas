@@ -52,7 +52,7 @@ public class Tutorial : MonoBehaviour
 		        		T(1, step-1, true);
 		        		T(0, step-1, false);
 		        		// T(0, step, true);
-		        		print("DEBUG!!!!");
+		        		// print("DEBUG!!!!");
 		        		ShowT3();
 		        	}
 		        	else if(step<9)

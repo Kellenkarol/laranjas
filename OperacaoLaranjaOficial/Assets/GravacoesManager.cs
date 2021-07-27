@@ -85,7 +85,7 @@ public class GravacoesManager : MonoBehaviour
 			polaroidsUnlocked.Add(polaroids[level]);
 			polaroidsUnlocked.Add(sprites[level].gameObject);
 			ButtonsUnlocked.Add(buttons[level]);
-			print("----");
+			// print("----");
 	 //    	// sprites[level].sprite = textures[level][1];
 	 //    	buttons[level].SetActive(true);
 		}

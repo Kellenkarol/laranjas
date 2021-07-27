@@ -152,6 +152,7 @@ public class ButtonScript : MonoBehaviour
             case Button.Fase2:
 		        if(CapitulosManager.MaxLevel >= 2)
 		        {
+		        	Tutorial.StartTutorial2();
 	                soundScript.SwitGamePlayAndMenu();
 	                camMove.SetDestiny(3);
 	                PlayerPrefs.SetInt("CurrentLevel", 2);
